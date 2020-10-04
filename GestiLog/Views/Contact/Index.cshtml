@@ -1,0 +1,87 @@
+﻿@model IEnumerable<GestiLog.Entities.Contacto>
+
+@{
+    ViewBag.Title = "Contactos";
+    string labelReturn = ViewBag.Entity;
+    string controllerReturn = ViewBag.Controller;
+}
+
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Administración de @ViewBag.Title - @ViewBag.Entity: @ViewBag.Source.Nombre</h3>
+                <div class="pull-right box-tools">
+                    @Html.ActionLink("< Lista de " + labelReturn + "s", "Index", controllerReturn, null, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("+ Crear Nuevo", "Create", null, new { @class = "btn btn-primary btn-sm" })
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive" style="overflow-x: inherit;">
+                <table class="idatatable table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Correo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cargo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Celular)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Correo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cargo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Celular)
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default">Opciones</button>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id })</li>
+                                            <li>@Html.ActionLink("Detalles", "Details", new { id = item.Id })</li>
+                                            <li class="divider"></li>
+                                            <li>@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="box-footer">
+                <div class="text-right">
+                    @Html.ActionLink("< Lista de " + labelReturn + "s", "Index", controllerReturn, null, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("+ Crear Nuevo", "Create", null, new { @class = "btn btn-primary btn-sm" })
+                </div>
+            </div>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>

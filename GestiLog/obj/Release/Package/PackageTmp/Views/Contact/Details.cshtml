@@ -1,0 +1,62 @@
+﻿@model GestiLog.Entities.Contacto
+
+@{
+    ViewBag.Title = "Contacto";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Información Ampliada - @ViewBag.Entity: @ViewBag.Source.Nombre</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Correo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Correo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cargo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Cargo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Celular)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Celular)
+                    </dd>
+
+                </dl>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-right">
+                @Html.ActionLink("Cancelar", "Index", new { entity = ViewBag.Command, source = ViewBag.Source.Id }, new { @class = "btn btn-danger btn-sm" })
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-default btn-sm" })
+            </div>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->

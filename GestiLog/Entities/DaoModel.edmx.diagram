@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c094b0060d74ff3aff60cca8cef40a7" Name="Diagram">
+        <EntityTypeShape EntityType="DaoModel.Aeropuerto" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Agente" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Anexo" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Ciudad" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Cliente" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Contacto" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.ContactoModulo" Width="1.5" PointX="8" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Contenedor" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Embalaje" Width="1.5" PointX="10.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Incoterm" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Mbl" Width="1.5" PointX="13" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Modulo" Width="1.5" PointX="5.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Naviera" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Notify" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Pais" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Puerto" Width="1.5" PointX="3.75" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.Sector" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaoModel.TipoOficina" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="DaoModel.FK_Aeropuerto_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Agente_Agente" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Agente_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Agente_TipoOficina" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Anexo_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Ciudad_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Cliente_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Naviera_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Notify_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Cliente_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Cliente_TipoOficina" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_ContactoModulo_Contacto" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_ContactoModulo_Modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Embalaje" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Naviera_Naviera" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Naviera_TipoOficina" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Puerto_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="DaoModel.FK_Cliente_Sector" />
+        <EntityTypeShape EntityType="DaoModel.Adjunto" Width="1.5" PointX="17.625" PointY="8" />
+        <EntityTypeShape EntityType="DaoModel.Comunicado" Width="1.5" PointX="15.375" PointY="2.625" />
+        <EntityTypeShape EntityType="DaoModel.ComunicadoAdjunto" Width="1.5" PointX="17.625" PointY="1.125" />
+        <EntityTypeShape EntityType="DaoModel.EmisionBl" Width="1.5" PointX="10.75" PointY="18.625" />
+        <EntityTypeShape EntityType="DaoModel.Flete" Width="1.5" PointX="10.75" PointY="27.875" />
+        <EntityTypeShape EntityType="DaoModel.Hbl" Width="1.5" PointX="15.25" PointY="8.375" />
+        <EntityTypeShape EntityType="DaoModel.HblTipo" Width="1.5" PointX="13" PointY="15.875" />
+        <EntityTypeShape EntityType="DaoModel.Historico" Width="1.5" PointX="17.625" PointY="3.875" />
+        <EntityTypeShape EntityType="DaoModel.HistoricoAdjunto" Width="1.5" PointX="19.875" PointY="4.375" />
+        <EntityTypeShape EntityType="DaoModel.Motonave" Width="1.5" PointX="10.75" PointY="15.5" />
+        <EntityTypeShape EntityType="DaoModel.Muelle" Width="1.5" PointX="10.75" PointY="34" />
+        <EntityTypeShape EntityType="DaoModel.Operativo" Width="1.5" PointX="10.75" PointY="25" />
+        <EntityTypeShape EntityType="DaoModel.Proveedor" Width="1.5" PointX="13" PointY="13" />
+        <EntityTypeShape EntityType="DaoModel.RangoDiaLibre" Width="1.5" PointX="10.75" PointY="21.75" />
+        <EntityTypeShape EntityType="DaoModel.Sucursal" Width="1.5" PointX="13" PointY="18.75" />
+        <EntityTypeShape EntityType="DaoModel.TipoContenedor" Width="1.5" PointX="8.5" PointY="13.375" />
+        <EntityTypeShape EntityType="DaoModel.TipoEmbarque" Width="1.5" PointX="10.75" PointY="31" />
+        <AssociationConnector Association="DaoModel.FK_HistoricoAdjunto_Adjunto" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Agente" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Cliente" />
+        <AssociationConnector Association="DaoModel.FK_ComunicadoAdjunto_Comunicado" />
+        <AssociationConnector Association="DaoModel.FK_Historico_Comunicado" />
+        <AssociationConnector Association="DaoModel.FK_Contenedor_Mbl" />
+        <AssociationConnector Association="DaoModel.FK_Contenedor_TipoContenedor" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_EmisionBl" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_EmisionBl" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Flete" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Flete" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_HblTipo" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Incoterm" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Mbl" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Motonave" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Muelle" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Notify" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Proveedor" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Puerto" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Puerto1" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_RangoDiaLibre" />
+        <AssociationConnector Association="DaoModel.FK_Hbl_Sucursal" />
+        <AssociationConnector Association="DaoModel.FK_HistoricoAdjunto_Historico" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Motonave" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Muelle" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Naviera" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Operativo" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Puerto" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Puerto1" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_Puerto2" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_RangoDiaLibre" />
+        <AssociationConnector Association="DaoModel.FK_Mbl_TipoEmbarque" />
+        <EntityTypeShape EntityType="DaoModel.Moneda" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="DaoModel.ComunicadoCampo" Width="1.5" PointX="7.375" PointY="16.75" />
+        <EntityTypeShape EntityType="DaoModel.ContactoEnvio" Width="1.5" PointX="8" PointY="20.625" />
+        <AssociationConnector Association="DaoModel.FK_ContactoEnvio_Contacto" />
+        <EntityTypeShape EntityType="DaoModel.Aerolinea" Width="1.5" PointX="15.75" PointY="21" />
+        <EntityTypeShape EntityType="DaoModel.Disposicion" Width="1.5" PointX="18" PointY="28.5" />
+        <EntityTypeShape EntityType="DaoModel.EmisionAwb" Width="1.5" PointX="18" PointY="25.625" />
+        <EntityTypeShape EntityType="DaoModel.Hawb" Width="1.5" PointX="20.25" PointY="7.625" />
+        <EntityTypeShape EntityType="DaoModel.HawbTipo" Width="1.5" PointX="18" PointY="21.625" />
+        <EntityTypeShape EntityType="DaoModel.Mawb" Width="1.5" PointX="18" PointY="12" />
+        <AssociationConnector Association="DaoModel.FK_Aerolinea_Ciudad" />
+        <AssociationConnector Association="DaoModel.FK_Mawb_Aerolinea" />
+        <AssociationConnector Association="DaoModel.FK_Mawb_Aerolinea1" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Aeropuerto" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Aeropuerto1" />
+        <AssociationConnector Association="DaoModel.FK_Mawb_Aeropuerto" />
+        <AssociationConnector Association="DaoModel.FK_Mawb_Aeropuerto1" />
+        <AssociationConnector Association="DaoModel.FK_Mawb_Aeropuerto2" />
+        <AssociationConnector Association="DaoModel.FK_Mawb_Agente" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Cliente" />
+        <AssociationConnector Association="DaoModel.FK_Comunicado_Modulo" />
+        <AssociationConnector Association="DaoModel.FK_ComunicadoCampo_Modulo" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Disposicion" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Embalaje" />
+        <AssociationConnector Association="DaoModel.FK_Mawb_Embalaje" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_EmisionAwb" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_HawbTipo" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Incoterm" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Mawb" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Notify" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Proveedor" />
+        <AssociationConnector Association="DaoModel.FK_Hawb_Sucursal" />
+        <AssociationConnector Association="DaoModel.FK_Mawb_Operativo" />
+        <EntityTypeShape EntityType="DaoModel.Area" Width="1.5" PointX="18.75" PointY="35.5" />
+        <EntityTypeShape EntityType="DaoModel.Frecuencia" Width="1.5" PointX="18.75" PointY="32.125" />
+        <EntityTypeShape EntityType="DaoModel.TarifarioAereo" Width="1.5" PointX="21" PointY="18.625" />
+        <EntityTypeShape EntityType="DaoModel.TarifarioFcl" Width="1.5" PointX="20.625" PointY="25.25" />
+        <EntityTypeShape EntityType="DaoModel.TarifarioLcl" Width="1.5" PointX="7.625" PointY="24" />
+        <EntityTypeShape EntityType="DaoModel.TarifarioViaAerea" Width="1.5" PointX="23.25" PointY="20.25" />
+        <EntityTypeShape EntityType="DaoModel.TipoAgente" Width="1.5" PointX="0.75" PointY="15.625" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereo_Aerolinea" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereo_Aeropuerto" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereo_Aeropuerto1" />
+        <AssociationConnector Association="DaoModel.FK_Agente_TipoAgente" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereo_Agente" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioFcl_Agente" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioLcl_Agente" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioLcl_Agente1" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereo_Area" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioFcl_Area" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioLcl_Area" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereo_Frecuencia" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioFcl_Frecuencia" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioLcl_Frecuencia" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereo_Moneda" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioFcl_Moneda" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioLcl_Moneda" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioFcl_Naviera" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioLcl_Naviera" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioFcl_Puerto" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioFcl_Puerto1" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioLcl_Puerto" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioLcl_Puerto1" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioViaAerea_TarifarioAereo" />
+        <EntityTypeShape EntityType="DaoModel.TarifarioAereoItem" Width="1.5" PointX="23.25" PointY="16.375" />
+        <EntityTypeShape EntityType="DaoModel.TarifarioEscala" Width="1.5" PointX="13.5" PointY="22" />
+        <EntityTypeShape EntityType="DaoModel.TarifarioEscalaItem" Width="1.5" PointX="21" PointY="31.75" />
+        <AssociationConnector Association="DaoModel.FK_Aerolinea_TarifarioEscala" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioViaAerea_Aeropuerto" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereoItem_Moneda" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereoItem_TarifarioAereo" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioAereoItem_TarifarioEscalaItem" />
+        <AssociationConnector Association="DaoModel.FK_TarifarioEscalaItem_TarifarioEscala" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

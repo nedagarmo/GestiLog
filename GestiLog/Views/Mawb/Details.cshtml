@@ -1,0 +1,234 @@
+﻿@model GestiLog.Entities.Mawb
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mawb</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Do)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Do)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Master)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Master)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaEstimadaArribo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaEstimadaArribo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conexion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conexion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaConexion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaConexion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViajeConexion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViajeConexion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesoCargable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesoCargable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DimensionLargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DimensionLargo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DimensionAncho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DimensionAncho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DimensionAlto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DimensionAlto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volumen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volumen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Piezas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Piezas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mercancia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mercancia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Creacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Creacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Habilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Habilitado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AerolineaNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AerolineaNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AerolineaConexionNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AerolineaConexionNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AeropuertoOrigenNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AeropuertoOrigenNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AeropuertoDestinoNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AeropuertoDestinoNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AeropuertoConexionNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AeropuertoConexionNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgenteNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgenteNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmbalajeNav.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmbalajeNav.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OperativoNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OperativoNav.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<GestiLog.Entities.TarifarioLcl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Consecutivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TiempoTransito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VigenciaDesde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VigenciaHasta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mercancia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgenteNav.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CocargadorNav.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaNav.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FrecuenciaNav.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DivisaNav.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NavieraNav.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PuertoOrigenNav.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PuertoDestinoNav.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Consecutivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiempoTransito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VigenciaDesde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VigenciaHasta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mercancia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgenteNav.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CocargadorNav.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaNav.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrecuenciaNav.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DivisaNav.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NavieraNav.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuertoOrigenNav.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuertoDestinoNav.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

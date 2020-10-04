@@ -1,0 +1,231 @@
+﻿@model GestiLog.Models.AerialRateViewModel
+
+@{
+    ViewBag.Title = "Tarifario Aéreo";
+    SelectList Aerolinea = (SelectList)ViewBag.Aerolinea;
+    SelectList AeropuertoO = (SelectList)ViewBag.AeropuertoOrigen;
+    SelectList AeropuertoD = (SelectList)ViewBag.AeropuertoDestino;
+    SelectList Puertos = (SelectList)ViewBag.Puertos;
+    SelectList Agente = (SelectList)ViewBag.Agente;
+    SelectList Area = (SelectList)ViewBag.Area;
+    SelectList Frecuencia = (SelectList)ViewBag.Frecuencia;
+    SelectList Divisa = (SelectList)ViewBag.Divisa;
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- form start -->
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <!-- Custom Tabs (Pulled to the right) -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs pull-right itabs">
+                    <li class="active"><a href="#tab_tarifario" data-toggle="tab">Aéreo</a></li>
+                    <li class="pull-left header"><i class="fa fa-th"></i> Registrar Tarifa <img src="~/Images/Loading.gif" id="iloading" style="display: none; width: 10%;" /></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_mbl">
+                        <div class="box-body">
+                            <div class="form-group col-md-6">
+                                @Html.Label("Consecutivo")
+
+                                @Html.TextBox("Sequence", "", new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.Area, "Área")
+
+                                @Html.DropDownList("Tarifario.Area", Area, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Tarifario.Area, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.Aerolinea, "Aerolínea")
+
+                                @Html.DropDownList("Tarifario.Aerolinea", Aerolinea, "", htmlAttributes: new { @class = "form-control", id = "Aerolinea" })
+                                @Html.ValidationMessageFor(model => model.Tarifario.Aerolinea, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.Agente, "Agente")
+
+                                @Html.DropDownList("Tarifario.Agente", Agente, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Tarifario.Agente, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.AeropuertoOrigen, "Aeropuerto de Origen")
+
+                                @Html.DropDownList("Tarifario.AeropuertoOrigen", AeropuertoO, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Tarifario.AeropuertoOrigen, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.AeropuertoDestino, "Aeropuerto de Destino")
+
+                                @Html.DropDownList("Tarifario.AeropuertoDestino", AeropuertoD, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Tarifario.AeropuertoDestino, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.Frecuencia, "Frecuencia")
+
+                                @Html.DropDownList("Tarifario.Frecuencia", Frecuencia, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Tarifario.Frecuencia, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.TiempoTransito, "Tiempo de Tránsito")
+
+                                @Html.EditorFor(model => model.Tarifario.TiempoTransito, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tarifario.TiempoTransito, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.VigenciaDesde, "Vigencia Desde")
+
+                                @Html.EditorFor(model => model.Tarifario.VigenciaDesde, new { htmlAttributes = new { @class = "form-control idatefrom" } })
+                                @Html.ValidationMessageFor(model => model.Tarifario.VigenciaDesde, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.VigenciaHasta, "Vigencia Hasta")
+
+                                @Html.EditorFor(model => model.Tarifario.VigenciaHasta, new { htmlAttributes = new { @class = "form-control idateto" } })
+                                @Html.ValidationMessageFor(model => model.Tarifario.VigenciaHasta, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.Mercancia, "Mercancía")
+
+                                @Html.EditorFor(model => model.Tarifario.Mercancia, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tarifario.Mercancia, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6 text-left">
+                                @Html.Label("DG")
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.EditorFor(model => model.Tarifario.Dg)
+                                        (Marque <i class="fa fa-check-square-o"></i> Si o <i class="fa fa-square-o"></i> No)
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.Tarifario.Dg, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Vía", new { @class = "col-md-12 no-padding" })
+                                <div class="col-md-11 no-padding" id="tracks">
+                                    @Html.DropDownList("Vias[0].Aeropuerto", Puertos, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <span class="col-md-1 no-padding text-right">
+                                    <button type="button" class="btn btn-success" onclick="AddTrack(); return false;"><i class="fa fa-plus"></i></button>
+                                </span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tarifario.Divisa, "Divisa")
+
+                                @Html.DropDownList("Tarifario.Divisa", Divisa, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Tarifario.Divisa, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-12 table-responsive" style="overflow-x: inherit; margin-top: 20pt">
+                                <table id="ipricetable" class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Desde
+                                            </th>
+                                            <th>
+                                                Hasta
+                                            </th>
+                                            <th>
+                                                Moneda
+                                            </th>
+                                            <th>
+                                                Tarifa Neta
+                                            </th>
+                                            <th>
+                                                Tarifa Venta
+                                            </th>
+                                            <th>
+                                                Tarifa Informada
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="box-footer text-right">
+                            <button type="button" class="btn btn-default btn-sm"><i class="fa fa-upload"></i> Cargar Archivo</button>
+                            <input type="submit" value="Guardar Información" class="btn btn-success btn-sm" />
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- nav-tabs-custom -->
+        }
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function ()
+        {
+            $("#Aerolinea").change(function () {
+                $("#ipricetable tbody tr").remove();
+                if (this.value != "") {
+                    $("#iloading").show();
+                    var url = '@Url.Action("GetPriceTable")';
+                    $.get(url, { id: this.value }, function (data) {
+                        $('#ipricetable tbody').append(data);
+                        $("#iloading").hide();
+                    });
+                }
+            });
+        });
+
+        var vias = 1;
+        function AddTrack()
+        {
+            var url='@Url.Action("AddTrack")';
+            $.get(url, { id : vias}).done(function (data) {
+                $('#tracks').append(data);
+                vias ++;
+                $("#iloading").hide();
+            });
+        }
+    </script>
+}

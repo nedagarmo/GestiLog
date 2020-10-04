@@ -1,0 +1,2486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adjunto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fuente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Campo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Tamano" Type="int" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Aerolinea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="Nit" Type="varchar" MaxLength="50" />
+    <Property Name="Dv" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="250" />
+    <Property Name="Telefono" Type="varchar" MaxLength="100" />
+    <Property Name="Correo" Type="varchar" MaxLength="250" />
+    <Property Name="Ciudad" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Representante" Type="varchar" MaxLength="250" />
+    <Property Name="TarifarioEscala" Type="uniqueidentifier" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Aeropuerto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="Ciudad" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Agente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Nit" Type="varchar" MaxLength="50" />
+    <Property Name="Dv" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="250" />
+    <Property Name="Ciudad" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TipoOficina" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sucursal" Type="uniqueidentifier" />
+    <Property Name="TipoAgente" Type="uniqueidentifier" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Anexo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="10" />
+    <Property Name="Cliente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="Pais" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Nit" Type="varchar" MaxLength="50" />
+    <Property Name="Dv" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="250" />
+    <Property Name="Ciudad" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sector" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TipoOficina" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sucursal" Type="uniqueidentifier" />
+    <Property Name="Credito" Type="bit" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comunicado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contenido" Type="text" Nullable="false" />
+    <Property Name="Modulo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComunicadoAdjunto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Comunicado" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Campo" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComunicadoCampo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Campo" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Fuente" Type="varchar" MaxLength="250" />
+    <Property Name="Entidad" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Modulo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Cargo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Celular" Type="varchar" MaxLength="50" />
+    <Property Name="Fuente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Entidad" Type="varchar" MaxLength="20" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactoEnvio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Contacto" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Fuente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Entidad" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactoModulo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Contacto" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Modulo" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contenedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Mbl" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Equipo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Numero" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Serial" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Disposicion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Embalaje">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmisionAwb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmisionBl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Flete">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Frecuencia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hawb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Mawb" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Do" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hbl" Type="varchar" MaxLength="50" />
+    <Property Name="Tipo" Type="uniqueidentifier" />
+    <Property Name="Cliente" Type="uniqueidentifier" />
+    <Property Name="Proveedor" Type="uniqueidentifier" />
+    <Property Name="Notify" Type="uniqueidentifier" />
+    <Property Name="Sucursal" Type="uniqueidentifier" />
+    <Property Name="Incoterm" Type="uniqueidentifier" />
+    <Property Name="AeropuertoOrigen" Type="uniqueidentifier" />
+    <Property Name="AeropuertoDestino" Type="uniqueidentifier" />
+    <Property Name="Peso" Type="float" />
+    <Property Name="PesoCargable" Type="float" />
+    <Property Name="DimensionLargo" Type="float" />
+    <Property Name="DimensionAncho" Type="float" />
+    <Property Name="DimensionAlto" Type="float" />
+    <Property Name="Volumen" Type="float" />
+    <Property Name="Embalaje" Type="uniqueidentifier" />
+    <Property Name="Piezas" Type="int" />
+    <Property Name="Mercancia" Type="varchar" MaxLength="250" />
+    <Property Name="Imo" Type="int" />
+    <Property Name="Un" Type="varchar" MaxLength="250" />
+    <Property Name="EntregaDocumentoFecha" Type="datetime" />
+    <Property Name="EntregaDocumentoNombre" Type="varchar" MaxLength="250" />
+    <Property Name="ConfirmacionArribo" Type="datetime" />
+    <Property Name="Disposicion" Type="uniqueidentifier" />
+    <Property Name="EmisionAwb" Type="uniqueidentifier" />
+    <Property Name="RegistroAduanero" Type="int" />
+    <Property Name="FechaRegistro" Type="datetime" />
+    <Property Name="FechaLiberacion" Type="datetime" />
+    <Property Name="QuienLibera" Type="varchar" MaxLength="250" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HawbTipo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Mbl" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Do" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hbl" Type="varchar" MaxLength="50" />
+    <Property Name="Proveedor" Type="uniqueidentifier" />
+    <Property Name="Cliente" Type="uniqueidentifier" />
+    <Property Name="Notify" Type="uniqueidentifier" />
+    <Property Name="Sucursal" Type="uniqueidentifier" />
+    <Property Name="ExoneracionDeposito" Type="bit" Nullable="false" />
+    <Property Name="ExoneracionDroopOff" Type="bit" Nullable="false" />
+    <Property Name="DiaLibreCliente" Type="int" />
+    <Property Name="RangoDiaLibre" Type="uniqueidentifier" />
+    <Property Name="FechaCargue" Type="datetime" />
+    <Property Name="FechaInstruccion" Type="datetime" />
+    <Property Name="FechaNotificacion" Type="datetime" />
+    <Property Name="Tipo" Type="uniqueidentifier" />
+    <Property Name="PuertoOrigen" Type="uniqueidentifier" />
+    <Property Name="PuertoDestino" Type="uniqueidentifier" />
+    <Property Name="Etd" Type="datetime" />
+    <Property Name="Eta" Type="datetime" />
+    <Property Name="MotonaveEstimadaArribo" Type="uniqueidentifier" />
+    <Property Name="ViajeEstimadoArribo" Type="varchar" MaxLength="50" />
+    <Property Name="Peso" Type="float" />
+    <Property Name="Volumen" Type="float" />
+    <Property Name="DescripcionMercancia" Type="varchar" MaxLength="250" />
+    <Property Name="Peligrosa" Type="bit" Nullable="false" />
+    <Property Name="Incoterm" Type="uniqueidentifier" />
+    <Property Name="Imo" Type="bit" Nullable="false" />
+    <Property Name="Un" Type="varchar" MaxLength="250" />
+    <Property Name="MuelleArribo" Type="uniqueidentifier" />
+    <Property Name="EmisionBl" Type="uniqueidentifier" />
+    <Property Name="Flete" Type="uniqueidentifier" />
+    <Property Name="Valor" Type="float" />
+    <Property Name="ServicioCliente" Type="uniqueidentifier" />
+    <Property Name="FechaLiberacion" Type="datetime" />
+    <Property Name="QuienLibera" Type="varchar" MaxLength="250" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HblTipo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Historico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Comunicado" Type="uniqueidentifier" />
+    <Property Name="Contenido" Type="text" Nullable="false" />
+    <Property Name="Observacion" Type="text" />
+    <Property Name="Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fuente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Destinatario" Type="text" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistoricoAdjunto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Historico" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Adjunto" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Incoterm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="Observacion" Type="text" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mawb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Do" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Master" Type="varchar" MaxLength="50" />
+    <Property Name="Agente" Type="uniqueidentifier" />
+    <Property Name="Aerolinea" Type="uniqueidentifier" />
+    <Property Name="Operativo" Type="uniqueidentifier" />
+    <Property Name="AeropuertoOrigen" Type="uniqueidentifier" />
+    <Property Name="AeropuertoDestino" Type="uniqueidentifier" />
+    <Property Name="Etd" Type="datetime" />
+    <Property Name="FechaEstimadaArribo" Type="datetime" />
+    <Property Name="Conexion" Type="bit" Nullable="false" />
+    <Property Name="AerolineaConexion" Type="uniqueidentifier" />
+    <Property Name="AeropuertoConexion" Type="uniqueidentifier" />
+    <Property Name="FechaConexion" Type="datetime" />
+    <Property Name="ViajeConexion" Type="varchar" MaxLength="150" />
+    <Property Name="Peso" Type="float" />
+    <Property Name="PesoCargable" Type="float" />
+    <Property Name="DimensionLargo" Type="float" />
+    <Property Name="DimensionAncho" Type="float" />
+    <Property Name="DimensionAlto" Type="float" />
+    <Property Name="Volumen" Type="float" />
+    <Property Name="Embalaje" Type="uniqueidentifier" />
+    <Property Name="Piezas" Type="int" />
+    <Property Name="Mercancia" Type="varchar" MaxLength="250" />
+    <Property Name="Imo" Type="int" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Do" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Master" Type="varchar" MaxLength="50" />
+    <Property Name="Agente" Type="uniqueidentifier" />
+    <Property Name="Naviera" Type="uniqueidentifier" />
+    <Property Name="Operativo" Type="uniqueidentifier" />
+    <Property Name="TipoEmbarque" Type="uniqueidentifier" />
+    <Property Name="PuertoOrigen" Type="uniqueidentifier" />
+    <Property Name="PuertoDestino" Type="uniqueidentifier" />
+    <Property Name="Etd" Type="datetime" />
+    <Property Name="Eta" Type="datetime" />
+    <Property Name="Transbordo" Type="bit" Nullable="false" />
+    <Property Name="FechaEstimadaArribo" Type="datetime" />
+    <Property Name="PuertoTransbordo" Type="uniqueidentifier" />
+    <Property Name="MotonaveEstimadaArribo" Type="uniqueidentifier" />
+    <Property Name="ViajeEstimadoArribo" Type="varchar" MaxLength="150" />
+    <Property Name="Peso" Type="float" />
+    <Property Name="Volumen" Type="float" />
+    <Property Name="Embalaje" Type="uniqueidentifier" />
+    <Property Name="Piezas" Type="int" />
+    <Property Name="ExoneracionDeposito" Type="bit" Nullable="false" />
+    <Property Name="ExoneracionDroopOff" Type="bit" Nullable="false" />
+    <Property Name="DiaLibreNaviera" Type="nchar" MaxLength="10" />
+    <Property Name="RangoDiaLibre" Type="uniqueidentifier" />
+    <Property Name="MuelleArribo" Type="uniqueidentifier" />
+    <Property Name="EmisionBl" Type="uniqueidentifier" />
+    <Property Name="NumeroManifiesto" Type="int" />
+    <Property Name="Flete" Type="uniqueidentifier" />
+    <Property Name="RadicadoMuisca" Type="datetime" />
+    <Property Name="Desconsolidacion" Type="datetime" />
+    <Property Name="Finalizacion" Type="datetime" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Modulo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Moneda">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Motonave">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Muelle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Naviera">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Nit" Type="varchar" MaxLength="50" />
+    <Property Name="Dv" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="250" />
+    <Property Name="Ciudad" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TipoOficina" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sucursal" Type="uniqueidentifier" />
+    <Property Name="Representante" Type="varchar" MaxLength="250" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notify">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Nit" Type="varchar" MaxLength="50" />
+    <Property Name="Dv" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="250" />
+    <Property Name="Ciudad" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Operativo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puerto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="Pais" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RangoDiaLibre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Inicial" Type="int" Nullable="false" />
+    <Property Name="Final" Type="int" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sucursal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TarifarioAereo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Consecutivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Area" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Aerolinea" Type="uniqueidentifier" />
+    <Property Name="Agente" Type="uniqueidentifier" />
+    <Property Name="AeropuertoOrigen" Type="uniqueidentifier" />
+    <Property Name="AeropuertoDestino" Type="uniqueidentifier" />
+    <Property Name="Frecuencia" Type="uniqueidentifier" />
+    <Property Name="TiempoTransito" Type="int" />
+    <Property Name="VigenciaDesde" Type="datetime" />
+    <Property Name="VigenciaHasta" Type="datetime" />
+    <Property Name="Mercancia" Type="varchar" MaxLength="250" />
+    <Property Name="Dg" Type="bit" Nullable="false" />
+    <Property Name="Divisa" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="TarifarioAereoItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TarifarioAereo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TarifarioEscalaItem" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Moneda" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TarifaNeta" Type="float" />
+    <Property Name="TarifaVenta" Type="float" />
+    <Property Name="TarifaInformada" Type="float" />
+  </EntityType>
+  <EntityType Name="TarifarioEscala">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TarifarioEscalaItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TarifarioEscala" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Rango" Type="bit" Nullable="false" />
+    <Property Name="Desde" Type="int" />
+    <Property Name="Hasta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TarifarioFcl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Consecutivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Area" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Naviera" Type="uniqueidentifier" />
+    <Property Name="Agente" Type="uniqueidentifier" />
+    <Property Name="PuertoOrigen" Type="uniqueidentifier" />
+    <Property Name="PuertoDestino" Type="uniqueidentifier" />
+    <Property Name="Frecuencia" Type="uniqueidentifier" />
+    <Property Name="TiempoTransito" Type="int" />
+    <Property Name="VigenciaDesde" Type="datetime" />
+    <Property Name="VigenciaHasta" Type="datetime" />
+    <Property Name="Mercancia" Type="varchar" MaxLength="250" />
+    <Property Name="Dg" Type="bit" Nullable="false" />
+    <Property Name="Divisa" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="TarifarioLcl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Consecutivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Area" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Naviera" Type="uniqueidentifier" />
+    <Property Name="Agente" Type="uniqueidentifier" />
+    <Property Name="Cocargador" Type="uniqueidentifier" />
+    <Property Name="PuertoOrigen" Type="uniqueidentifier" />
+    <Property Name="PuertoDestino" Type="uniqueidentifier" />
+    <Property Name="Frecuencia" Type="uniqueidentifier" />
+    <Property Name="TiempoTransito" Type="int" />
+    <Property Name="VigenciaDesde" Type="datetime" />
+    <Property Name="VigenciaHasta" Type="datetime" />
+    <Property Name="Mercancia" Type="varchar" MaxLength="250" />
+    <Property Name="Dg" Type="bit" Nullable="false" />
+    <Property Name="Divisa" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="TarifarioViaAerea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TarifarioAereo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Aeropuerto" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoAgente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoContenedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="Capacidad" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoEmbarque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoOficina">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="S_Usuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="S_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Aerolinea_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aerolinea">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aerolinea_TarifarioEscala">
+    <End Role="TarifarioEscala" Type="Self.TarifarioEscala" Multiplicity="0..1" />
+    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioEscala">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aerolinea">
+        <PropertyRef Name="TarifarioEscala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aeropuerto_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aeropuerto">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agente_Agente">
+    <End Role="Agente" Type="Self.Agente" Multiplicity="0..1" />
+    <End Role="Agente1" Type="Self.Agente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agente1">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agente_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Agente" Type="Self.Agente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agente">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agente_TipoAgente">
+    <End Role="TipoAgente" Type="Self.TipoAgente" Multiplicity="0..1" />
+    <End Role="Agente" Type="Self.Agente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAgente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agente">
+        <PropertyRef Name="TipoAgente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agente_TipoOficina">
+    <End Role="TipoOficina" Type="Self.TipoOficina" Multiplicity="1" />
+    <End Role="Agente" Type="Self.Agente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoOficina">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agente">
+        <PropertyRef Name="TipoOficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Anexo_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Anexo" Type="Self.Anexo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Anexo">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ciudad_Pais">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Cliente1" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente1">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Sector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_TipoOficina">
+    <End Role="TipoOficina" Type="Self.TipoOficina" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoOficina">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="TipoOficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comunicado_Modulo">
+    <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+    <End Role="Comunicado" Type="Self.Comunicado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comunicado">
+        <PropertyRef Name="Modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComunicadoAdjunto_Comunicado">
+    <End Role="Comunicado" Type="Self.Comunicado" Multiplicity="1" />
+    <End Role="ComunicadoAdjunto" Type="Self.ComunicadoAdjunto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunicado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComunicadoAdjunto">
+        <PropertyRef Name="Comunicado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComunicadoCampo_Modulo">
+    <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+    <End Role="ComunicadoCampo" Type="Self.ComunicadoCampo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComunicadoCampo">
+        <PropertyRef Name="Modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactoEnvio_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="ContactoEnvio" Type="Self.ContactoEnvio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactoEnvio">
+        <PropertyRef Name="Contacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactoModulo_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="ContactoModulo" Type="Self.ContactoModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactoModulo">
+        <PropertyRef Name="Contacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactoModulo_Modulo">
+    <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+    <End Role="ContactoModulo" Type="Self.ContactoModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactoModulo">
+        <PropertyRef Name="Modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_Mbl">
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="Mbl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_TipoContenedor">
+    <End Role="TipoContenedor" Type="Self.TipoContenedor" Multiplicity="1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContenedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="Equipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Aeropuerto">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="AeropuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Aeropuerto1">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="AeropuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Disposicion">
+    <End Role="Disposicion" Type="Self.Disposicion" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disposicion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Disposicion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Embalaje">
+    <End Role="Embalaje" Type="Self.Embalaje" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Embalaje">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Embalaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_EmisionAwb">
+    <End Role="EmisionAwb" Type="Self.EmisionAwb" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmisionAwb">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="EmisionAwb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_HawbTipo">
+    <End Role="HawbTipo" Type="Self.HawbTipo" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HawbTipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Incoterm">
+    <End Role="Incoterm" Type="Self.Incoterm" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Incoterm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Incoterm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Mawb">
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mawb">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Mawb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Notify">
+    <End Role="Notify" Type="Self.Notify" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notify">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Notify" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Proveedor">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Sucursal">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+    <End Role="Hawb" Type="Self.Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_EmisionBl">
+    <End Role="EmisionBl" Type="Self.EmisionBl" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmisionBl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="EmisionBl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Flete">
+    <End Role="Flete" Type="Self.Flete" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flete">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Flete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_HblTipo">
+    <End Role="HblTipo" Type="Self.HblTipo" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HblTipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Incoterm">
+    <End Role="Incoterm" Type="Self.Incoterm" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Incoterm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Incoterm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Mbl">
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Mbl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Motonave">
+    <End Role="Motonave" Type="Self.Motonave" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Motonave">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="MotonaveEstimadaArribo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Muelle">
+    <End Role="Muelle" Type="Self.Muelle" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Muelle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="MuelleArribo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Notify">
+    <End Role="Notify" Type="Self.Notify" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notify">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Notify" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Proveedor">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Puerto">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="PuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Puerto1">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="PuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_RangoDiaLibre">
+    <End Role="RangoDiaLibre" Type="Self.RangoDiaLibre" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RangoDiaLibre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="RangoDiaLibre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Sucursal">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+    <End Role="Hbl" Type="Self.Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Historico_Comunicado">
+    <End Role="Comunicado" Type="Self.Comunicado" Multiplicity="0..1" />
+    <End Role="Historico" Type="Self.Historico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunicado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="Comunicado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoricoAdjunto_Adjunto">
+    <End Role="Adjunto" Type="Self.Adjunto" Multiplicity="1" />
+    <End Role="HistoricoAdjunto" Type="Self.HistoricoAdjunto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adjunto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistoricoAdjunto">
+        <PropertyRef Name="Adjunto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoricoAdjunto_Historico">
+    <End Role="Historico" Type="Self.Historico" Multiplicity="1" />
+    <End Role="HistoricoAdjunto" Type="Self.HistoricoAdjunto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Historico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistoricoAdjunto">
+        <PropertyRef Name="Historico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aerolinea">
+    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="0..1" />
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aerolinea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="Aerolinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aerolinea1">
+    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="0..1" />
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aerolinea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="AerolineaConexion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aeropuerto">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="0..1" />
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="AeropuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aeropuerto1">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="0..1" />
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="AeropuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aeropuerto2">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="0..1" />
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="AeropuertoConexion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Agente">
+    <End Role="Agente" Type="Self.Agente" Multiplicity="0..1" />
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Embalaje">
+    <End Role="Embalaje" Type="Self.Embalaje" Multiplicity="0..1" />
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Embalaje">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="Embalaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Operativo">
+    <End Role="Operativo" Type="Self.Operativo" Multiplicity="0..1" />
+    <End Role="Mawb" Type="Self.Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operativo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="Operativo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Agente">
+    <End Role="Agente" Type="Self.Agente" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Embalaje">
+    <End Role="Embalaje" Type="Self.Embalaje" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Embalaje">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Embalaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_EmisionBl">
+    <End Role="EmisionBl" Type="Self.EmisionBl" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmisionBl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="EmisionBl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Flete">
+    <End Role="Flete" Type="Self.Flete" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flete">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Flete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Motonave">
+    <End Role="Motonave" Type="Self.Motonave" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Motonave">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="MotonaveEstimadaArribo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Muelle">
+    <End Role="Muelle" Type="Self.Muelle" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Muelle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="MuelleArribo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Naviera">
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naviera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Naviera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Operativo">
+    <End Role="Operativo" Type="Self.Operativo" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operativo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Operativo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Puerto">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="PuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Puerto1">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="PuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Puerto2">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="PuertoTransbordo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_RangoDiaLibre">
+    <End Role="RangoDiaLibre" Type="Self.RangoDiaLibre" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RangoDiaLibre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="RangoDiaLibre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_TipoEmbarque">
+    <End Role="TipoEmbarque" Type="Self.TipoEmbarque" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEmbarque">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="TipoEmbarque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Naviera_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Naviera">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Naviera_Naviera">
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="0..1" />
+    <End Role="Naviera1" Type="Self.Naviera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naviera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Naviera1">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Naviera_TipoOficina">
+    <End Role="TipoOficina" Type="Self.TipoOficina" Multiplicity="1" />
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoOficina">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Naviera">
+        <PropertyRef Name="TipoOficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notify_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Notify" Type="Self.Notify" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notify">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Puerto_Pais">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Puerto">
+        <PropertyRef Name="Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Aerolinea">
+    <End Role="Aerolinea" Type="Self.Aerolinea" Multiplicity="0..1" />
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aerolinea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Aerolinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Aeropuerto">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="0..1" />
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="AeropuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Aeropuerto1">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="0..1" />
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="AeropuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Agente">
+    <End Role="Agente" Type="Self.Agente" Multiplicity="0..1" />
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Frecuencia">
+    <End Role="Frecuencia" Type="Self.Frecuencia" Multiplicity="0..1" />
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frecuencia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Frecuencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Moneda">
+    <End Role="Moneda" Type="Self.Moneda" Multiplicity="0..1" />
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Divisa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereoItem_Moneda">
+    <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+    <End Role="TarifarioAereoItem" Type="Self.TarifarioAereoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereoItem">
+        <PropertyRef Name="Moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereoItem_TarifarioAereo">
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="1" />
+    <End Role="TarifarioAereoItem" Type="Self.TarifarioAereoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioAereo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereoItem">
+        <PropertyRef Name="TarifarioAereo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereoItem_TarifarioEscalaItem">
+    <End Role="TarifarioEscalaItem" Type="Self.TarifarioEscalaItem" Multiplicity="1" />
+    <End Role="TarifarioAereoItem" Type="Self.TarifarioAereoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioEscalaItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereoItem">
+        <PropertyRef Name="TarifarioEscalaItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioEscalaItem_TarifarioEscala">
+    <End Role="TarifarioEscala" Type="Self.TarifarioEscala" Multiplicity="1" />
+    <End Role="TarifarioEscalaItem" Type="Self.TarifarioEscalaItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioEscala">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioEscalaItem">
+        <PropertyRef Name="TarifarioEscala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Agente">
+    <End Role="Agente" Type="Self.Agente" Multiplicity="0..1" />
+    <End Role="TarifarioFcl" Type="Self.TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="TarifarioFcl" Type="Self.TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Frecuencia">
+    <End Role="Frecuencia" Type="Self.Frecuencia" Multiplicity="0..1" />
+    <End Role="TarifarioFcl" Type="Self.TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frecuencia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Frecuencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Moneda">
+    <End Role="Moneda" Type="Self.Moneda" Multiplicity="0..1" />
+    <End Role="TarifarioFcl" Type="Self.TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Divisa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Naviera">
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="0..1" />
+    <End Role="TarifarioFcl" Type="Self.TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naviera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Naviera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Puerto">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="TarifarioFcl" Type="Self.TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="PuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Puerto1">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="TarifarioFcl" Type="Self.TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="PuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Agente">
+    <End Role="Agente" Type="Self.Agente" Multiplicity="0..1" />
+    <End Role="TarifarioLcl" Type="Self.TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Agente1">
+    <End Role="Agente" Type="Self.Agente" Multiplicity="0..1" />
+    <End Role="TarifarioLcl" Type="Self.TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Cocargador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="TarifarioLcl" Type="Self.TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Frecuencia">
+    <End Role="Frecuencia" Type="Self.Frecuencia" Multiplicity="0..1" />
+    <End Role="TarifarioLcl" Type="Self.TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frecuencia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Frecuencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Moneda">
+    <End Role="Moneda" Type="Self.Moneda" Multiplicity="0..1" />
+    <End Role="TarifarioLcl" Type="Self.TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Divisa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Naviera">
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="0..1" />
+    <End Role="TarifarioLcl" Type="Self.TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naviera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Naviera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Puerto">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="TarifarioLcl" Type="Self.TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="PuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Puerto1">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="TarifarioLcl" Type="Self.TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="PuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioViaAerea_Aeropuerto">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="1" />
+    <End Role="TarifarioViaAerea" Type="Self.TarifarioViaAerea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioViaAerea">
+        <PropertyRef Name="Aeropuerto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioViaAerea_TarifarioAereo">
+    <End Role="TarifarioAereo" Type="Self.TarifarioAereo" Multiplicity="1" />
+    <End Role="TarifarioViaAerea" Type="Self.TarifarioViaAerea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioAereo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioViaAerea">
+        <PropertyRef Name="TarifarioAereo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ObtenerValor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="varchar" Mode="In" />
+    <Parameter Name="Campo" Type="varchar" Mode="In" />
+    <Parameter Name="Entidad" Type="varchar" Mode="In" />
+    <Parameter Name="Lista" Type="bit" Mode="In" />
+    <Parameter Name="Fuente" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DaoModelStoreContainer">
+    <EntitySet Name="Adjunto" EntityType="Self.Adjunto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aerolinea" EntityType="Self.Aerolinea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aeropuerto" EntityType="Self.Aeropuerto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agente" EntityType="Self.Agente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Anexo" EntityType="Self.Anexo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comunicado" EntityType="Self.Comunicado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComunicadoAdjunto" EntityType="Self.ComunicadoAdjunto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComunicadoCampo" EntityType="Self.ComunicadoCampo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactoEnvio" EntityType="Self.ContactoEnvio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactoModulo" EntityType="Self.ContactoModulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contenedor" EntityType="Self.Contenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Disposicion" EntityType="Self.Disposicion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Embalaje" EntityType="Self.Embalaje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmisionAwb" EntityType="Self.EmisionAwb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmisionBl" EntityType="Self.EmisionBl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flete" EntityType="Self.Flete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Frecuencia" EntityType="Self.Frecuencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hawb" EntityType="Self.Hawb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HawbTipo" EntityType="Self.HawbTipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hbl" EntityType="Self.Hbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HblTipo" EntityType="Self.HblTipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Historico" EntityType="Self.Historico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoricoAdjunto" EntityType="Self.HistoricoAdjunto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Incoterm" EntityType="Self.Incoterm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mawb" EntityType="Self.Mawb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mbl" EntityType="Self.Mbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Moneda" EntityType="Self.Moneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Motonave" EntityType="Self.Motonave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Muelle" EntityType="Self.Muelle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Naviera" EntityType="Self.Naviera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notify" EntityType="Self.Notify" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operativo" EntityType="Self.Operativo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puerto" EntityType="Self.Puerto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RangoDiaLibre" EntityType="Self.RangoDiaLibre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sector" EntityType="Self.Sector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarifarioAereo" EntityType="Self.TarifarioAereo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarifarioAereoItem" EntityType="Self.TarifarioAereoItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarifarioEscala" EntityType="Self.TarifarioEscala" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarifarioEscalaItem" EntityType="Self.TarifarioEscalaItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarifarioFcl" EntityType="Self.TarifarioFcl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarifarioLcl" EntityType="Self.TarifarioLcl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarifarioViaAerea" EntityType="Self.TarifarioViaAerea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoAgente" EntityType="Self.TipoAgente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoContenedor" EntityType="Self.TipoContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoEmbarque" EntityType="Self.TipoEmbarque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoOficina" EntityType="Self.TipoOficina" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Aerolinea_Ciudad" Association="Self.FK_Aerolinea_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aerolinea_TarifarioEscala" Association="Self.FK_Aerolinea_TarifarioEscala">
+      <End Role="TarifarioEscala" EntitySet="TarifarioEscala" />
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aeropuerto_Ciudad" Association="Self.FK_Aeropuerto_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agente_Agente" Association="Self.FK_Agente_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="Agente1" EntitySet="Agente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agente_Ciudad" Association="Self.FK_Agente_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Agente" EntitySet="Agente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agente_TipoAgente" Association="Self.FK_Agente_TipoAgente">
+      <End Role="TipoAgente" EntitySet="TipoAgente" />
+      <End Role="Agente" EntitySet="Agente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agente_TipoOficina" Association="Self.FK_Agente_TipoOficina">
+      <End Role="TipoOficina" EntitySet="TipoOficina" />
+      <End Role="Agente" EntitySet="Agente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Anexo_Cliente" Association="Self.FK_Anexo_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Anexo" EntitySet="Anexo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ciudad_Pais" Association="Self.FK_Ciudad_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Ciudad" EntitySet="Ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Ciudad" Association="Self.FK_Cliente_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Cliente" Association="Self.FK_Cliente_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Cliente1" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Sector" Association="Self.FK_Cliente_Sector">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_TipoOficina" Association="Self.FK_Cliente_TipoOficina">
+      <End Role="TipoOficina" EntitySet="TipoOficina" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comunicado_Modulo" Association="Self.FK_Comunicado_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="Comunicado" EntitySet="Comunicado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComunicadoAdjunto_Comunicado" Association="Self.FK_ComunicadoAdjunto_Comunicado">
+      <End Role="Comunicado" EntitySet="Comunicado" />
+      <End Role="ComunicadoAdjunto" EntitySet="ComunicadoAdjunto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComunicadoCampo_Modulo" Association="Self.FK_ComunicadoCampo_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="ComunicadoCampo" EntitySet="ComunicadoCampo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactoEnvio_Contacto" Association="Self.FK_ContactoEnvio_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="ContactoEnvio" EntitySet="ContactoEnvio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactoModulo_Contacto" Association="Self.FK_ContactoModulo_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="ContactoModulo" EntitySet="ContactoModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactoModulo_Modulo" Association="Self.FK_ContactoModulo_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="ContactoModulo" EntitySet="ContactoModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_Mbl" Association="Self.FK_Contenedor_Mbl">
+      <End Role="Mbl" EntitySet="Mbl" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_TipoContenedor" Association="Self.FK_Contenedor_TipoContenedor">
+      <End Role="TipoContenedor" EntitySet="TipoContenedor" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Aeropuerto" Association="Self.FK_Hawb_Aeropuerto">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Aeropuerto1" Association="Self.FK_Hawb_Aeropuerto1">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Cliente" Association="Self.FK_Hawb_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Disposicion" Association="Self.FK_Hawb_Disposicion">
+      <End Role="Disposicion" EntitySet="Disposicion" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Embalaje" Association="Self.FK_Hawb_Embalaje">
+      <End Role="Embalaje" EntitySet="Embalaje" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_EmisionAwb" Association="Self.FK_Hawb_EmisionAwb">
+      <End Role="EmisionAwb" EntitySet="EmisionAwb" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_HawbTipo" Association="Self.FK_Hawb_HawbTipo">
+      <End Role="HawbTipo" EntitySet="HawbTipo" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Incoterm" Association="Self.FK_Hawb_Incoterm">
+      <End Role="Incoterm" EntitySet="Incoterm" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Mawb" Association="Self.FK_Hawb_Mawb">
+      <End Role="Mawb" EntitySet="Mawb" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Notify" Association="Self.FK_Hawb_Notify">
+      <End Role="Notify" EntitySet="Notify" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Proveedor" Association="Self.FK_Hawb_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Sucursal" Association="Self.FK_Hawb_Sucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Cliente" Association="Self.FK_Hbl_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_EmisionBl" Association="Self.FK_Hbl_EmisionBl">
+      <End Role="EmisionBl" EntitySet="EmisionBl" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Flete" Association="Self.FK_Hbl_Flete">
+      <End Role="Flete" EntitySet="Flete" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_HblTipo" Association="Self.FK_Hbl_HblTipo">
+      <End Role="HblTipo" EntitySet="HblTipo" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Incoterm" Association="Self.FK_Hbl_Incoterm">
+      <End Role="Incoterm" EntitySet="Incoterm" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Mbl" Association="Self.FK_Hbl_Mbl">
+      <End Role="Mbl" EntitySet="Mbl" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Motonave" Association="Self.FK_Hbl_Motonave">
+      <End Role="Motonave" EntitySet="Motonave" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Muelle" Association="Self.FK_Hbl_Muelle">
+      <End Role="Muelle" EntitySet="Muelle" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Notify" Association="Self.FK_Hbl_Notify">
+      <End Role="Notify" EntitySet="Notify" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Proveedor" Association="Self.FK_Hbl_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Puerto" Association="Self.FK_Hbl_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Puerto1" Association="Self.FK_Hbl_Puerto1">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_RangoDiaLibre" Association="Self.FK_Hbl_RangoDiaLibre">
+      <End Role="RangoDiaLibre" EntitySet="RangoDiaLibre" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Sucursal" Association="Self.FK_Hbl_Sucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Historico_Comunicado" Association="Self.FK_Historico_Comunicado">
+      <End Role="Comunicado" EntitySet="Comunicado" />
+      <End Role="Historico" EntitySet="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoricoAdjunto_Adjunto" Association="Self.FK_HistoricoAdjunto_Adjunto">
+      <End Role="Adjunto" EntitySet="Adjunto" />
+      <End Role="HistoricoAdjunto" EntitySet="HistoricoAdjunto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoricoAdjunto_Historico" Association="Self.FK_HistoricoAdjunto_Historico">
+      <End Role="Historico" EntitySet="Historico" />
+      <End Role="HistoricoAdjunto" EntitySet="HistoricoAdjunto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aerolinea" Association="Self.FK_Mawb_Aerolinea">
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aerolinea1" Association="Self.FK_Mawb_Aerolinea1">
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aeropuerto" Association="Self.FK_Mawb_Aeropuerto">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aeropuerto1" Association="Self.FK_Mawb_Aeropuerto1">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aeropuerto2" Association="Self.FK_Mawb_Aeropuerto2">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Agente" Association="Self.FK_Mawb_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Embalaje" Association="Self.FK_Mawb_Embalaje">
+      <End Role="Embalaje" EntitySet="Embalaje" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Operativo" Association="Self.FK_Mawb_Operativo">
+      <End Role="Operativo" EntitySet="Operativo" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Agente" Association="Self.FK_Mbl_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Embalaje" Association="Self.FK_Mbl_Embalaje">
+      <End Role="Embalaje" EntitySet="Embalaje" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_EmisionBl" Association="Self.FK_Mbl_EmisionBl">
+      <End Role="EmisionBl" EntitySet="EmisionBl" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Flete" Association="Self.FK_Mbl_Flete">
+      <End Role="Flete" EntitySet="Flete" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Motonave" Association="Self.FK_Mbl_Motonave">
+      <End Role="Motonave" EntitySet="Motonave" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Muelle" Association="Self.FK_Mbl_Muelle">
+      <End Role="Muelle" EntitySet="Muelle" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Naviera" Association="Self.FK_Mbl_Naviera">
+      <End Role="Naviera" EntitySet="Naviera" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Operativo" Association="Self.FK_Mbl_Operativo">
+      <End Role="Operativo" EntitySet="Operativo" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Puerto" Association="Self.FK_Mbl_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Puerto1" Association="Self.FK_Mbl_Puerto1">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Puerto2" Association="Self.FK_Mbl_Puerto2">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_RangoDiaLibre" Association="Self.FK_Mbl_RangoDiaLibre">
+      <End Role="RangoDiaLibre" EntitySet="RangoDiaLibre" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_TipoEmbarque" Association="Self.FK_Mbl_TipoEmbarque">
+      <End Role="TipoEmbarque" EntitySet="TipoEmbarque" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Naviera_Ciudad" Association="Self.FK_Naviera_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Naviera" EntitySet="Naviera" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Naviera_Naviera" Association="Self.FK_Naviera_Naviera">
+      <End Role="Naviera" EntitySet="Naviera" />
+      <End Role="Naviera1" EntitySet="Naviera" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Naviera_TipoOficina" Association="Self.FK_Naviera_TipoOficina">
+      <End Role="TipoOficina" EntitySet="TipoOficina" />
+      <End Role="Naviera" EntitySet="Naviera" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notify_Ciudad" Association="Self.FK_Notify_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Notify" EntitySet="Notify" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Puerto_Pais" Association="Self.FK_Puerto_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Puerto" EntitySet="Puerto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Aerolinea" Association="Self.FK_TarifarioAereo_Aerolinea">
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Aeropuerto" Association="Self.FK_TarifarioAereo_Aeropuerto">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Aeropuerto1" Association="Self.FK_TarifarioAereo_Aeropuerto1">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Agente" Association="Self.FK_TarifarioAereo_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Area" Association="Self.FK_TarifarioAereo_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Frecuencia" Association="Self.FK_TarifarioAereo_Frecuencia">
+      <End Role="Frecuencia" EntitySet="Frecuencia" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Moneda" Association="Self.FK_TarifarioAereo_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereoItem_Moneda" Association="Self.FK_TarifarioAereoItem_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TarifarioAereoItem" EntitySet="TarifarioAereoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereoItem_TarifarioAereo" Association="Self.FK_TarifarioAereoItem_TarifarioAereo">
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+      <End Role="TarifarioAereoItem" EntitySet="TarifarioAereoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereoItem_TarifarioEscalaItem" Association="Self.FK_TarifarioAereoItem_TarifarioEscalaItem">
+      <End Role="TarifarioEscalaItem" EntitySet="TarifarioEscalaItem" />
+      <End Role="TarifarioAereoItem" EntitySet="TarifarioAereoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioEscalaItem_TarifarioEscala" Association="Self.FK_TarifarioEscalaItem_TarifarioEscala">
+      <End Role="TarifarioEscala" EntitySet="TarifarioEscala" />
+      <End Role="TarifarioEscalaItem" EntitySet="TarifarioEscalaItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Agente" Association="Self.FK_TarifarioFcl_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Area" Association="Self.FK_TarifarioFcl_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Frecuencia" Association="Self.FK_TarifarioFcl_Frecuencia">
+      <End Role="Frecuencia" EntitySet="Frecuencia" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Moneda" Association="Self.FK_TarifarioFcl_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Naviera" Association="Self.FK_TarifarioFcl_Naviera">
+      <End Role="Naviera" EntitySet="Naviera" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Puerto" Association="Self.FK_TarifarioFcl_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Puerto1" Association="Self.FK_TarifarioFcl_Puerto1">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Agente" Association="Self.FK_TarifarioLcl_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Agente1" Association="Self.FK_TarifarioLcl_Agente1">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Area" Association="Self.FK_TarifarioLcl_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Frecuencia" Association="Self.FK_TarifarioLcl_Frecuencia">
+      <End Role="Frecuencia" EntitySet="Frecuencia" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Moneda" Association="Self.FK_TarifarioLcl_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Naviera" Association="Self.FK_TarifarioLcl_Naviera">
+      <End Role="Naviera" EntitySet="Naviera" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Puerto" Association="Self.FK_TarifarioLcl_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Puerto1" Association="Self.FK_TarifarioLcl_Puerto1">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioViaAerea_Aeropuerto" Association="Self.FK_TarifarioViaAerea_Aeropuerto">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="TarifarioViaAerea" EntitySet="TarifarioViaAerea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioViaAerea_TarifarioAereo" Association="Self.FK_TarifarioViaAerea_TarifarioAereo">
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+      <End Role="TarifarioViaAerea" EntitySet="TarifarioViaAerea" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

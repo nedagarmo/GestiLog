@@ -1,0 +1,15 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapPathHelperModel
+@using System.Web.Mvc.Html
+@using System.Linq
+@using MvcSiteMapProvider.Web.Html.Models
+@foreach (var node in Model)
+{
+    if (node != Model.Last())
+    {
+        <li>@Html.ActionLink(@node.Title, @node.Action, @node.Controller)</li>
+    }
+    else
+    {
+        <li class="active">@node.Title</li>
+    }
+}

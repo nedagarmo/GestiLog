@@ -1,0 +1,328 @@
+﻿@model GestiLog.Entities.Hbl
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Hbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Do)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Do)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hbl1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hbl1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExoneracionDeposito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExoneracionDeposito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExoneracionDroopOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExoneracionDroopOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaLibreCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaLibreCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCargue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCargue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInstruccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInstruccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaNotificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNotificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViajeEstimadoArribo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViajeEstimadoArribo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volumen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volumen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionMercancia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionMercancia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peligrosa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peligrosa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Un)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Un)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServicioCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServicioCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaLiberacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaLiberacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuienLibera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuienLibera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Creacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Creacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Habilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Habilitado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmisionBlNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmisionBlNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FleteNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FleteNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HblTipoNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HblTipoNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncotermNav.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncotermNav.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MblNav.Do)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MblNav.Do)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotonaveNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotonaveNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MuelleNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MuelleNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotifyNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotifyNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProveedorNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProveedorNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuertoOrigenNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuertoOrigenNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuertoDestinoNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuertoDestinoNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RangoDiaLibreNav.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RangoDiaLibreNav.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SucursalNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SucursalNav.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,437 @@
+﻿@using GestiLog.Entities
+@using GestiLog.Models
+@model GestiLog.Entities.Hawb
+
+@{
+    ViewBag.Title = "HAWB";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- form start -->
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            if (!string.IsNullOrEmpty(ViewBag.Message))
+            {
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-ban"></i> Error</h4>
+                    @ViewBag.Message
+                </div>
+            }
+
+            <!-- Custom Tabs (Pulled to the right) -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs pull-right">
+                    <li><a href="#tab_comunicados" data-toggle="tab">Comunicados</a></li>
+                    <li class="active"><a href="#tab_formulario" data-toggle="tab">HAWB</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Opciones <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#modal-contacts-box">Contactos</a></li>
+                        </ul>
+                    </li>
+                    <li class="pull-left header"><i class="fa fa-th"></i> Información @ViewBag.Title - MBL: @ViewBag.Mawb <img src="~/Images/Loading.gif" id="iloading" style="display: none; width: 10%;" /></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_formulario">
+                        <div class="box-body">
+                            @Html.HiddenFor(model => model.Id)
+                            @Html.HiddenFor(model => model.Mawb)
+                            @Html.HiddenFor(model => model.S_Usuario)
+                            @Html.HiddenFor(model => model.S_Creacion)
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Do, "H-Do")
+
+                                @Html.EditorFor(model => model.Do, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Do, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Hbl, "HAWB")
+
+                                @Html.EditorFor(model => model.Hbl, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Hbl, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Tipo, "Tipo")
+
+                                @Html.DropDownList("Tipo", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Cliente, "Cliente")
+
+                                @Html.DropDownList("Cliente", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Cliente, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Proveedor, "Proveedor")
+
+                                @Html.DropDownList("Proveedor", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Proveedor, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Notify, "Notify")
+
+                                @Html.DropDownList("Notify", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Notify, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Cotizaciones")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('cotizaciones', 'Cotizaciones', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Sucursal, "Sucursal Comercial")
+
+                                @Html.DropDownList("Sucursal", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Sucursal, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Pedido del Cliente")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('pedido_cliente', 'Pedido del Cliente', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Incoterm, "Incoterm")
+
+                                @Html.DropDownList("Incoterm", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Incoterm, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.AeropuertoOrigen, "Aeropuerto de Origen")
+
+                                @Html.DropDownList("AeropuertoOrigen", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.AeropuertoOrigen, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.AeropuertoDestino, "Aeropuerto de Destino")
+
+                                @Html.DropDownList("AeropuertoDestino", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.AeropuertoDestino, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Peso)
+
+                                @Html.EditorFor(model => model.Peso, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Peso, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.PesoCargable, "Peso Cargable")
+
+                                @Html.EditorFor(model => model.PesoCargable, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PesoCargable, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                @Html.Label("Dimensión:")
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <span style="color: red; font-weight: bold">Largo</span>
+
+                                @Html.EditorFor(model => model.DimensionLargo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DimensionLargo, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <span style="color: red; font-weight: bold">Ancho</span>
+
+                                @Html.EditorFor(model => model.DimensionAncho, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DimensionAncho, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <span style="color: red; font-weight: bold">Alto</span>
+
+                                @Html.EditorFor(model => model.DimensionAlto, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DimensionAlto, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <span style="color: red; font-weight: bold">Total (Largo * Ancho * Alto)</span>
+
+                                @Html.Label("0", new { @class = "form-control", id = "DimensionTotal" })
+                                @Html.ValidationMessageFor(model => model.DimensionAlto, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Volumen)
+
+                                @Html.EditorFor(model => model.Volumen, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Volumen, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Embalaje, "Embalaje")
+
+                                @Html.DropDownList("Embalaje", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Embalaje, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Piezas)
+
+                                @Html.EditorFor(model => model.Piezas, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Piezas, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Mercancia, "Mercancía")
+
+                                @Html.EditorFor(model => model.Mercancia, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Mercancia, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Imo, "IMO")
+
+                                @Html.EditorFor(model => model.Imo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Imo, "", new { @class = "text-danger" })
+
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Un, "UN")
+
+                                @Html.EditorFor(model => model.Un, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Un, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                @Html.Label("Confirmación de Entrega de Documentos:")
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <span style="color: red; font-weight: bold">Nombre</span>
+
+                                @Html.EditorFor(model => model.EntregaDocumentoNombre, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EntregaDocumentoNombre, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <span style="color: red; font-weight: bold">Fecha</span>
+
+                                @Html.TextBoxFor(model => model.EntregaDocumentoFecha, "{0:dd/MM/yyyy H:mm}", new { @class = "form-control idatetimepicker" })
+                                @Html.ValidationMessageFor(model => model.EntregaDocumentoFecha, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <span style="color: red; font-weight: bold">Documento</span>
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('entrega_documentos', 'Confirmación de Entrega de Documentos', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.ConfirmacionArribo, "Confirmación de Arribo")
+
+                                @Html.TextBoxFor(model => model.ConfirmacionArribo, "{0:dd/MM/yyyy H:mm}", new { @class = "form-control idatetimepicker" })
+                                @Html.ValidationMessageFor(model => model.ConfirmacionArribo, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Disposicion, "Disposición")
+
+                                @Html.DropDownList("Disposicion", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Disposicion, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.EmisionAwb, "Emision Awb")
+
+                                @Html.DropDownList("EmisionAwb", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EmisionAwb, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.RegistroAduanero, "Registro Aduanero")
+
+                                @Html.EditorFor(model => model.RegistroAduanero, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.RegistroAduanero, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.FechaRegistro, "Fecha de Registro")
+
+                                @Html.TextBoxFor(model => model.FechaRegistro, "{0:dd/MM/yyyy H:mm}", new { @class = "form-control idatetimepicker" })
+                                @Html.ValidationMessageFor(model => model.FechaRegistro, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Registro Fotográfico")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('registro_fotografico', 'Registro Fotográfico', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Acta de Avería")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('acta_averia', 'Acta de Avería', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Adjuntar HAWB")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('hawb', 'HAWB', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Adjuntar Factura")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('factura', 'Factura', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Documentos Definitivos")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('documentos_definitivos', 'Documentos Definitivos', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.FechaLiberacion, "Fecha de Liberación")
+
+                                @Html.TextBoxFor(model => model.FechaLiberacion, "{0:dd/MM/yyyy}", new { @class = "form-control idatepicker" } )
+                                @Html.ValidationMessageFor(model => model.FechaLiberacion, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.QuienLibera, "Quién Libera")
+
+                                @Html.EditorFor(model => model.QuienLibera, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.QuienLibera, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Planilla de Envío")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('planilla_envio', 'Planilla de Envío', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Informe de Consistencia")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('informe_consistencia', 'Informe de Consistencia', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'hawb'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6 text-left">
+                                @Html.Label("Habilitado")
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.EditorFor(model => model.Habilitado)
+                                        (Marque <i class="fa fa-check-square-o"></i> Si o <i class="fa fa-square-o"></i> No)
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.Habilitado, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer text-right">
+                            @Html.ActionLink("< Lista de HAWBs", "Index", new { id = Model.Mawb }, new { @class = "btn btn-danger btn-sm" })
+                            <input type="submit" value="Guardar Información" class="btn btn-success btn-sm" />
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_comunicados">
+                        @if (!string.IsNullOrEmpty(ViewBag.AlertNotice))
+                        {
+                            <div class="alert alert-danger alert-dismissible calert_notice">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-ban"></i> Error</h4>
+                                @ViewBag.AlertNotice
+                            </div>
+                        }
+
+                        @foreach (Comunicado comunicado in ViewBag.Notices)
+                        {
+                            int sending = ((List<Guid?>)ViewBag.NoticesCount).Where(w => w == comunicado.Id).Count();
+                            <a class="btn btn-app" onclick="send_notice('@Url.Action("SendNotice", "Tools")', '@comunicado.Id', 'hawb', '@Model.Id', '32916188-AD05-4BCB-A89B-467260729CB5'); return false;">
+                                <span id="counter-@comunicado.Id" class="badge bg-green">@sending</span>
+                                <i class="fa fa-envelope"></i> @comunicado.Nombre
+                            </a>
+                        }
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- nav-tabs-custom -->
+        }
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->
+
+@Html.Partial("_UploaderPartial")
+@Html.Partial("_ContactsPartial", new ContactPartialViewModel { Fuente = Model.Id, Entidad = "hawb" })
+
+@section Scripts
+{
+    <script>
+        function calculateDimensions() {
+            var largo = $('#DimensionLargo').val();
+            var ancho = $('#DimensionAncho').val();
+            var alto = $('#DimensionAlto').val();
+            $('#DimensionTotal').html(largo * ancho * alto);
+        }
+
+        $(document).ready(function () {
+            calculateDimensions();
+            $('#DimensionLargo').blur(calculateDimensions);
+            $('#DimensionAncho').blur(calculateDimensions);
+            $('#DimensionAlto').blur(calculateDimensions);
+        });
+    </script>
+}

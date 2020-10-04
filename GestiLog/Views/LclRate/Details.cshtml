@@ -1,0 +1,130 @@
+﻿@model GestiLog.Entities.TarifarioLcl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TarifarioLcl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Consecutivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consecutivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TiempoTransito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TiempoTransito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VigenciaDesde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VigenciaDesde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VigenciaHasta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VigenciaHasta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mercancia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mercancia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgenteNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgenteNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CocargadorNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CocargadorNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AreaNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FrecuenciaNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FrecuenciaNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DivisaNav.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DivisaNav.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NavieraNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NavieraNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuertoOrigenNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuertoOrigenNav.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuertoDestinoNav.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuertoDestinoNav.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,56 @@
+﻿@model GestiLog.Entities.Mawb
+
+@{
+    ViewBag.Title = "MAWB";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Registro de @ViewBag.Title</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="box-body">
+                    <div class="alert alert-info alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4><i class="icon fa fa-info"></i> Importante!</h4>
+                        Al dar click en el botón "Siguiente" usted habrá registrado un nuevo MAWB con la información que proporcionó en los campos M-Do y Master.  Automáticamente el sistema le direccionará al formulario donde podrá administrar el resto de información concerniente a este registro.
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Do, "M-Do")
+
+                        @Html.EditorFor(model => model.Do, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Do, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Master)
+
+                        @Html.EditorFor(model => model.Master, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Master, "", new { @class = "text-danger" })
+
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+                    <div class="box-footer text-right">
+                        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger btn-sm" })
+                        <input type="submit" value="Siguiente >" class="btn btn-success btn-sm" />
+                    </div>
+            }
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->

@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+@if (Request.IsAuthenticated)
+{
+    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var userRoles = userManager.GetRoles(User.Identity.GetUserId());
+    var role = "Usuario GestiLog";
+    if(userRoles.Count > 0)
+    {
+        role = userRoles[0];
+    }
+
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <img src="~/Images/Users/avatar.png" class="user-image" alt="User Image">
+        <span class="hidden-xs">@User.Identity.GetUserName()</span>
+    </a>
+    <ul class="dropdown-menu">
+        <!-- User image -->
+        <li class="user-header">
+            <img src="~/Images/Users/avatar.png" class="img-circle" alt="User Image">
+            <p>
+                @User.Identity.GetUserName()
+                <small>@role</small>
+            </p>
+        </li>
+        <!-- Menu Body -->
+        @*<li class="user-body">
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        <a href="#">Link 1</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <a href="#">Link 2</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </li>*@
+        <!-- Menu Footer-->
+        <li class="user-footer">
+            <div class="pull-left">
+                @Html.ActionLink("Perfil", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "btn btn-default btn-flat" })
+            </div>
+            <div class="pull-right">
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-default btn-flat">Salir</a>
+                }
+            </div>
+        </li>
+    </ul>
+    @*
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+        </ul>
+    *@
+}
+    @*else
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        }
+    *@

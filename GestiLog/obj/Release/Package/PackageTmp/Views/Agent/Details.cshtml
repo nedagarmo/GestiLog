@@ -1,0 +1,103 @@
+﻿@model GestiLog.Entities.Agente
+
+@{
+    ViewBag.Title = "Agente";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Información Ampliada</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Tipo de Agente
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TipoAgenteNav.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nit)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nit)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Dv)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Dv)
+                    </dd>
+
+                    <dt>
+                        Dirección
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Direccion)
+                    </dd>
+
+                    <dt>
+                        Ciudad
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CiudadNav.Nombre)
+                    </dd>
+
+                    <dt>
+                        Tipo de Oficina
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TipoOficinaNav.Nombre)
+                    </dd>
+
+                    <dt>
+                        Sucursal
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.AgenteNav_.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Habilitado)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Habilitado)
+                    </dd>
+
+                </dl>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-right">
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger btn-sm" })
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-default btn-sm" })
+            </div>
+            }
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->

@@ -1,0 +1,37 @@
+﻿@using GestiLog.Entities
+@model GestiLog.Models.ContactPartialViewModel
+
+<!-- Modal -->
+<div id="modal-contacts-box" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id="uploaderbox-title" class="modal-title">Contactos <img src="~/Images/Loading.gif" id="cloading" style="display: none; width: 4%;" /></h4>
+            </div>
+            <div class="modal-body">
+                Contactos del Cliente
+                <hr />
+                @foreach (Contacto contact in ViewBag.Contacts)
+                {
+                    bool ischecked = ((List<Contacto>)ViewBag.SelectedContacts).Exists(e => e.Id == contact.Id);
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBox(contact.Id.ToString(), ischecked, new { @class = "contact_check" })
+                                @contact.Nombre (@contact.Correo)
+                            </label>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="save_selected_contacts('@Url.Action("SaveSelectedContacts", "Tools")', '@Model.Entidad', '@Model.Fuente'); return false;">Guardar Configuración</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>

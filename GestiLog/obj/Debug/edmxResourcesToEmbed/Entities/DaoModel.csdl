@@ -1,0 +1,2694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aeropuerto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="Guid" Nullable="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CiudadNav" Relationship="Self.FK_Aeropuerto_Ciudad" FromRole="Aeropuerto" ToRole="Ciudad" />
+    <NavigationProperty Name="HawbOrigenNav" Relationship="DaoModel.FK_Hawb_Aeropuerto" FromRole="Aeropuerto" ToRole="Hawb" />
+    <NavigationProperty Name="HawbDestinoNav" Relationship="DaoModel.FK_Hawb_Aeropuerto1" FromRole="Aeropuerto" ToRole="Hawb" />
+    <NavigationProperty Name="MawbOrigenNav" Relationship="DaoModel.FK_Mawb_Aeropuerto" FromRole="Aeropuerto" ToRole="Mawb" />
+    <NavigationProperty Name="MawbDestinoNav" Relationship="DaoModel.FK_Mawb_Aeropuerto1" FromRole="Aeropuerto" ToRole="Mawb" />
+    <NavigationProperty Name="MawbConexionNav" Relationship="DaoModel.FK_Mawb_Aeropuerto2" FromRole="Aeropuerto" ToRole="Mawb" />
+    <NavigationProperty Name="TarifarioAereoNav" Relationship="DaoModel.FK_TarifarioAereo_Aeropuerto" FromRole="Aeropuerto" ToRole="TarifarioAereo" />
+    <NavigationProperty Name="TarifarioAereo1" Relationship="DaoModel.FK_TarifarioAereo_Aeropuerto1" FromRole="Aeropuerto" ToRole="TarifarioAereo" />
+    <NavigationProperty Name="TarifarioViaAerea" Relationship="DaoModel.FK_TarifarioViaAerea_Aeropuerto" FromRole="Aeropuerto" ToRole="TarifarioViaAerea" />
+  </EntityType>
+  <EntityType Name="Agente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="Guid" Nullable="false" />
+    <Property Name="TipoOficina" Type="Guid" Nullable="false" />
+    <Property Name="Sucursal" Type="Guid" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AgenteNav" Relationship="Self.FK_Agente_Agente" FromRole="Agente" ToRole="Agente1" />
+    <NavigationProperty Name="AgenteNav_" Relationship="Self.FK_Agente_Agente" FromRole="Agente1" ToRole="Agente" />
+    <NavigationProperty Name="CiudadNav" Relationship="Self.FK_Agente_Ciudad" FromRole="Agente" ToRole="Ciudad" />
+    <NavigationProperty Name="TipoOficinaNav" Relationship="Self.FK_Agente_TipoOficina" FromRole="Agente" ToRole="TipoOficina" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_Agente" FromRole="Agente" ToRole="Mbl" />
+    <NavigationProperty Name="MawbNav" Relationship="DaoModel.FK_Mawb_Agente" FromRole="Agente" ToRole="Mawb" />
+    <Property Name="TipoAgente" Type="Guid" />
+    <NavigationProperty Name="TipoAgenteNav" Relationship="DaoModel.FK_Agente_TipoAgente" FromRole="Agente" ToRole="TipoAgente" />
+    <NavigationProperty Name="TarifarioAereo" Relationship="DaoModel.FK_TarifarioAereo_Agente" FromRole="Agente" ToRole="TarifarioAereo" />
+    <NavigationProperty Name="TarifarioFcl" Relationship="DaoModel.FK_TarifarioFcl_Agente" FromRole="Agente" ToRole="TarifarioFcl" />
+    <NavigationProperty Name="TarifarioLcl" Relationship="DaoModel.FK_TarifarioLcl_Agente" FromRole="Agente" ToRole="TarifarioLcl" />
+    <NavigationProperty Name="TarifarioLcl1" Relationship="DaoModel.FK_TarifarioLcl_Agente1" FromRole="Agente" ToRole="TarifarioLcl" />
+  </EntityType>
+  <EntityType Name="Anexo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Cliente" Type="Guid" Nullable="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ClienteNav" Relationship="Self.FK_Anexo_Cliente" FromRole="Anexo" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="Guid" Nullable="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AeropuertoNav" Relationship="Self.FK_Aeropuerto_Ciudad" FromRole="Ciudad" ToRole="Aeropuerto" />
+    <NavigationProperty Name="AgenteNav" Relationship="Self.FK_Agente_Ciudad" FromRole="Ciudad" ToRole="Agente" />
+    <NavigationProperty Name="PaisNav" Relationship="Self.FK_Ciudad_Pais" FromRole="Ciudad" ToRole="Pais" />
+    <NavigationProperty Name="ClienteNav" Relationship="Self.FK_Cliente_Ciudad" FromRole="Ciudad" ToRole="Cliente" />
+    <NavigationProperty Name="NavieraNav" Relationship="Self.FK_Naviera_Ciudad" FromRole="Ciudad" ToRole="Naviera" />
+    <NavigationProperty Name="NotifyNav" Relationship="Self.FK_Notify_Ciudad" FromRole="Ciudad" ToRole="Notify" />
+    <NavigationProperty Name="AerolineaNav" Relationship="DaoModel.FK_Aerolinea_Ciudad" FromRole="Ciudad" ToRole="Aerolinea" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="Guid" Nullable="false" />
+    <Property Name="Sector" Type="Guid" Nullable="false" />
+    <Property Name="TipoOficina" Type="Guid" Nullable="false" />
+    <Property Name="Sucursal" Type="Guid" />
+    <Property Name="Credito" Type="Boolean" Nullable="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AnexoNav" Relationship="Self.FK_Anexo_Cliente" FromRole="Cliente" ToRole="Anexo" />
+    <NavigationProperty Name="CiudadNav" Relationship="Self.FK_Cliente_Ciudad" FromRole="Cliente" ToRole="Ciudad" />
+    <NavigationProperty Name="ClienteNav" Relationship="Self.FK_Cliente_Cliente" FromRole="Cliente" ToRole="Cliente1" />
+    <NavigationProperty Name="ClienteNav_" Relationship="Self.FK_Cliente_Cliente" FromRole="Cliente1" ToRole="Cliente" />
+    <NavigationProperty Name="TipoOficinaNav" Relationship="Self.FK_Cliente_TipoOficina" FromRole="Cliente" ToRole="TipoOficina" />
+    <NavigationProperty Name="SectorNav" Relationship="DaoModel.FK_Cliente_Sector" FromRole="Cliente" ToRole="Sector" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Cliente" FromRole="Cliente" ToRole="Hbl" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_Cliente" FromRole="Cliente" ToRole="Hawb" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cargo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Celular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fuente" Type="Guid" Nullable="false" />
+    <Property Name="Entidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ContactoModuloNav" Relationship="Self.FK_ContactoModulo_Contacto" FromRole="Contacto" ToRole="ContactoModulo" />
+    <NavigationProperty Name="ContactoEnvioNav" Relationship="DaoModel.FK_ContactoEnvio_Contacto" FromRole="Contacto" ToRole="ContactoEnvio" />
+  </EntityType>
+  <EntityType Name="ContactoModulo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Contacto" Type="Guid" Nullable="false" />
+    <Property Name="Modulo" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="ContactoNav" Relationship="Self.FK_ContactoModulo_Contacto" FromRole="ContactoModulo" ToRole="Contacto" />
+    <NavigationProperty Name="ModuloNav" Relationship="Self.FK_ContactoModulo_Modulo" FromRole="ContactoModulo" ToRole="Modulo" />
+  </EntityType>
+  <EntityType Name="Contenedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Mbl" Type="Guid" Nullable="false" />
+    <Property Name="Equipo" Type="Guid" Nullable="false" />
+    <Property Name="Numero" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Serial" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Observacion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Contenedor_Mbl" FromRole="Contenedor" ToRole="Mbl" />
+    <NavigationProperty Name="TipoContenedorNav" Relationship="DaoModel.FK_Contenedor_TipoContenedor" FromRole="Contenedor" ToRole="TipoContenedor" />
+  </EntityType>
+  <EntityType Name="Embalaje">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MblNav" Relationship="Self.FK_Mbl_Embalaje" FromRole="Embalaje" ToRole="Mbl" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_Embalaje" FromRole="Embalaje" ToRole="Hawb" />
+    <NavigationProperty Name="MawbNav" Relationship="DaoModel.FK_Mawb_Embalaje" FromRole="Embalaje" ToRole="Mawb" />
+  </EntityType>
+  <EntityType Name="Incoterm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Incoterm" FromRole="Incoterm" ToRole="Hbl" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_Incoterm" FromRole="Incoterm" ToRole="Hawb" />
+    <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Mbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Do" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Master" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Agente" Type="Guid" />
+    <Property Name="Naviera" Type="Guid" />
+    <Property Name="Operativo" Type="Guid" />
+    <Property Name="TipoEmbarque" Type="Guid" />
+    <Property Name="PuertoOrigen" Type="Guid" />
+    <Property Name="PuertoDestino" Type="Guid" />
+    <Property Name="Etd" Type="DateTime" Precision="3" />
+    <Property Name="Eta" Type="DateTime" Precision="3" />
+    <Property Name="Transbordo" Type="Boolean" Nullable="false" />
+    <Property Name="FechaEstimadaArribo" Type="DateTime" Precision="3" />
+    <Property Name="PuertoTransbordo" Type="Guid" />
+    <Property Name="MotonaveEstimadaArribo" Type="Guid" />
+    <Property Name="ViajeEstimadoArribo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Peso" Type="Double" />
+    <Property Name="Volumen" Type="Double" />
+    <Property Name="Embalaje" Type="Guid" />
+    <Property Name="Piezas" Type="Int32" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EmbalajeNav" Relationship="Self.FK_Mbl_Embalaje" FromRole="Mbl" ToRole="Embalaje" />
+    <Property Name="ExoneracionDeposito" Type="Boolean" Nullable="false" />
+    <Property Name="ExoneracionDroopOff" Type="Boolean" Nullable="false" />
+    <Property Name="DiaLibreNaviera" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="RangoDiaLibre" Type="Guid" />
+    <Property Name="MuelleArribo" Type="Guid" />
+    <Property Name="EmisionBl" Type="Guid" />
+    <Property Name="NumeroManifiesto" Type="Int32" />
+    <Property Name="Flete" Type="Guid" />
+    <Property Name="RadicadoMuisca" Type="DateTime" Precision="3" />
+    <Property Name="Desconsolidacion" Type="DateTime" Precision="3" />
+    <Property Name="Finalizacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AgenteNav" Relationship="DaoModel.FK_Mbl_Agente" FromRole="Mbl" ToRole="Agente" />
+    <NavigationProperty Name="ContenedorNav" Relationship="DaoModel.FK_Contenedor_Mbl" FromRole="Mbl" ToRole="Contenedor" />
+    <NavigationProperty Name="EmisionBlNav" Relationship="DaoModel.FK_Mbl_EmisionBl" FromRole="Mbl" ToRole="EmisionBl" />
+    <NavigationProperty Name="FleteNav" Relationship="DaoModel.FK_Mbl_Flete" FromRole="Mbl" ToRole="Flete" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Mbl" FromRole="Mbl" ToRole="Hbl" />
+    <NavigationProperty Name="MotonaveNav" Relationship="DaoModel.FK_Mbl_Motonave" FromRole="Mbl" ToRole="Motonave" />
+    <NavigationProperty Name="MuelleNav" Relationship="DaoModel.FK_Mbl_Muelle" FromRole="Mbl" ToRole="Muelle" />
+    <NavigationProperty Name="NavieraNav" Relationship="DaoModel.FK_Mbl_Naviera" FromRole="Mbl" ToRole="Naviera" />
+    <NavigationProperty Name="OperativoNav" Relationship="DaoModel.FK_Mbl_Operativo" FromRole="Mbl" ToRole="Operativo" />
+    <NavigationProperty Name="PuertoOrigenNav" Relationship="DaoModel.FK_Mbl_Puerto" FromRole="Mbl" ToRole="Puerto" />
+    <NavigationProperty Name="PuertoDestinoNav" Relationship="DaoModel.FK_Mbl_Puerto1" FromRole="Mbl" ToRole="Puerto" />
+    <NavigationProperty Name="PuertoTransbordoNav" Relationship="DaoModel.FK_Mbl_Puerto2" FromRole="Mbl" ToRole="Puerto" />
+    <NavigationProperty Name="RangoDiaLibreNav" Relationship="DaoModel.FK_Mbl_RangoDiaLibre" FromRole="Mbl" ToRole="RangoDiaLibre" />
+    <NavigationProperty Name="TipoEmbarqueNav" Relationship="DaoModel.FK_Mbl_TipoEmbarque" FromRole="Mbl" ToRole="TipoEmbarque" />
+  </EntityType>
+  <EntityType Name="Modulo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ContactoModuloNav" Relationship="Self.FK_ContactoModulo_Modulo" FromRole="Modulo" ToRole="ContactoModulo" />
+    <NavigationProperty Name="ComunicadoNav" Relationship="DaoModel.FK_Comunicado_Modulo" FromRole="Modulo" ToRole="Comunicado" />
+    <NavigationProperty Name="ComunicadoCampoNav" Relationship="DaoModel.FK_ComunicadoCampo_Modulo" FromRole="Modulo" ToRole="ComunicadoCampo" />
+  </EntityType>
+  <EntityType Name="Naviera">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="Guid" Nullable="false" />
+    <Property Name="TipoOficina" Type="Guid" Nullable="false" />
+    <Property Name="Sucursal" Type="Guid" />
+    <Property Name="Representante" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CiudadNav" Relationship="Self.FK_Naviera_Ciudad" FromRole="Naviera" ToRole="Ciudad" />
+    <NavigationProperty Name="NavieraNav" Relationship="Self.FK_Naviera_Naviera" FromRole="Naviera" ToRole="Naviera1" />
+    <NavigationProperty Name="NavieraNav_" Relationship="Self.FK_Naviera_Naviera" FromRole="Naviera1" ToRole="Naviera" />
+    <NavigationProperty Name="TipoOficinaNav" Relationship="Self.FK_Naviera_TipoOficina" FromRole="Naviera" ToRole="TipoOficina" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_Naviera" FromRole="Naviera" ToRole="Mbl" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TarifarioFclNav" Relationship="DaoModel.FK_TarifarioFcl_Naviera" FromRole="Naviera" ToRole="TarifarioFcl" />
+    <NavigationProperty Name="TarifarioLclNav" Relationship="DaoModel.FK_TarifarioLcl_Naviera" FromRole="Naviera" ToRole="TarifarioLcl" />
+  </EntityType>
+  <EntityType Name="Notify">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="Guid" Nullable="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CiudadNav" Relationship="Self.FK_Notify_Ciudad" FromRole="Notify" ToRole="Ciudad" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Notify" FromRole="Notify" ToRole="Hbl" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_Notify" FromRole="Notify" ToRole="Hawb" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CiudadNav" Relationship="Self.FK_Ciudad_Pais" FromRole="Pais" ToRole="Ciudad" />
+    <NavigationProperty Name="PuertoNav" Relationship="Self.FK_Puerto_Pais" FromRole="Pais" ToRole="Puerto" />
+  </EntityType>
+  <EntityType Name="Puerto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="Guid" Nullable="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PaisNav" Relationship="Self.FK_Puerto_Pais" FromRole="Puerto" ToRole="Pais" />
+    <NavigationProperty Name="HblOrigenNav" Relationship="DaoModel.FK_Hbl_Puerto" FromRole="Puerto" ToRole="Hbl" />
+    <NavigationProperty Name="HblDestinoNav" Relationship="DaoModel.FK_Hbl_Puerto1" FromRole="Puerto" ToRole="Hbl" />
+    <NavigationProperty Name="MblOrigenNav" Relationship="DaoModel.FK_Mbl_Puerto" FromRole="Puerto" ToRole="Mbl" />
+    <NavigationProperty Name="MblDestinoNav" Relationship="DaoModel.FK_Mbl_Puerto1" FromRole="Puerto" ToRole="Mbl" />
+    <NavigationProperty Name="MblTransbordoNav" Relationship="DaoModel.FK_Mbl_Puerto2" FromRole="Puerto" ToRole="Mbl" />
+    <NavigationProperty Name="TarifarioFclOrigenNav" Relationship="DaoModel.FK_TarifarioFcl_Puerto" FromRole="Puerto" ToRole="TarifarioFcl" />
+    <NavigationProperty Name="TarifarioFclDestinoNav" Relationship="DaoModel.FK_TarifarioFcl_Puerto1" FromRole="Puerto" ToRole="TarifarioFcl" />
+    <NavigationProperty Name="TarifarioLclOrigenNav" Relationship="DaoModel.FK_TarifarioLcl_Puerto" FromRole="Puerto" ToRole="TarifarioLcl" />
+    <NavigationProperty Name="TarifarioLclDestinoNav" Relationship="DaoModel.FK_TarifarioLcl_Puerto1" FromRole="Puerto" ToRole="TarifarioLcl" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClienteNav" Relationship="DaoModel.FK_Cliente_Sector" FromRole="Sector" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="TipoOficina">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AgenteNav" Relationship="Self.FK_Agente_TipoOficina" FromRole="TipoOficina" ToRole="Agente" />
+    <NavigationProperty Name="ClienteNav" Relationship="Self.FK_Cliente_TipoOficina" FromRole="TipoOficina" ToRole="Cliente" />
+    <NavigationProperty Name="NavieraNav" Relationship="Self.FK_Naviera_TipoOficina" FromRole="TipoOficina" ToRole="Naviera" />
+  </EntityType>
+  <Association Name="FK_Aeropuerto_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aeropuerto">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agente_Agente">
+    <End Role="Agente" Type="Self.Agente" Multiplicity="0..1" />
+    <End Role="Agente1" Type="Self.Agente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agente1">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agente_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Agente" Type="Self.Agente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agente">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agente_TipoOficina">
+    <End Role="TipoOficina" Type="Self.TipoOficina" Multiplicity="1" />
+    <End Role="Agente" Type="Self.Agente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoOficina">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agente">
+        <PropertyRef Name="TipoOficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Anexo_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Anexo" Type="Self.Anexo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Anexo">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ciudad_Pais">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Naviera_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Naviera">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notify_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Notify" Type="Self.Notify" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notify">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Cliente1" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente1">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_TipoOficina">
+    <End Role="TipoOficina" Type="Self.TipoOficina" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoOficina">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="TipoOficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactoModulo_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="ContactoModulo" Type="Self.ContactoModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactoModulo">
+        <PropertyRef Name="Contacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactoModulo_Modulo">
+    <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+    <End Role="ContactoModulo" Type="Self.ContactoModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactoModulo">
+        <PropertyRef Name="Modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Embalaje">
+    <End Role="Embalaje" Type="Self.Embalaje" Multiplicity="0..1" />
+    <End Role="Mbl" Type="Self.Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Embalaje">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Embalaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Naviera_Naviera">
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="0..1" />
+    <End Role="Naviera1" Type="Self.Naviera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naviera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Naviera1">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Naviera_TipoOficina">
+    <End Role="TipoOficina" Type="Self.TipoOficina" Multiplicity="1" />
+    <End Role="Naviera" Type="Self.Naviera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoOficina">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Naviera">
+        <PropertyRef Name="TipoOficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Puerto_Pais">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Puerto">
+        <PropertyRef Name="Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DaoEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Aeropuerto" EntityType="Self.Aeropuerto" />
+    <EntitySet Name="Agente" EntityType="Self.Agente" />
+    <EntitySet Name="Anexo" EntityType="Self.Anexo" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" />
+    <EntitySet Name="ContactoModulo" EntityType="Self.ContactoModulo" />
+    <EntitySet Name="Contenedor" EntityType="Self.Contenedor" />
+    <EntitySet Name="Embalaje" EntityType="Self.Embalaje" />
+    <EntitySet Name="Incoterm" EntityType="Self.Incoterm" />
+    <EntitySet Name="Mbl" EntityType="Self.Mbl" />
+    <EntitySet Name="Modulo" EntityType="Self.Modulo" />
+    <EntitySet Name="Naviera" EntityType="Self.Naviera" />
+    <EntitySet Name="Notify" EntityType="Self.Notify" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" />
+    <EntitySet Name="Puerto" EntityType="Self.Puerto" />
+    <EntitySet Name="Sector" EntityType="Self.Sector" />
+    <EntitySet Name="TipoOficina" EntityType="Self.TipoOficina" />
+    <AssociationSet Name="FK_Aeropuerto_Ciudad" Association="Self.FK_Aeropuerto_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agente_Agente" Association="Self.FK_Agente_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="Agente1" EntitySet="Agente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agente_Ciudad" Association="Self.FK_Agente_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Agente" EntitySet="Agente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agente_TipoOficina" Association="Self.FK_Agente_TipoOficina">
+      <End Role="TipoOficina" EntitySet="TipoOficina" />
+      <End Role="Agente" EntitySet="Agente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Anexo_Cliente" Association="Self.FK_Anexo_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Anexo" EntitySet="Anexo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ciudad_Pais" Association="Self.FK_Ciudad_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Ciudad" EntitySet="Ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Ciudad" Association="Self.FK_Cliente_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Naviera_Ciudad" Association="Self.FK_Naviera_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Naviera" EntitySet="Naviera" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notify_Ciudad" Association="Self.FK_Notify_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Notify" EntitySet="Notify" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Cliente" Association="Self.FK_Cliente_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Cliente1" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_TipoOficina" Association="Self.FK_Cliente_TipoOficina">
+      <End Role="TipoOficina" EntitySet="TipoOficina" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactoModulo_Contacto" Association="Self.FK_ContactoModulo_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="ContactoModulo" EntitySet="ContactoModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactoModulo_Modulo" Association="Self.FK_ContactoModulo_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="ContactoModulo" EntitySet="ContactoModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Embalaje" Association="Self.FK_Mbl_Embalaje">
+      <End Role="Embalaje" EntitySet="Embalaje" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Naviera_Naviera" Association="Self.FK_Naviera_Naviera">
+      <End Role="Naviera" EntitySet="Naviera" />
+      <End Role="Naviera1" EntitySet="Naviera" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Naviera_TipoOficina" Association="Self.FK_Naviera_TipoOficina">
+      <End Role="TipoOficina" EntitySet="TipoOficina" />
+      <End Role="Naviera" EntitySet="Naviera" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Puerto_Pais" Association="Self.FK_Puerto_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Puerto" EntitySet="Puerto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Sector" Association="DaoModel.FK_Cliente_Sector">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <EntitySet Name="Adjunto" EntityType="DaoModel.Adjunto" />
+    <EntitySet Name="Comunicado" EntityType="DaoModel.Comunicado" />
+    <EntitySet Name="ComunicadoAdjunto" EntityType="DaoModel.ComunicadoAdjunto" />
+    <EntitySet Name="EmisionBl" EntityType="DaoModel.EmisionBl" />
+    <EntitySet Name="Flete" EntityType="DaoModel.Flete" />
+    <EntitySet Name="Hbl" EntityType="DaoModel.Hbl" />
+    <EntitySet Name="HblTipo" EntityType="DaoModel.HblTipo" />
+    <EntitySet Name="Historico" EntityType="DaoModel.Historico" />
+    <EntitySet Name="HistoricoAdjunto" EntityType="DaoModel.HistoricoAdjunto" />
+    <EntitySet Name="Motonave" EntityType="DaoModel.Motonave" />
+    <EntitySet Name="Muelle" EntityType="DaoModel.Muelle" />
+    <EntitySet Name="Operativo" EntityType="DaoModel.Operativo" />
+    <EntitySet Name="Proveedor" EntityType="DaoModel.Proveedor" />
+    <EntitySet Name="RangoDiaLibre" EntityType="DaoModel.RangoDiaLibre" />
+    <EntitySet Name="Sucursal" EntityType="DaoModel.Sucursal" />
+    <EntitySet Name="TipoContenedor" EntityType="DaoModel.TipoContenedor" />
+    <EntitySet Name="TipoEmbarque" EntityType="DaoModel.TipoEmbarque" />
+    <AssociationSet Name="FK_HistoricoAdjunto_Adjunto" Association="DaoModel.FK_HistoricoAdjunto_Adjunto">
+      <End Role="Adjunto" EntitySet="Adjunto" />
+      <End Role="HistoricoAdjunto" EntitySet="HistoricoAdjunto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Agente" Association="DaoModel.FK_Mbl_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Cliente" Association="DaoModel.FK_Hbl_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComunicadoAdjunto_Comunicado" Association="DaoModel.FK_ComunicadoAdjunto_Comunicado">
+      <End Role="Comunicado" EntitySet="Comunicado" />
+      <End Role="ComunicadoAdjunto" EntitySet="ComunicadoAdjunto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Historico_Comunicado" Association="DaoModel.FK_Historico_Comunicado">
+      <End Role="Comunicado" EntitySet="Comunicado" />
+      <End Role="Historico" EntitySet="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_Mbl" Association="DaoModel.FK_Contenedor_Mbl">
+      <End Role="Mbl" EntitySet="Mbl" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_TipoContenedor" Association="DaoModel.FK_Contenedor_TipoContenedor">
+      <End Role="TipoContenedor" EntitySet="TipoContenedor" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_EmisionBl" Association="DaoModel.FK_Hbl_EmisionBl">
+      <End Role="EmisionBl" EntitySet="EmisionBl" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_EmisionBl" Association="DaoModel.FK_Mbl_EmisionBl">
+      <End Role="EmisionBl" EntitySet="EmisionBl" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Flete" Association="DaoModel.FK_Hbl_Flete">
+      <End Role="Flete" EntitySet="Flete" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Flete" Association="DaoModel.FK_Mbl_Flete">
+      <End Role="Flete" EntitySet="Flete" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_HblTipo" Association="DaoModel.FK_Hbl_HblTipo">
+      <End Role="HblTipo" EntitySet="HblTipo" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Incoterm" Association="DaoModel.FK_Hbl_Incoterm">
+      <End Role="Incoterm" EntitySet="Incoterm" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Mbl" Association="DaoModel.FK_Hbl_Mbl">
+      <End Role="Mbl" EntitySet="Mbl" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Motonave" Association="DaoModel.FK_Hbl_Motonave">
+      <End Role="Motonave" EntitySet="Motonave" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Muelle" Association="DaoModel.FK_Hbl_Muelle">
+      <End Role="Muelle" EntitySet="Muelle" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Notify" Association="DaoModel.FK_Hbl_Notify">
+      <End Role="Notify" EntitySet="Notify" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Proveedor" Association="DaoModel.FK_Hbl_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Puerto" Association="DaoModel.FK_Hbl_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Puerto1" Association="DaoModel.FK_Hbl_Puerto1">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_RangoDiaLibre" Association="DaoModel.FK_Hbl_RangoDiaLibre">
+      <End Role="RangoDiaLibre" EntitySet="RangoDiaLibre" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hbl_Sucursal" Association="DaoModel.FK_Hbl_Sucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Hbl" EntitySet="Hbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoricoAdjunto_Historico" Association="DaoModel.FK_HistoricoAdjunto_Historico">
+      <End Role="Historico" EntitySet="Historico" />
+      <End Role="HistoricoAdjunto" EntitySet="HistoricoAdjunto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Motonave" Association="DaoModel.FK_Mbl_Motonave">
+      <End Role="Motonave" EntitySet="Motonave" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Muelle" Association="DaoModel.FK_Mbl_Muelle">
+      <End Role="Muelle" EntitySet="Muelle" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Naviera" Association="DaoModel.FK_Mbl_Naviera">
+      <End Role="Naviera" EntitySet="Naviera" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Operativo" Association="DaoModel.FK_Mbl_Operativo">
+      <End Role="Operativo" EntitySet="Operativo" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Puerto" Association="DaoModel.FK_Mbl_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Puerto1" Association="DaoModel.FK_Mbl_Puerto1">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_Puerto2" Association="DaoModel.FK_Mbl_Puerto2">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_RangoDiaLibre" Association="DaoModel.FK_Mbl_RangoDiaLibre">
+      <End Role="RangoDiaLibre" EntitySet="RangoDiaLibre" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mbl_TipoEmbarque" Association="DaoModel.FK_Mbl_TipoEmbarque">
+      <End Role="TipoEmbarque" EntitySet="TipoEmbarque" />
+      <End Role="Mbl" EntitySet="Mbl" />
+    </AssociationSet>
+    <EntitySet Name="Moneda" EntityType="DaoModel.Moneda" />
+    <EntitySet Name="ComunicadoCampo" EntityType="DaoModel.ComunicadoCampo" />
+    <FunctionImport Name="ObtenerValor" ReturnType="Collection(String)">
+      <Parameter Name="Id" Mode="In" Type="String" />
+      <Parameter Name="Campo" Mode="In" Type="String" />
+      <Parameter Name="Entidad" Mode="In" Type="String" />
+      <Parameter Name="Lista" Mode="In" Type="Boolean" />
+      <Parameter Name="Fuente" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ContactoEnvio" EntityType="DaoModel.ContactoEnvio" />
+    <AssociationSet Name="FK_ContactoEnvio_Contacto" Association="DaoModel.FK_ContactoEnvio_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="ContactoEnvio" EntitySet="ContactoEnvio" />
+    </AssociationSet>
+    <EntitySet Name="Aerolinea" EntityType="DaoModel.Aerolinea" />
+    <EntitySet Name="Disposicion" EntityType="DaoModel.Disposicion" />
+    <EntitySet Name="EmisionAwb" EntityType="DaoModel.EmisionAwb" />
+    <EntitySet Name="Hawb" EntityType="DaoModel.Hawb" />
+    <EntitySet Name="HawbTipo" EntityType="DaoModel.HawbTipo" />
+    <EntitySet Name="Mawb" EntityType="DaoModel.Mawb" />
+    <AssociationSet Name="FK_Aerolinea_Ciudad" Association="DaoModel.FK_Aerolinea_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aerolinea" Association="DaoModel.FK_Mawb_Aerolinea">
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aerolinea1" Association="DaoModel.FK_Mawb_Aerolinea1">
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Aeropuerto" Association="DaoModel.FK_Hawb_Aeropuerto">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Aeropuerto1" Association="DaoModel.FK_Hawb_Aeropuerto1">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aeropuerto" Association="DaoModel.FK_Mawb_Aeropuerto">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aeropuerto1" Association="DaoModel.FK_Mawb_Aeropuerto1">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Aeropuerto2" Association="DaoModel.FK_Mawb_Aeropuerto2">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Agente" Association="DaoModel.FK_Mawb_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Cliente" Association="DaoModel.FK_Hawb_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comunicado_Modulo" Association="DaoModel.FK_Comunicado_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="Comunicado" EntitySet="Comunicado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComunicadoCampo_Modulo" Association="DaoModel.FK_ComunicadoCampo_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="ComunicadoCampo" EntitySet="ComunicadoCampo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Disposicion" Association="DaoModel.FK_Hawb_Disposicion">
+      <End Role="Disposicion" EntitySet="Disposicion" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Embalaje" Association="DaoModel.FK_Hawb_Embalaje">
+      <End Role="Embalaje" EntitySet="Embalaje" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Embalaje" Association="DaoModel.FK_Mawb_Embalaje">
+      <End Role="Embalaje" EntitySet="Embalaje" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_EmisionAwb" Association="DaoModel.FK_Hawb_EmisionAwb">
+      <End Role="EmisionAwb" EntitySet="EmisionAwb" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_HawbTipo" Association="DaoModel.FK_Hawb_HawbTipo">
+      <End Role="HawbTipo" EntitySet="HawbTipo" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Incoterm" Association="DaoModel.FK_Hawb_Incoterm">
+      <End Role="Incoterm" EntitySet="Incoterm" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Mawb" Association="DaoModel.FK_Hawb_Mawb">
+      <End Role="Mawb" EntitySet="Mawb" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Notify" Association="DaoModel.FK_Hawb_Notify">
+      <End Role="Notify" EntitySet="Notify" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Proveedor" Association="DaoModel.FK_Hawb_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hawb_Sucursal" Association="DaoModel.FK_Hawb_Sucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Hawb" EntitySet="Hawb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mawb_Operativo" Association="DaoModel.FK_Mawb_Operativo">
+      <End Role="Operativo" EntitySet="Operativo" />
+      <End Role="Mawb" EntitySet="Mawb" />
+    </AssociationSet>
+    <EntitySet Name="Area" EntityType="DaoModel.Area" />
+    <EntitySet Name="Frecuencia" EntityType="DaoModel.Frecuencia" />
+    <EntitySet Name="TarifarioAereo" EntityType="DaoModel.TarifarioAereo" />
+    <EntitySet Name="TarifarioFcl" EntityType="DaoModel.TarifarioFcl" />
+    <EntitySet Name="TarifarioLcl" EntityType="DaoModel.TarifarioLcl" />
+    <EntitySet Name="TarifarioViaAerea" EntityType="DaoModel.TarifarioViaAerea" />
+    <EntitySet Name="TipoAgente" EntityType="DaoModel.TipoAgente" />
+    <AssociationSet Name="FK_TarifarioAereo_Aerolinea" Association="DaoModel.FK_TarifarioAereo_Aerolinea">
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Aeropuerto" Association="DaoModel.FK_TarifarioAereo_Aeropuerto">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Aeropuerto1" Association="DaoModel.FK_TarifarioAereo_Aeropuerto1">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agente_TipoAgente" Association="DaoModel.FK_Agente_TipoAgente">
+      <End Role="TipoAgente" EntitySet="TipoAgente" />
+      <End Role="Agente" EntitySet="Agente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Agente" Association="DaoModel.FK_TarifarioAereo_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Agente" Association="DaoModel.FK_TarifarioFcl_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Agente" Association="DaoModel.FK_TarifarioLcl_Agente">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Agente1" Association="DaoModel.FK_TarifarioLcl_Agente1">
+      <End Role="Agente" EntitySet="Agente" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Area" Association="DaoModel.FK_TarifarioAereo_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Area" Association="DaoModel.FK_TarifarioFcl_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Area" Association="DaoModel.FK_TarifarioLcl_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Frecuencia" Association="DaoModel.FK_TarifarioAereo_Frecuencia">
+      <End Role="Frecuencia" EntitySet="Frecuencia" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Frecuencia" Association="DaoModel.FK_TarifarioFcl_Frecuencia">
+      <End Role="Frecuencia" EntitySet="Frecuencia" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Frecuencia" Association="DaoModel.FK_TarifarioLcl_Frecuencia">
+      <End Role="Frecuencia" EntitySet="Frecuencia" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereo_Moneda" Association="DaoModel.FK_TarifarioAereo_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Moneda" Association="DaoModel.FK_TarifarioFcl_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Moneda" Association="DaoModel.FK_TarifarioLcl_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Naviera" Association="DaoModel.FK_TarifarioFcl_Naviera">
+      <End Role="Naviera" EntitySet="Naviera" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Naviera" Association="DaoModel.FK_TarifarioLcl_Naviera">
+      <End Role="Naviera" EntitySet="Naviera" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Puerto" Association="DaoModel.FK_TarifarioFcl_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioFcl_Puerto1" Association="DaoModel.FK_TarifarioFcl_Puerto1">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="TarifarioFcl" EntitySet="TarifarioFcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Puerto" Association="DaoModel.FK_TarifarioLcl_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioLcl_Puerto1" Association="DaoModel.FK_TarifarioLcl_Puerto1">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="TarifarioLcl" EntitySet="TarifarioLcl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioViaAerea_TarifarioAereo" Association="DaoModel.FK_TarifarioViaAerea_TarifarioAereo">
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+      <End Role="TarifarioViaAerea" EntitySet="TarifarioViaAerea" />
+    </AssociationSet>
+    <EntitySet Name="TarifarioAereoItem" EntityType="DaoModel.TarifarioAereoItem" />
+    <EntitySet Name="TarifarioEscala" EntityType="DaoModel.TarifarioEscala" />
+    <EntitySet Name="TarifarioEscalaItem" EntityType="DaoModel.TarifarioEscalaItem" />
+    <AssociationSet Name="FK_Aerolinea_TarifarioEscala" Association="DaoModel.FK_Aerolinea_TarifarioEscala">
+      <End Role="TarifarioEscala" EntitySet="TarifarioEscala" />
+      <End Role="Aerolinea" EntitySet="Aerolinea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioViaAerea_Aeropuerto" Association="DaoModel.FK_TarifarioViaAerea_Aeropuerto">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="TarifarioViaAerea" EntitySet="TarifarioViaAerea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereoItem_Moneda" Association="DaoModel.FK_TarifarioAereoItem_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TarifarioAereoItem" EntitySet="TarifarioAereoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereoItem_TarifarioAereo" Association="DaoModel.FK_TarifarioAereoItem_TarifarioAereo">
+      <End Role="TarifarioAereo" EntitySet="TarifarioAereo" />
+      <End Role="TarifarioAereoItem" EntitySet="TarifarioAereoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioAereoItem_TarifarioEscalaItem" Association="DaoModel.FK_TarifarioAereoItem_TarifarioEscalaItem">
+      <End Role="TarifarioEscalaItem" EntitySet="TarifarioEscalaItem" />
+      <End Role="TarifarioAereoItem" EntitySet="TarifarioAereoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TarifarioEscalaItem_TarifarioEscala" Association="DaoModel.FK_TarifarioEscalaItem_TarifarioEscala">
+      <End Role="TarifarioEscala" EntitySet="TarifarioEscala" />
+      <End Role="TarifarioEscalaItem" EntitySet="TarifarioEscalaItem" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Cliente_Sector">
+    <End Type="DaoModel.Sector" Role="Sector" Multiplicity="1" />
+    <End Type="DaoModel.Cliente" Role="Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Sector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Adjunto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Entidad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fuente" Type="Guid" Nullable="false" />
+    <Property Name="Campo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HistoricoAdjuntoNav" Relationship="DaoModel.FK_HistoricoAdjunto_Adjunto" FromRole="Adjunto" ToRole="HistoricoAdjunto" />
+    <Property Name="Tamano" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comunicado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Contenido" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ComunicadoAdjuntoNav" Relationship="DaoModel.FK_ComunicadoAdjunto_Comunicado" FromRole="Comunicado" ToRole="ComunicadoAdjunto" />
+    <NavigationProperty Name="HistoricoNav" Relationship="DaoModel.FK_Historico_Comunicado" FromRole="Comunicado" ToRole="Historico" />
+    <Property Name="Modulo" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="ModuloNav" Relationship="DaoModel.FK_Comunicado_Modulo" FromRole="Comunicado" ToRole="Modulo" />
+  </EntityType>
+  <EntityType Name="ComunicadoAdjunto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Comunicado" Type="Guid" Nullable="false" />
+    <Property Name="Entidad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Campo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ComunicadoNav" Relationship="DaoModel.FK_ComunicadoAdjunto_Comunicado" FromRole="ComunicadoAdjunto" ToRole="Comunicado" />
+  </EntityType>
+  <EntityType Name="EmisionBl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_EmisionBl" FromRole="EmisionBl" ToRole="Hbl" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_EmisionBl" FromRole="EmisionBl" ToRole="Mbl" />
+  </EntityType>
+  <EntityType Name="Flete">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Flete" FromRole="Flete" ToRole="Hbl" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_Flete" FromRole="Flete" ToRole="Mbl" />
+  </EntityType>
+  <EntityType Name="Hbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Mbl" Type="Guid" Nullable="false" />
+    <Property Name="Do" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hbl1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Proveedor" Type="Guid" />
+    <Property Name="Cliente" Type="Guid" />
+    <Property Name="Notify" Type="Guid" />
+    <Property Name="Sucursal" Type="Guid" />
+    <Property Name="ExoneracionDeposito" Type="Boolean" Nullable="false" />
+    <Property Name="ExoneracionDroopOff" Type="Boolean" Nullable="false" />
+    <Property Name="DiaLibreCliente" Type="Int32" />
+    <Property Name="RangoDiaLibre" Type="Guid" />
+    <Property Name="FechaCargue" Type="DateTime" Precision="3" />
+    <Property Name="FechaInstruccion" Type="DateTime" Precision="3" />
+    <Property Name="FechaNotificacion" Type="DateTime" Precision="3" />
+    <Property Name="Tipo" Type="Guid" />
+    <Property Name="PuertoOrigen" Type="Guid" />
+    <Property Name="PuertoDestino" Type="Guid" />
+    <Property Name="Etd" Type="DateTime" Precision="3" />
+    <Property Name="Eta" Type="DateTime" Precision="3" />
+    <Property Name="MotonaveEstimadaArribo" Type="Guid" />
+    <Property Name="ViajeEstimadoArribo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Peso" Type="Double" />
+    <Property Name="Volumen" Type="Double" />
+    <Property Name="DescripcionMercancia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Peligrosa" Type="Boolean" Nullable="false" />
+    <Property Name="Incoterm" Type="Guid" />
+    <Property Name="Imo" Type="Boolean" Nullable="false" />
+    <Property Name="Un" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="MuelleArribo" Type="Guid" />
+    <Property Name="EmisionBl" Type="Guid" />
+    <Property Name="Flete" Type="Guid" />
+    <Property Name="Valor" Type="Double" />
+    <Property Name="ServicioCliente" Type="Guid" />
+    <Property Name="FechaLiberacion" Type="DateTime" Precision="3" />
+    <Property Name="QuienLibera" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClienteNav" Relationship="DaoModel.FK_Hbl_Cliente" FromRole="Hbl" ToRole="Cliente" />
+    <NavigationProperty Name="EmisionBlNav" Relationship="DaoModel.FK_Hbl_EmisionBl" FromRole="Hbl" ToRole="EmisionBl" />
+    <NavigationProperty Name="FleteNav" Relationship="DaoModel.FK_Hbl_Flete" FromRole="Hbl" ToRole="Flete" />
+    <NavigationProperty Name="HblTipoNav" Relationship="DaoModel.FK_Hbl_HblTipo" FromRole="Hbl" ToRole="HblTipo" />
+    <NavigationProperty Name="IncotermNav" Relationship="DaoModel.FK_Hbl_Incoterm" FromRole="Hbl" ToRole="Incoterm" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Hbl_Mbl" FromRole="Hbl" ToRole="Mbl" />
+    <NavigationProperty Name="MotonaveNav" Relationship="DaoModel.FK_Hbl_Motonave" FromRole="Hbl" ToRole="Motonave" />
+    <NavigationProperty Name="MuelleNav" Relationship="DaoModel.FK_Hbl_Muelle" FromRole="Hbl" ToRole="Muelle" />
+    <NavigationProperty Name="NotifyNav" Relationship="DaoModel.FK_Hbl_Notify" FromRole="Hbl" ToRole="Notify" />
+    <NavigationProperty Name="ProveedorNav" Relationship="DaoModel.FK_Hbl_Proveedor" FromRole="Hbl" ToRole="Proveedor" />
+    <NavigationProperty Name="PuertoOrigenNav" Relationship="DaoModel.FK_Hbl_Puerto" FromRole="Hbl" ToRole="Puerto" />
+    <NavigationProperty Name="PuertoDestinoNav" Relationship="DaoModel.FK_Hbl_Puerto1" FromRole="Hbl" ToRole="Puerto" />
+    <NavigationProperty Name="RangoDiaLibreNav" Relationship="DaoModel.FK_Hbl_RangoDiaLibre" FromRole="Hbl" ToRole="RangoDiaLibre" />
+    <NavigationProperty Name="SucursalNav" Relationship="DaoModel.FK_Hbl_Sucursal" FromRole="Hbl" ToRole="Sucursal" />
+  </EntityType>
+  <EntityType Name="HblTipo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_HblTipo" FromRole="HblTipo" ToRole="Hbl" />
+  </EntityType>
+  <EntityType Name="Historico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Comunicado" Type="Guid" />
+    <Property Name="Contenido" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Entidad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fuente" Type="Guid" Nullable="false" />
+    <Property Name="Destinatario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ComunicadoNav" Relationship="DaoModel.FK_Historico_Comunicado" FromRole="Historico" ToRole="Comunicado" />
+    <NavigationProperty Name="HistoricoAdjuntoNav" Relationship="DaoModel.FK_HistoricoAdjunto_Historico" FromRole="Historico" ToRole="HistoricoAdjunto" />
+  </EntityType>
+  <EntityType Name="HistoricoAdjunto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Historico" Type="Guid" Nullable="false" />
+    <Property Name="Adjunto" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="AdjuntoNav" Relationship="DaoModel.FK_HistoricoAdjunto_Adjunto" FromRole="HistoricoAdjunto" ToRole="Adjunto" />
+    <NavigationProperty Name="HistoricoNav" Relationship="DaoModel.FK_HistoricoAdjunto_Historico" FromRole="HistoricoAdjunto" ToRole="Historico" />
+  </EntityType>
+  <EntityType Name="Motonave">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Motonave" FromRole="Motonave" ToRole="Hbl" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_Motonave" FromRole="Motonave" ToRole="Mbl" />
+  </EntityType>
+  <EntityType Name="Muelle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Muelle" FromRole="Muelle" ToRole="Hbl" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_Muelle" FromRole="Muelle" ToRole="Mbl" />
+  </EntityType>
+  <EntityType Name="Operativo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_Operativo" FromRole="Operativo" ToRole="Mbl" />
+    <NavigationProperty Name="MawbNav" Relationship="DaoModel.FK_Mawb_Operativo" FromRole="Operativo" ToRole="Mawb" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Proveedor" FromRole="Proveedor" ToRole="Hbl" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_Proveedor" FromRole="Proveedor" ToRole="Hawb" />
+  </EntityType>
+  <EntityType Name="RangoDiaLibre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Inicial" Type="Int32" Nullable="false" />
+    <Property Name="Final" Type="Int32" Nullable="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_RangoDiaLibre" FromRole="RangoDiaLibre" ToRole="Hbl" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_RangoDiaLibre" FromRole="RangoDiaLibre" ToRole="Mbl" />
+  </EntityType>
+  <EntityType Name="Sucursal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HblNav" Relationship="DaoModel.FK_Hbl_Sucursal" FromRole="Sucursal" ToRole="Hbl" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_Sucursal" FromRole="Sucursal" ToRole="Hawb" />
+  </EntityType>
+  <EntityType Name="TipoContenedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Capacidad" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ContenedorNav" Relationship="DaoModel.FK_Contenedor_TipoContenedor" FromRole="TipoContenedor" ToRole="Contenedor" />
+  </EntityType>
+  <EntityType Name="TipoEmbarque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MblNav" Relationship="DaoModel.FK_Mbl_TipoEmbarque" FromRole="TipoEmbarque" ToRole="Mbl" />
+  </EntityType>
+  <Association Name="FK_HistoricoAdjunto_Adjunto">
+    <End Type="DaoModel.Adjunto" Role="Adjunto" Multiplicity="1" />
+    <End Type="DaoModel.HistoricoAdjunto" Role="HistoricoAdjunto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adjunto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistoricoAdjunto">
+        <PropertyRef Name="Adjunto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Agente">
+    <End Type="DaoModel.Agente" Role="Agente" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Cliente">
+    <End Type="DaoModel.Cliente" Role="Cliente" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComunicadoAdjunto_Comunicado">
+    <End Type="DaoModel.Comunicado" Role="Comunicado" Multiplicity="1" />
+    <End Type="DaoModel.ComunicadoAdjunto" Role="ComunicadoAdjunto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunicado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComunicadoAdjunto">
+        <PropertyRef Name="Comunicado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Historico_Comunicado">
+    <End Type="DaoModel.Comunicado" Role="Comunicado" Multiplicity="0..1" />
+    <End Type="DaoModel.Historico" Role="Historico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunicado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="Comunicado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_Mbl">
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="1" />
+    <End Type="DaoModel.Contenedor" Role="Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="Mbl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_TipoContenedor">
+    <End Type="DaoModel.TipoContenedor" Role="TipoContenedor" Multiplicity="1" />
+    <End Type="DaoModel.Contenedor" Role="Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContenedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="Equipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_EmisionBl">
+    <End Type="DaoModel.EmisionBl" Role="EmisionBl" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmisionBl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="EmisionBl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_EmisionBl">
+    <End Type="DaoModel.EmisionBl" Role="EmisionBl" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmisionBl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="EmisionBl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Flete">
+    <End Type="DaoModel.Flete" Role="Flete" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flete">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Flete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Flete">
+    <End Type="DaoModel.Flete" Role="Flete" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flete">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Flete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_HblTipo">
+    <End Type="DaoModel.HblTipo" Role="HblTipo" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HblTipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Incoterm">
+    <End Type="DaoModel.Incoterm" Role="Incoterm" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Incoterm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Incoterm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Mbl">
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Mbl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Motonave">
+    <End Type="DaoModel.Motonave" Role="Motonave" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Motonave">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="MotonaveEstimadaArribo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Muelle">
+    <End Type="DaoModel.Muelle" Role="Muelle" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Muelle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="MuelleArribo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Notify">
+    <End Type="DaoModel.Notify" Role="Notify" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notify">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Notify" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Proveedor">
+    <End Type="DaoModel.Proveedor" Role="Proveedor" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Puerto">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="PuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Puerto1">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="PuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_RangoDiaLibre">
+    <End Type="DaoModel.RangoDiaLibre" Role="RangoDiaLibre" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RangoDiaLibre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="RangoDiaLibre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hbl_Sucursal">
+    <End Type="DaoModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+    <End Type="DaoModel.Hbl" Role="Hbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hbl">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoricoAdjunto_Historico">
+    <End Type="DaoModel.Historico" Role="Historico" Multiplicity="1" />
+    <End Type="DaoModel.HistoricoAdjunto" Role="HistoricoAdjunto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Historico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistoricoAdjunto">
+        <PropertyRef Name="Historico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Motonave">
+    <End Type="DaoModel.Motonave" Role="Motonave" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Motonave">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="MotonaveEstimadaArribo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Muelle">
+    <End Type="DaoModel.Muelle" Role="Muelle" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Muelle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="MuelleArribo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Naviera">
+    <End Type="DaoModel.Naviera" Role="Naviera" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naviera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Naviera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Operativo">
+    <End Type="DaoModel.Operativo" Role="Operativo" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operativo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="Operativo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Puerto">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="PuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Puerto1">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="PuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_Puerto2">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="PuertoTransbordo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_RangoDiaLibre">
+    <End Type="DaoModel.RangoDiaLibre" Role="RangoDiaLibre" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RangoDiaLibre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="RangoDiaLibre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mbl_TipoEmbarque">
+    <End Type="DaoModel.TipoEmbarque" Role="TipoEmbarque" Multiplicity="0..1" />
+    <End Type="DaoModel.Mbl" Role="Mbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEmbarque">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mbl">
+        <PropertyRef Name="TipoEmbarque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Moneda">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TarifarioAereoNav" Relationship="DaoModel.FK_TarifarioAereo_Moneda" FromRole="Moneda" ToRole="TarifarioAereo" />
+    <NavigationProperty Name="TarifarioFclNav" Relationship="DaoModel.FK_TarifarioFcl_Moneda" FromRole="Moneda" ToRole="TarifarioFcl" />
+    <NavigationProperty Name="TarifarioLclNav" Relationship="DaoModel.FK_TarifarioLcl_Moneda" FromRole="Moneda" ToRole="TarifarioLcl" />
+    <NavigationProperty Name="TarifarioAereoItem" Relationship="DaoModel.FK_TarifarioAereoItem_Moneda" FromRole="Moneda" ToRole="TarifarioAereoItem" />
+  </EntityType>
+  <EntityType Name="ComunicadoCampo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Entidad" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <Property Name="Campo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Fuente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Modulo" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="ModuloNav" Relationship="DaoModel.FK_ComunicadoCampo_Modulo" FromRole="ComunicadoCampo" ToRole="Modulo" />
+  </EntityType>
+  <EntityType Name="ContactoEnvio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Contacto" Type="Guid" Nullable="false" />
+    <Property Name="Fuente" Type="Guid" Nullable="false" />
+    <Property Name="Entidad" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ContactoNav" Relationship="DaoModel.FK_ContactoEnvio_Contacto" FromRole="ContactoEnvio" ToRole="Contacto" />
+  </EntityType>
+  <Association Name="FK_ContactoEnvio_Contacto">
+    <End Type="DaoModel.Contacto" Role="Contacto" Multiplicity="1" />
+    <End Type="DaoModel.ContactoEnvio" Role="ContactoEnvio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactoEnvio">
+        <PropertyRef Name="Contacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Aerolinea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="Guid" Nullable="false" />
+    <Property Name="Representante" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CiudadNav" Relationship="DaoModel.FK_Aerolinea_Ciudad" FromRole="Aerolinea" ToRole="Ciudad" />
+    <NavigationProperty Name="MawbNav" Relationship="DaoModel.FK_Mawb_Aerolinea" FromRole="Aerolinea" ToRole="Mawb" />
+    <NavigationProperty Name="MawbConexionNav" Relationship="DaoModel.FK_Mawb_Aerolinea1" FromRole="Aerolinea" ToRole="Mawb" />
+    <NavigationProperty Name="TarifarioAereoNav" Relationship="DaoModel.FK_TarifarioAereo_Aerolinea" FromRole="Aerolinea" ToRole="TarifarioAereo" />
+    <Property Name="TarifarioEscala" Type="Guid" />
+    <NavigationProperty Name="TarifarioEscalaNav" Relationship="DaoModel.FK_Aerolinea_TarifarioEscala" FromRole="Aerolinea" ToRole="TarifarioEscala" />
+  </EntityType>
+  <EntityType Name="Disposicion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_Disposicion" FromRole="Disposicion" ToRole="Hawb" />
+  </EntityType>
+  <EntityType Name="EmisionAwb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_EmisionAwb" FromRole="EmisionAwb" ToRole="Hawb" />
+  </EntityType>
+  <EntityType Name="Hawb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Mawb" Type="Guid" Nullable="false" />
+    <Property Name="Do" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hbl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="Guid" />
+    <Property Name="Cliente" Type="Guid" />
+    <Property Name="Proveedor" Type="Guid" />
+    <Property Name="Notify" Type="Guid" />
+    <Property Name="Sucursal" Type="Guid" />
+    <Property Name="Incoterm" Type="Guid" />
+    <Property Name="AeropuertoOrigen" Type="Guid" />
+    <Property Name="AeropuertoDestino" Type="Guid" />
+    <Property Name="Peso" Type="Double" />
+    <Property Name="PesoCargable" Type="Double" />
+    <Property Name="DimensionLargo" Type="Double" />
+    <Property Name="DimensionAncho" Type="Double" />
+    <Property Name="DimensionAlto" Type="Double" />
+    <Property Name="Volumen" Type="Double" />
+    <Property Name="Embalaje" Type="Guid" />
+    <Property Name="Piezas" Type="Int32" />
+    <Property Name="Mercancia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Imo" Type="Int32" />
+    <Property Name="Un" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="EntregaDocumentoFecha" Type="DateTime" Precision="3" />
+    <Property Name="EntregaDocumentoNombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmacionArribo" Type="DateTime" Precision="3" />
+    <Property Name="Disposicion" Type="Guid" />
+    <Property Name="EmisionAwb" Type="Guid" />
+    <Property Name="RegistroAduanero" Type="Int32" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="FechaLiberacion" Type="DateTime" Precision="3" />
+    <Property Name="QuienLibera" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AeropuertoOrigenNav" Relationship="DaoModel.FK_Hawb_Aeropuerto" FromRole="Hawb" ToRole="Aeropuerto" />
+    <NavigationProperty Name="AeropuertoDestinoNav" Relationship="DaoModel.FK_Hawb_Aeropuerto1" FromRole="Hawb" ToRole="Aeropuerto" />
+    <NavigationProperty Name="ClienteNav" Relationship="DaoModel.FK_Hawb_Cliente" FromRole="Hawb" ToRole="Cliente" />
+    <NavigationProperty Name="DisposicionNav" Relationship="DaoModel.FK_Hawb_Disposicion" FromRole="Hawb" ToRole="Disposicion" />
+    <NavigationProperty Name="EmbalajeNav" Relationship="DaoModel.FK_Hawb_Embalaje" FromRole="Hawb" ToRole="Embalaje" />
+    <NavigationProperty Name="EmisionAwbNav" Relationship="DaoModel.FK_Hawb_EmisionAwb" FromRole="Hawb" ToRole="EmisionAwb" />
+    <NavigationProperty Name="HawbTipoNav" Relationship="DaoModel.FK_Hawb_HawbTipo" FromRole="Hawb" ToRole="HawbTipo" />
+    <NavigationProperty Name="IncotermNav" Relationship="DaoModel.FK_Hawb_Incoterm" FromRole="Hawb" ToRole="Incoterm" />
+    <NavigationProperty Name="MawbNav" Relationship="DaoModel.FK_Hawb_Mawb" FromRole="Hawb" ToRole="Mawb" />
+    <NavigationProperty Name="NotifyNav" Relationship="DaoModel.FK_Hawb_Notify" FromRole="Hawb" ToRole="Notify" />
+    <NavigationProperty Name="ProveedorNav" Relationship="DaoModel.FK_Hawb_Proveedor" FromRole="Hawb" ToRole="Proveedor" />
+    <NavigationProperty Name="SucursalNav" Relationship="DaoModel.FK_Hawb_Sucursal" FromRole="Hawb" ToRole="Sucursal" />
+  </EntityType>
+  <EntityType Name="HawbTipo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_HawbTipo" FromRole="HawbTipo" ToRole="Hawb" />
+  </EntityType>
+  <EntityType Name="Mawb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Do" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Master" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Agente" Type="Guid" />
+    <Property Name="Aerolinea" Type="Guid" />
+    <Property Name="Operativo" Type="Guid" />
+    <Property Name="AeropuertoOrigen" Type="Guid" />
+    <Property Name="AeropuertoDestino" Type="Guid" />
+    <Property Name="Etd" Type="DateTime" Precision="3" />
+    <Property Name="FechaEstimadaArribo" Type="DateTime" Precision="3" />
+    <Property Name="Conexion" Type="Boolean" Nullable="false" />
+    <Property Name="AerolineaConexion" Type="Guid" />
+    <Property Name="AeropuertoConexion" Type="Guid" />
+    <Property Name="FechaConexion" Type="DateTime" Precision="3" />
+    <Property Name="ViajeConexion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Peso" Type="Double" />
+    <Property Name="PesoCargable" Type="Double" />
+    <Property Name="DimensionLargo" Type="Double" />
+    <Property Name="DimensionAncho" Type="Double" />
+    <Property Name="DimensionAlto" Type="Double" />
+    <Property Name="Volumen" Type="Double" />
+    <Property Name="Embalaje" Type="Guid" />
+    <Property Name="Piezas" Type="Int32" />
+    <Property Name="Mercancia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Imo" Type="Int32" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AerolineaNav" Relationship="DaoModel.FK_Mawb_Aerolinea" FromRole="Mawb" ToRole="Aerolinea" />
+    <NavigationProperty Name="AerolineaConexionNav" Relationship="DaoModel.FK_Mawb_Aerolinea1" FromRole="Mawb" ToRole="Aerolinea" />
+    <NavigationProperty Name="AeropuertoOrigenNav" Relationship="DaoModel.FK_Mawb_Aeropuerto" FromRole="Mawb" ToRole="Aeropuerto" />
+    <NavigationProperty Name="AeropuertoDestinoNav" Relationship="DaoModel.FK_Mawb_Aeropuerto1" FromRole="Mawb" ToRole="Aeropuerto" />
+    <NavigationProperty Name="AeropuertoConexionNav" Relationship="DaoModel.FK_Mawb_Aeropuerto2" FromRole="Mawb" ToRole="Aeropuerto" />
+    <NavigationProperty Name="AgenteNav" Relationship="DaoModel.FK_Mawb_Agente" FromRole="Mawb" ToRole="Agente" />
+    <NavigationProperty Name="EmbalajeNav" Relationship="DaoModel.FK_Mawb_Embalaje" FromRole="Mawb" ToRole="Embalaje" />
+    <NavigationProperty Name="HawbNav" Relationship="DaoModel.FK_Hawb_Mawb" FromRole="Mawb" ToRole="Hawb" />
+    <NavigationProperty Name="OperativoNav" Relationship="DaoModel.FK_Mawb_Operativo" FromRole="Mawb" ToRole="Operativo" />
+  </EntityType>
+  <Association Name="FK_Aerolinea_Ciudad">
+    <End Type="DaoModel.Ciudad" Role="Ciudad" Multiplicity="1" />
+    <End Type="DaoModel.Aerolinea" Role="Aerolinea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aerolinea">
+        <PropertyRef Name="Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aerolinea">
+    <End Type="DaoModel.Aerolinea" Role="Aerolinea" Multiplicity="0..1" />
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aerolinea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="Aerolinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aerolinea1">
+    <End Type="DaoModel.Aerolinea" Role="Aerolinea" Multiplicity="0..1" />
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aerolinea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="AerolineaConexion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Aeropuerto">
+    <End Type="DaoModel.Aeropuerto" Role="Aeropuerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="AeropuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Aeropuerto1">
+    <End Type="DaoModel.Aeropuerto" Role="Aeropuerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="AeropuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aeropuerto">
+    <End Type="DaoModel.Aeropuerto" Role="Aeropuerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="AeropuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aeropuerto1">
+    <End Type="DaoModel.Aeropuerto" Role="Aeropuerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="AeropuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Aeropuerto2">
+    <End Type="DaoModel.Aeropuerto" Role="Aeropuerto" Multiplicity="0..1" />
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="AeropuertoConexion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Agente">
+    <End Type="DaoModel.Agente" Role="Agente" Multiplicity="0..1" />
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Cliente">
+    <End Type="DaoModel.Cliente" Role="Cliente" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comunicado_Modulo">
+    <End Type="DaoModel.Modulo" Role="Modulo" Multiplicity="1" />
+    <End Type="DaoModel.Comunicado" Role="Comunicado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comunicado">
+        <PropertyRef Name="Modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComunicadoCampo_Modulo">
+    <End Type="DaoModel.Modulo" Role="Modulo" Multiplicity="1" />
+    <End Type="DaoModel.ComunicadoCampo" Role="ComunicadoCampo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComunicadoCampo">
+        <PropertyRef Name="Modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Disposicion">
+    <End Type="DaoModel.Disposicion" Role="Disposicion" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disposicion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Disposicion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Embalaje">
+    <End Type="DaoModel.Embalaje" Role="Embalaje" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Embalaje">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Embalaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Embalaje">
+    <End Type="DaoModel.Embalaje" Role="Embalaje" Multiplicity="0..1" />
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Embalaje">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="Embalaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_EmisionAwb">
+    <End Type="DaoModel.EmisionAwb" Role="EmisionAwb" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmisionAwb">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="EmisionAwb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_HawbTipo">
+    <End Type="DaoModel.HawbTipo" Role="HawbTipo" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HawbTipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Incoterm">
+    <End Type="DaoModel.Incoterm" Role="Incoterm" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Incoterm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Incoterm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Mawb">
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mawb">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Mawb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Notify">
+    <End Type="DaoModel.Notify" Role="Notify" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notify">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Notify" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Proveedor">
+    <End Type="DaoModel.Proveedor" Role="Proveedor" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hawb_Sucursal">
+    <End Type="DaoModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+    <End Type="DaoModel.Hawb" Role="Hawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hawb">
+        <PropertyRef Name="Sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mawb_Operativo">
+    <End Type="DaoModel.Operativo" Role="Operativo" Multiplicity="0..1" />
+    <End Type="DaoModel.Mawb" Role="Mawb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operativo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mawb">
+        <PropertyRef Name="Operativo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TarifarioAereoNav" Relationship="DaoModel.FK_TarifarioAereo_Area" FromRole="Area" ToRole="TarifarioAereo" />
+    <NavigationProperty Name="TarifarioFclNav" Relationship="DaoModel.FK_TarifarioFcl_Area" FromRole="Area" ToRole="TarifarioFcl" />
+    <NavigationProperty Name="TarifarioLclNav" Relationship="DaoModel.FK_TarifarioLcl_Area" FromRole="Area" ToRole="TarifarioLcl" />
+  </EntityType>
+  <EntityType Name="Frecuencia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TarifarioAereoNav" Relationship="DaoModel.FK_TarifarioAereo_Frecuencia" FromRole="Frecuencia" ToRole="TarifarioAereo" />
+    <NavigationProperty Name="TarifarioFclNav" Relationship="DaoModel.FK_TarifarioFcl_Frecuencia" FromRole="Frecuencia" ToRole="TarifarioFcl" />
+    <NavigationProperty Name="TarifarioLclNav" Relationship="DaoModel.FK_TarifarioLcl_Frecuencia" FromRole="Frecuencia" ToRole="TarifarioLcl" />
+  </EntityType>
+  <EntityType Name="TarifarioAereo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Consecutivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Area" Type="Guid" Nullable="false" />
+    <Property Name="Aerolinea" Type="Guid" />
+    <Property Name="Agente" Type="Guid" />
+    <Property Name="AeropuertoOrigen" Type="Guid" />
+    <Property Name="AeropuertoDestino" Type="Guid" />
+    <Property Name="Frecuencia" Type="Guid" />
+    <Property Name="TiempoTransito" Type="Int32" />
+    <Property Name="VigenciaDesde" Type="DateTime" Precision="3" />
+    <Property Name="VigenciaHasta" Type="DateTime" Precision="3" />
+    <Property Name="Mercancia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Dg" Type="Boolean" Nullable="false" />
+    <Property Name="Divisa" Type="Guid" />
+    <NavigationProperty Name="AerolineaNav" Relationship="DaoModel.FK_TarifarioAereo_Aerolinea" FromRole="TarifarioAereo" ToRole="Aerolinea" />
+    <NavigationProperty Name="AeropuertoOrigenNav" Relationship="DaoModel.FK_TarifarioAereo_Aeropuerto" FromRole="TarifarioAereo" ToRole="Aeropuerto" />
+    <NavigationProperty Name="AeropuertoDestinoNav" Relationship="DaoModel.FK_TarifarioAereo_Aeropuerto1" FromRole="TarifarioAereo" ToRole="Aeropuerto" />
+    <NavigationProperty Name="AgenteNav" Relationship="DaoModel.FK_TarifarioAereo_Agente" FromRole="TarifarioAereo" ToRole="Agente" />
+    <NavigationProperty Name="AreaNav" Relationship="DaoModel.FK_TarifarioAereo_Area" FromRole="TarifarioAereo" ToRole="Area" />
+    <NavigationProperty Name="FrecuenciaNav" Relationship="DaoModel.FK_TarifarioAereo_Frecuencia" FromRole="TarifarioAereo" ToRole="Frecuencia" />
+    <NavigationProperty Name="MonedaNav" Relationship="DaoModel.FK_TarifarioAereo_Moneda" FromRole="TarifarioAereo" ToRole="Moneda" />
+    <NavigationProperty Name="TarifarioViaAereaNav" Relationship="DaoModel.FK_TarifarioViaAerea_TarifarioAereo" FromRole="TarifarioAereo" ToRole="TarifarioViaAerea" />
+    <NavigationProperty Name="TarifarioAereoItemNav" Relationship="DaoModel.FK_TarifarioAereoItem_TarifarioAereo" FromRole="TarifarioAereo" ToRole="TarifarioAereoItem" />
+  </EntityType>
+  <EntityType Name="TarifarioFcl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Consecutivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Area" Type="Guid" Nullable="false" />
+    <Property Name="Naviera" Type="Guid" />
+    <Property Name="Agente" Type="Guid" />
+    <Property Name="PuertoOrigen" Type="Guid" />
+    <Property Name="PuertoDestino" Type="Guid" />
+    <Property Name="Frecuencia" Type="Guid" />
+    <Property Name="TiempoTransito" Type="Int32" />
+    <Property Name="VigenciaDesde" Type="DateTime" Precision="3" />
+    <Property Name="VigenciaHasta" Type="DateTime" Precision="3" />
+    <Property Name="Mercancia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Dg" Type="Boolean" Nullable="false" />
+    <Property Name="Divisa" Type="Guid" />
+    <NavigationProperty Name="AgenteNav" Relationship="DaoModel.FK_TarifarioFcl_Agente" FromRole="TarifarioFcl" ToRole="Agente" />
+    <NavigationProperty Name="AreaNav" Relationship="DaoModel.FK_TarifarioFcl_Area" FromRole="TarifarioFcl" ToRole="Area" />
+    <NavigationProperty Name="FrecuenciaNav" Relationship="DaoModel.FK_TarifarioFcl_Frecuencia" FromRole="TarifarioFcl" ToRole="Frecuencia" />
+    <NavigationProperty Name="MonedaNav" Relationship="DaoModel.FK_TarifarioFcl_Moneda" FromRole="TarifarioFcl" ToRole="Moneda" />
+    <NavigationProperty Name="NavieraNav" Relationship="DaoModel.FK_TarifarioFcl_Naviera" FromRole="TarifarioFcl" ToRole="Naviera" />
+    <NavigationProperty Name="PuertoOrigenNav" Relationship="DaoModel.FK_TarifarioFcl_Puerto" FromRole="TarifarioFcl" ToRole="Puerto" />
+    <NavigationProperty Name="PuertoDestinoNav" Relationship="DaoModel.FK_TarifarioFcl_Puerto1" FromRole="TarifarioFcl" ToRole="Puerto" />
+  </EntityType>
+  <EntityType Name="TarifarioLcl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Consecutivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Area" Type="Guid" Nullable="false" />
+    <Property Name="Naviera" Type="Guid" />
+    <Property Name="Agente" Type="Guid" />
+    <Property Name="Cocargador" Type="Guid" />
+    <Property Name="PuertoOrigen" Type="Guid" />
+    <Property Name="PuertoDestino" Type="Guid" />
+    <Property Name="Frecuencia" Type="Guid" />
+    <Property Name="TiempoTransito" Type="Int32" />
+    <Property Name="VigenciaDesde" Type="DateTime" Precision="3" />
+    <Property Name="VigenciaHasta" Type="DateTime" Precision="3" />
+    <Property Name="Mercancia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Dg" Type="Boolean" Nullable="false" />
+    <Property Name="Divisa" Type="Guid" />
+    <NavigationProperty Name="AgenteNav" Relationship="DaoModel.FK_TarifarioLcl_Agente" FromRole="TarifarioLcl" ToRole="Agente" />
+    <NavigationProperty Name="CocargadorNav" Relationship="DaoModel.FK_TarifarioLcl_Agente1" FromRole="TarifarioLcl" ToRole="Agente" />
+    <NavigationProperty Name="AreaNav" Relationship="DaoModel.FK_TarifarioLcl_Area" FromRole="TarifarioLcl" ToRole="Area" />
+    <NavigationProperty Name="FrecuenciaNav" Relationship="DaoModel.FK_TarifarioLcl_Frecuencia" FromRole="TarifarioLcl" ToRole="Frecuencia" />
+    <NavigationProperty Name="DivisaNav" Relationship="DaoModel.FK_TarifarioLcl_Moneda" FromRole="TarifarioLcl" ToRole="Moneda" />
+    <NavigationProperty Name="NavieraNav" Relationship="DaoModel.FK_TarifarioLcl_Naviera" FromRole="TarifarioLcl" ToRole="Naviera" />
+    <NavigationProperty Name="PuertoOrigenNav" Relationship="DaoModel.FK_TarifarioLcl_Puerto" FromRole="TarifarioLcl" ToRole="Puerto" />
+    <NavigationProperty Name="PuertoDestinoNav" Relationship="DaoModel.FK_TarifarioLcl_Puerto1" FromRole="TarifarioLcl" ToRole="Puerto" />
+  </EntityType>
+  <EntityType Name="TarifarioViaAerea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TarifarioAereo" Type="Guid" Nullable="false" />
+    <Property Name="Aeropuerto" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="TarifarioAereoNav" Relationship="DaoModel.FK_TarifarioViaAerea_TarifarioAereo" FromRole="TarifarioViaAerea" ToRole="TarifarioAereo" />
+    <NavigationProperty Name="AeropuertoNav" Relationship="DaoModel.FK_TarifarioViaAerea_Aeropuerto" FromRole="TarifarioViaAerea" ToRole="Aeropuerto" />
+  </EntityType>
+  <EntityType Name="TipoAgente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AgenteNav" Relationship="DaoModel.FK_Agente_TipoAgente" FromRole="TipoAgente" ToRole="Agente" />
+  </EntityType>
+  <Association Name="FK_TarifarioAereo_Aerolinea">
+    <End Type="DaoModel.Aerolinea" Role="Aerolinea" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aerolinea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Aerolinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Aeropuerto">
+    <End Type="DaoModel.Aeropuerto" Role="Aeropuerto" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="AeropuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Aeropuerto1">
+    <End Type="DaoModel.Aeropuerto" Role="Aeropuerto" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="AeropuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agente_TipoAgente">
+    <End Type="DaoModel.TipoAgente" Role="TipoAgente" Multiplicity="0..1" />
+    <End Type="DaoModel.Agente" Role="Agente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAgente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Agente">
+        <PropertyRef Name="TipoAgente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Agente">
+    <End Type="DaoModel.Agente" Role="Agente" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Agente">
+    <End Type="DaoModel.Agente" Role="Agente" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioFcl" Role="TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Agente">
+    <End Type="DaoModel.Agente" Role="Agente" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioLcl" Role="TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Agente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Agente1">
+    <End Type="DaoModel.Agente" Role="Agente" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioLcl" Role="TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Cocargador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Area">
+    <End Type="DaoModel.Area" Role="Area" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Area">
+    <End Type="DaoModel.Area" Role="Area" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioFcl" Role="TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Area">
+    <End Type="DaoModel.Area" Role="Area" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioLcl" Role="TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Frecuencia">
+    <End Type="DaoModel.Frecuencia" Role="Frecuencia" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frecuencia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Frecuencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Frecuencia">
+    <End Type="DaoModel.Frecuencia" Role="Frecuencia" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioFcl" Role="TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frecuencia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Frecuencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Frecuencia">
+    <End Type="DaoModel.Frecuencia" Role="Frecuencia" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioLcl" Role="TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frecuencia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Frecuencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereo_Moneda">
+    <End Type="DaoModel.Moneda" Role="Moneda" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereo">
+        <PropertyRef Name="Divisa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Moneda">
+    <End Type="DaoModel.Moneda" Role="Moneda" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioFcl" Role="TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Divisa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Moneda">
+    <End Type="DaoModel.Moneda" Role="Moneda" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioLcl" Role="TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Divisa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Naviera">
+    <End Type="DaoModel.Naviera" Role="Naviera" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioFcl" Role="TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naviera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="Naviera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Naviera">
+    <End Type="DaoModel.Naviera" Role="Naviera" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioLcl" Role="TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naviera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="Naviera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Puerto">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioFcl" Role="TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="PuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioFcl_Puerto1">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioFcl" Role="TarifarioFcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioFcl">
+        <PropertyRef Name="PuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Puerto">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioLcl" Role="TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="PuertoOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioLcl_Puerto1">
+    <End Type="DaoModel.Puerto" Role="Puerto" Multiplicity="0..1" />
+    <End Type="DaoModel.TarifarioLcl" Role="TarifarioLcl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioLcl">
+        <PropertyRef Name="PuertoDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioViaAerea_TarifarioAereo">
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioViaAerea" Role="TarifarioViaAerea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioAereo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioViaAerea">
+        <PropertyRef Name="TarifarioAereo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TarifarioAereoItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TarifarioAereo" Type="Guid" Nullable="false" />
+    <Property Name="TarifarioEscalaItem" Type="Guid" Nullable="false" />
+    <Property Name="Moneda" Type="Guid" Nullable="false" />
+    <Property Name="TarifaNeta" Type="Double" />
+    <Property Name="TarifaVenta" Type="Double" />
+    <Property Name="TarifaInformada" Type="Double" />
+    <NavigationProperty Name="MonedaNav" Relationship="DaoModel.FK_TarifarioAereoItem_Moneda" FromRole="TarifarioAereoItem" ToRole="Moneda" />
+    <NavigationProperty Name="TarifarioAereoNav" Relationship="DaoModel.FK_TarifarioAereoItem_TarifarioAereo" FromRole="TarifarioAereoItem" ToRole="TarifarioAereo" />
+    <NavigationProperty Name="TarifarioEscalaItemNav" Relationship="DaoModel.FK_TarifarioAereoItem_TarifarioEscalaItem" FromRole="TarifarioAereoItem" ToRole="TarifarioEscalaItem" />
+  </EntityType>
+  <EntityType Name="TarifarioEscala">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="S_Usuario" Type="Guid" Nullable="false" />
+    <Property Name="S_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AerolineaNav" Relationship="DaoModel.FK_Aerolinea_TarifarioEscala" FromRole="TarifarioEscala" ToRole="Aerolinea" />
+    <NavigationProperty Name="TarifarioEscalaItemNav" Relationship="DaoModel.FK_TarifarioEscalaItem_TarifarioEscala" FromRole="TarifarioEscala" ToRole="TarifarioEscalaItem" />
+  </EntityType>
+  <EntityType Name="TarifarioEscalaItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TarifarioEscala" Type="Guid" Nullable="false" />
+    <Property Name="Rango" Type="Boolean" Nullable="false" />
+    <Property Name="Desde" Type="Int32" />
+    <Property Name="Hasta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TarifarioAereoItemNav" Relationship="DaoModel.FK_TarifarioAereoItem_TarifarioEscalaItem" FromRole="TarifarioEscalaItem" ToRole="TarifarioAereoItem" />
+    <NavigationProperty Name="TarifarioEscalaNav" Relationship="DaoModel.FK_TarifarioEscalaItem_TarifarioEscala" FromRole="TarifarioEscalaItem" ToRole="TarifarioEscala" />
+  </EntityType>
+  <Association Name="FK_Aerolinea_TarifarioEscala">
+    <End Type="DaoModel.TarifarioEscala" Role="TarifarioEscala" Multiplicity="0..1" />
+    <End Type="DaoModel.Aerolinea" Role="Aerolinea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioEscala">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aerolinea">
+        <PropertyRef Name="TarifarioEscala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioViaAerea_Aeropuerto">
+    <End Type="DaoModel.Aeropuerto" Role="Aeropuerto" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioViaAerea" Role="TarifarioViaAerea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioViaAerea">
+        <PropertyRef Name="Aeropuerto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereoItem_Moneda">
+    <End Type="DaoModel.Moneda" Role="Moneda" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioAereoItem" Role="TarifarioAereoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereoItem">
+        <PropertyRef Name="Moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereoItem_TarifarioAereo">
+    <End Type="DaoModel.TarifarioAereo" Role="TarifarioAereo" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioAereoItem" Role="TarifarioAereoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioAereo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereoItem">
+        <PropertyRef Name="TarifarioAereo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioAereoItem_TarifarioEscalaItem">
+    <End Type="DaoModel.TarifarioEscalaItem" Role="TarifarioEscalaItem" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioAereoItem" Role="TarifarioAereoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioEscalaItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioAereoItem">
+        <PropertyRef Name="TarifarioEscalaItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TarifarioEscalaItem_TarifarioEscala">
+    <End Type="DaoModel.TarifarioEscala" Role="TarifarioEscala" Multiplicity="1" />
+    <End Type="DaoModel.TarifarioEscalaItem" Role="TarifarioEscalaItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TarifarioEscala">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarifarioEscalaItem">
+        <PropertyRef Name="TarifarioEscala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

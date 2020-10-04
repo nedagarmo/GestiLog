@@ -1,0 +1,95 @@
+﻿@model IEnumerable<GestiLog.Entities.Aerolinea>
+
+@{
+    ViewBag.Title = "Aerolínea";
+}
+
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Administración de @ViewBag.Title</h3>
+                <div class="pull-right box-tools">
+                    @Html.ActionLink("+ Crear Nuevo", "Create", null, new { @class = "btn btn-primary btn-sm" })
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive" style="overflow-x: inherit;">
+                <table class="idatatable table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                Código
+                            </th>
+                            <th>
+                                NIT
+                            </th>
+                            <th>
+                                DV
+                            </th>
+                            <th>
+                                Ciudad
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Habilitado)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nit)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Dv)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CiudadNav.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Habilitado)
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default">Opciones</button>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id })</li>
+                                            <li>@Html.ActionLink("Detalles", "Details", new { id = item.Id })</li>
+                                            <li class="divider"></li>
+                                            <li>@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="box-footer">
+                <div class="text-right">
+                    @Html.ActionLink("+ Crear Nuevo", "Create", null, new { @class = "btn btn-primary btn-sm" })
+                </div>
+            </div>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>

@@ -1,0 +1,77 @@
+﻿@model GestiLog.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "Contacto";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Registro de @ViewBag.Title - @ViewBag.Entity: @ViewBag.Source.Nombre</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nombre)
+
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Correo)
+
+                        @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cargo)
+
+                        @Html.EditorFor(model => model.Cargo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cargo, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Celular)
+
+                        @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Módulos")
+                        @Html.ListBox("Modulos", ViewBag.Modulos as MultiSelectList, new { @class = "form-control ilistbox" })
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-right">
+                    @Html.ActionLink("Cancelar", "Index", new { entity = ViewBag.Command, source = ViewBag.Source.Id }, new { @class = "btn btn-danger btn-sm" })
+                    <input type="submit" value="Guardar" class="btn btn-success btn-sm" />
+                </div>
+            }
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->
+
+@section Scripts
+{
+    <script>
+        $(".ilistbox").select2();
+    </script>
+}

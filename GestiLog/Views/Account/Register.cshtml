@@ -1,0 +1,58 @@
+﻿@model GestiLog.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Registro de @ViewBag.Title</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="box-body">
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Role)
+                        @Html.DropDownList("Role", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control itouppercase" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword)
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-right">
+                    @Html.ActionLink("Cancelar", "Index", "User", null, new { @class = "btn btn-danger btn-sm" })
+                    <input type="submit" value="Registrar" class="btn btn-default btn-sm" />
+                </div>
+            }
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

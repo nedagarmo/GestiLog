@@ -1,0 +1,544 @@
+﻿@using GestiLog.Entities
+@model GestiLog.Models.MblViewModel
+
+@{
+    ViewBag.Title = "MBL";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- form start -->
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            if (Model.Volumen == null || Model.Peso == null)
+            {
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-ban"></i> Advertencia</h4>
+                    No se han establecido cantidades de peso y/o volumen para este MBL.
+                </div>
+            }
+            else
+            {
+                if (Model.Volumen > Model.Hbls.Sum(s => s.Volumen))
+                {
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4><i class="icon fa fa-ban"></i> Advertencia</h4>
+                        La suma del volumen de los HBLs es menor a la del MBL.
+                    </div>
+                }
+
+                if (Model.Peso > Model.Hbls.Sum(s => s.Peso))
+                {
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4><i class="icon fa fa-ban"></i> Advertencia</h4>
+                        La suma del peso de los HBLs es menor a la del MBL.
+                    </div>
+                }
+            }
+            <!-- Custom Tabs (Pulled to the right) -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs pull-right itabs">
+                    <li><a href="#tab_comunicados" data-toggle="tab">Comunicados</a></li>
+                    <li><a href="#tab_contenedores" data-toggle="tab">Contenedores</a></li>
+                    <li><a href="#tab_hbls" data-toggle="tab">HBLs</a></li>
+                    <li class="active"><a href="#tab_mbl" data-toggle="tab">MBL</a></li>
+                    <li class="pull-left header"><i class="fa fa-th"></i> Información @ViewBag.Title <img src="~/Images/Loading.gif" id="iloading" style="display: none; width: 10%;" /></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_mbl">
+                        <div class="box-body">
+                            @Html.HiddenFor(model => model.Id)
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Do, "M-Do")
+
+                                @Html.EditorFor(model => model.Do, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Do, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Master)
+
+                                @Html.EditorFor(model => model.Master, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Master, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Agente, "Agente")
+
+                                @Html.DropDownList("Agente", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Agente, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Naviera, "Naviera")
+
+                                @Html.DropDownList("Naviera", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Naviera, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Operativo, "Operativo")
+
+                                @Html.DropDownList("Operativo", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Operativo, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.TipoEmbarque, "Tipo de Embarque")
+
+                                @Html.DropDownList("TipoEmbarque", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TipoEmbarque, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.PuertoOrigen, "Puerto de Origen")
+
+                                @Html.DropDownList("PuertoOrigen", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PuertoOrigen, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.PuertoDestino, "Puerto de Destino")
+
+                                @Html.DropDownList("PuertoDestino", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PuertoDestino, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Etd, "ETD")
+
+                                @Html.TextBoxFor(model => model.Etd, "{0:dd/MM/yyyy}", new { @class = "form-control idatepicker" })
+                                @Html.ValidationMessageFor(model => model.Etd, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Eta, "ETA")
+
+                                @Html.TextBoxFor(model => model.Eta, "{0:dd/MM/yyyy}", new { @class = "form-control idatepicker" })
+                                @Html.ValidationMessageFor(model => model.Eta, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-12 text-left">
+                                @Html.Label("Transbordo")
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.EditorFor(model => model.Transbordo)
+                                        (Marque <i class="fa fa-check-square-o"></i> Si o <i class="fa fa-square-o"></i> No)
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.Transbordo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="transbordo" style="display: none;">
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(model => model.FechaEstimadaArribo, "Fecha Estimada de Arribo")
+
+                                    @Html.TextBoxFor(model => model.FechaEstimadaArribo, "{0:dd/MM/yyyy}", new { @class = "form-control idatepicker" })
+                                    @Html.ValidationMessageFor(model => model.FechaEstimadaArribo, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(model => model.PuertoTransbordo, "Puerto de Transbordo")
+
+                                    @Html.DropDownList("PuertoTransbordo", null, "", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PuertoTransbordo, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(model => model.MotonaveEstimadaArribo, "Motonave Estimada de Arribo")
+
+                                    @Html.DropDownList("MotonaveEstimadaArribo", null, "", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MotonaveEstimadaArribo, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(model => model.ViajeEstimadoArribo, "Viaje Estimado de Arribo")
+
+                                    @Html.EditorFor(model => model.ViajeEstimadoArribo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ViajeEstimadoArribo, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Peso)
+
+                                @Html.EditorFor(model => model.Peso, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Peso, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Volumen)
+
+                                @Html.EditorFor(model => model.Volumen, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Volumen, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Embalaje, "Embalaje")
+
+                                @Html.DropDownList("Embalaje", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Embalaje, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Piezas)
+
+                                @Html.EditorFor(model => model.Piezas, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Piezas, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6 text-left">
+                                @Html.Label("Exoneración Deposito")
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.EditorFor(model => model.ExoneracionDeposito)
+                                        (Marque <i class="fa fa-check-square-o"></i> Si o <i class="fa fa-square-o"></i> No)
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.ExoneracionDeposito, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6 text-left">
+                                @Html.Label("Exoneración Droop Off")
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.EditorFor(model => model.ExoneracionDroopOff)
+                                        (Marque <i class="fa fa-check-square-o"></i> Si o <i class="fa fa-square-o"></i> No)
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.ExoneracionDroopOff, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.DiaLibreNaviera, "Dias Libres Otorgados por la Naviera")
+
+                                @Html.EditorFor(model => model.DiaLibreNaviera, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DiaLibreNaviera, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.RangoDiaLibre, "Rango de Dias Libres")
+
+                                @Html.DropDownList("RangoDiaLibre", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RangoDiaLibre, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.MuelleArribo, "Muelle de Arribo")
+
+                                @Html.DropDownList("MuelleArribo", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MuelleArribo, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.EmisionBl, "Emisión BL")
+
+                                @Html.DropDownList("EmisionBl", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EmisionBl, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.NumeroManifiesto, "Número de Manifiesto")
+
+                                @Html.EditorFor(model => model.NumeroManifiesto, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NumeroManifiesto, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Flete, "Flete")
+
+                                @Html.DropDownList("Flete", null, "", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Flete, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Adjuntar Master")
+                                <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('master', 'Master', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'mbl'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                            </div>
+
+                            <div class="form-group col-md-6 text-left">
+                                @Html.Label("Habilitado")
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.EditorFor(model => model.Habilitado)
+                                        (Marque <i class="fa fa-check-square-o"></i> Si o <i class="fa fa-square-o"></i> No)
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.Habilitado, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="box-footer">
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_hbls">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">HBLs</h3>
+                            <div class="pull-right box-tools">
+                                @Html.ActionLink("+ Crear Nuevo", "Create", "Hbl", null, new { @class = "btn btn-primary btn-sm" })
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table class="idatatable table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            H-Do
+                                        </th>
+                                        <th>
+                                            HBL
+                                        </th>
+                                        <th>
+                                            ETD
+                                        </th>
+                                        <th>
+                                            ETA
+                                        </th>
+                                        <th>
+                                            Habilitado
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Hbls)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Do)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Hbl1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Etd)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Eta)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Habilitado)
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default">Opciones</button>
+                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>@Html.ActionLink("Editar", "Edit", "Hbl", new { id = item.Id }, null)</li>
+                                                        <li class="divider"></li>
+                                                        <li>@Html.ActionLink("Eliminar", "Delete", "Hbl", new { id = item.Id }, null)</li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_contenedores">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Contenedores del MBL</h3>
+                            <div class="pull-right box-tools">
+                                @Html.ActionLink("+ Crear Nuevo", "Create", "Container", null, new { @class = "btn btn-primary btn-sm" })
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table class="idatatable table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Equipo
+                                        </th>
+                                        <th>
+                                            Número
+                                        </th>
+                                        <th>
+                                            Serial
+                                        </th>
+                                        <th>
+                                            Observaciones
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Contenedores)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TipoContenedorNav.Descripcion)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Numero)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Serial)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Observacion)
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default">Opciones</button>
+                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>@Html.ActionLink("Editar", "Edit", "Container", new { id = item.Id }, null)</li>
+                                                        <li class="divider"></li>
+                                                        <li>@Html.ActionLink("Eliminar", "Delete", "Container", new { id = item.Id }, null)</li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_comunicados">
+                        @foreach (Comunicado comunicado in ViewBag.Notices)
+                        {
+                            int sending = ((List<Guid?>)ViewBag.NoticesCount).Where(w => w == comunicado.Id).Count();
+                            <a class="btn btn-app" onclick="send_notice('@Url.Action("SendNotice", "Tools")', '@comunicado.Id', 'mbl', '@Model.Id', '1E4CAD29-F6C1-4C9B-99C8-06B65E8464D8'); return false;">
+                                <span id="counter-@comunicado.Id" class="badge bg-green">@sending</span>
+                                <i class="fa fa-envelope"></i> @comunicado.Nombre
+                            </a>
+                        }
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- nav-tabs-custom -->
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Información para Puerto</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.RadicadoMuisca, "Radicado Muisca")
+
+                        @Html.TextBoxFor(model => model.RadicadoMuisca, "{0:dd/MM/yyyy}", new { @class = "form-control idatepicker" })
+                        @Html.ValidationMessageFor(model => model.RadicadoMuisca, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Desconsolidacion, "Fecha de Desconsolidación")
+
+                        @Html.TextBoxFor(model => model.Desconsolidacion, "{0:dd/MM/yyyy}", new { @class = "form-control idatepicker" })
+                        @Html.ValidationMessageFor(model => model.Desconsolidacion, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.Label("Devolución del Contenedor")
+                        <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('devolucion_contenedor', 'Devolución del Contenedor', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'mbl'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.Label("Documentos Finales")
+                        <button type="button" class="form-control btn btn-default" onclick="load_tek_uploader('documentos_finales', 'Documentos Finales', '@Url.Action("GetFiles", "Tools")', '@Url.Action("UploadFile", "Tools")', '@Model.Id', 'mbl'); return false;"><i class="fa fa-paperclip"></i> Archivo(s) Adjuntos</button>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Finalizacion, "Fecha de Finalización")
+
+                        @Html.TextBoxFor(model => model.Finalizacion, "{0:dd/MM/yyyy}", new { @class = "form-control idatepicker" })
+                        @Html.ValidationMessageFor(model => model.Finalizacion, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <!-- /.box-body -->
+                <div class="box-footer text-right">
+                    @Html.ActionLink("< Lista de MBLs", "Index", null, new { @class = "btn btn-danger btn-sm" })
+                    <a href="#" onclick="hblTabs()" class="btn btn-default btn-sm">HBLs</a>
+                    <input type="submit" value="Guardar Información" class="btn btn-success btn-sm" />
+                </div>
+            </div>
+        }
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->
+
+@Html.Partial("_UploaderPartial")
+
+@section Scripts
+{
+    <style>
+        .transbordo input, .transbordo select {
+            background-color: #3c8dbc;
+            color: #ffffff;
+        }
+    </style>
+
+    <script>
+        function hblTabs()
+        {
+            $('.itabs li a').eq(2).tab('show');
+        }
+
+        $('#Transbordo').change(function () {
+            if ($(this).is(':checked'))
+                $(".transbordo").show("pulsate");
+            else
+                $(".transbordo").hide("pulsate");
+        });
+
+        $(document).ready(function () {
+            $("#Transbordo").trigger("change");
+        });
+    </script>
+}

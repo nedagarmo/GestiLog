@@ -1,0 +1,50 @@
+﻿@model GestiLog.Entities.HblTipo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HblTipo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Creacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Creacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Habilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Habilitado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

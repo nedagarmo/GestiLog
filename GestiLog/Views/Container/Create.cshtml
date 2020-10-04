@@ -1,0 +1,66 @@
+﻿@model GestiLog.Entities.Contenedor
+
+@{
+    ViewBag.Title = "Contenedor";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Registro de @ViewBag.Title - MBL: @ViewBag.Mbl</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Equipo, "Equipo")
+
+                        @Html.DropDownList("Equipo", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Equipo, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Numero, "Número")
+
+                        @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Serial)
+
+                        @Html.EditorFor(model => model.Serial, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Serial, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Observacion, "Observaciones") (Máx. 255 caracteres)
+
+                        @Html.TextAreaFor(model => model.Observacion, new { @class = "form-control" } )
+                        @Html.ValidationMessageFor(model => model.Observacion, "", new { @class = "text-danger" })
+
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-right">
+                    @Html.ActionLink("Cancelar", "Index", new { id = ViewBag.MblId }, new { @class = "btn btn-danger btn-sm" })
+                    <input type="submit" value="Guardar" class="btn btn-success btn-sm" />
+                </div>
+            }
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->

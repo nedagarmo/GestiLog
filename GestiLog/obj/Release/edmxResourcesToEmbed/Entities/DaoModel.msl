@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DaoModelStoreContainer" CdmEntityContainer="DaoEntities">
+    <EntitySetMapping Name="Aeropuerto">
+      <EntityTypeMapping TypeName="DaoModel.Aeropuerto">
+        <MappingFragment StoreEntitySet="Aeropuerto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agente">
+      <EntityTypeMapping TypeName="DaoModel.Agente">
+        <MappingFragment StoreEntitySet="Agente">
+          <ScalarProperty Name="TipoAgente" ColumnName="TipoAgente" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="Dv" ColumnName="Dv" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="TipoOficina" ColumnName="TipoOficina" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Anexo">
+      <EntityTypeMapping TypeName="DaoModel.Anexo">
+        <MappingFragment StoreEntitySet="Anexo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ciudad">
+      <EntityTypeMapping TypeName="DaoModel.Ciudad">
+        <MappingFragment StoreEntitySet="Ciudad">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="DaoModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="Dv" ColumnName="Dv" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="TipoOficina" ColumnName="TipoOficina" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Credito" ColumnName="Credito" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacto">
+      <EntityTypeMapping TypeName="DaoModel.Contacto">
+        <MappingFragment StoreEntitySet="Contacto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Fuente" ColumnName="Fuente" />
+          <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactoModulo">
+      <EntityTypeMapping TypeName="DaoModel.ContactoModulo">
+        <MappingFragment StoreEntitySet="ContactoModulo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contenedor">
+      <EntityTypeMapping TypeName="DaoModel.Contenedor">
+        <MappingFragment StoreEntitySet="Contenedor">
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+          <ScalarProperty Name="Mbl" ColumnName="Mbl" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Embalaje">
+      <EntityTypeMapping TypeName="DaoModel.Embalaje">
+        <MappingFragment StoreEntitySet="Embalaje">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Incoterm">
+      <EntityTypeMapping TypeName="DaoModel.Incoterm">
+        <MappingFragment StoreEntitySet="Incoterm">
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mbl">
+      <EntityTypeMapping TypeName="DaoModel.Mbl">
+        <MappingFragment StoreEntitySet="Mbl">
+          <ScalarProperty Name="Finalizacion" ColumnName="Finalizacion" />
+          <ScalarProperty Name="Desconsolidacion" ColumnName="Desconsolidacion" />
+          <ScalarProperty Name="RadicadoMuisca" ColumnName="RadicadoMuisca" />
+          <ScalarProperty Name="Flete" ColumnName="Flete" />
+          <ScalarProperty Name="NumeroManifiesto" ColumnName="NumeroManifiesto" />
+          <ScalarProperty Name="EmisionBl" ColumnName="EmisionBl" />
+          <ScalarProperty Name="MuelleArribo" ColumnName="MuelleArribo" />
+          <ScalarProperty Name="RangoDiaLibre" ColumnName="RangoDiaLibre" />
+          <ScalarProperty Name="DiaLibreNaviera" ColumnName="DiaLibreNaviera" />
+          <ScalarProperty Name="ExoneracionDroopOff" ColumnName="ExoneracionDroopOff" />
+          <ScalarProperty Name="ExoneracionDeposito" ColumnName="ExoneracionDeposito" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Do" ColumnName="Do" />
+          <ScalarProperty Name="Master" ColumnName="Master" />
+          <ScalarProperty Name="Agente" ColumnName="Agente" />
+          <ScalarProperty Name="Naviera" ColumnName="Naviera" />
+          <ScalarProperty Name="Operativo" ColumnName="Operativo" />
+          <ScalarProperty Name="TipoEmbarque" ColumnName="TipoEmbarque" />
+          <ScalarProperty Name="PuertoOrigen" ColumnName="PuertoOrigen" />
+          <ScalarProperty Name="PuertoDestino" ColumnName="PuertoDestino" />
+          <ScalarProperty Name="Etd" ColumnName="Etd" />
+          <ScalarProperty Name="Eta" ColumnName="Eta" />
+          <ScalarProperty Name="Transbordo" ColumnName="Transbordo" />
+          <ScalarProperty Name="FechaEstimadaArribo" ColumnName="FechaEstimadaArribo" />
+          <ScalarProperty Name="PuertoTransbordo" ColumnName="PuertoTransbordo" />
+          <ScalarProperty Name="MotonaveEstimadaArribo" ColumnName="MotonaveEstimadaArribo" />
+          <ScalarProperty Name="ViajeEstimadoArribo" ColumnName="ViajeEstimadoArribo" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Volumen" ColumnName="Volumen" />
+          <ScalarProperty Name="Embalaje" ColumnName="Embalaje" />
+          <ScalarProperty Name="Piezas" ColumnName="Piezas" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modulo">
+      <EntityTypeMapping TypeName="DaoModel.Modulo">
+        <MappingFragment StoreEntitySet="Modulo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Naviera">
+      <EntityTypeMapping TypeName="DaoModel.Naviera">
+        <MappingFragment StoreEntitySet="Naviera">
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="Dv" ColumnName="Dv" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="TipoOficina" ColumnName="TipoOficina" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Representante" ColumnName="Representante" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notify">
+      <EntityTypeMapping TypeName="DaoModel.Notify">
+        <MappingFragment StoreEntitySet="Notify">
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="Dv" ColumnName="Dv" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pais">
+      <EntityTypeMapping TypeName="DaoModel.Pais">
+        <MappingFragment StoreEntitySet="Pais">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puerto">
+      <EntityTypeMapping TypeName="DaoModel.Puerto">
+        <MappingFragment StoreEntitySet="Puerto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sector">
+      <EntityTypeMapping TypeName="DaoModel.Sector">
+        <MappingFragment StoreEntitySet="Sector">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoOficina">
+      <EntityTypeMapping TypeName="DaoModel.TipoOficina">
+        <MappingFragment StoreEntitySet="TipoOficina">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adjunto">
+      <EntityTypeMapping TypeName="DaoModel.Adjunto">
+        <MappingFragment StoreEntitySet="Adjunto">
+          <ScalarProperty Name="Tamano" ColumnName="Tamano" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Campo" ColumnName="Campo" />
+          <ScalarProperty Name="Fuente" ColumnName="Fuente" />
+          <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comunicado">
+      <EntityTypeMapping TypeName="DaoModel.Comunicado">
+        <MappingFragment StoreEntitySet="Comunicado">
+          <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComunicadoAdjunto">
+      <EntityTypeMapping TypeName="DaoModel.ComunicadoAdjunto">
+        <MappingFragment StoreEntitySet="ComunicadoAdjunto">
+          <ScalarProperty Name="Campo" ColumnName="Campo" />
+          <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+          <ScalarProperty Name="Comunicado" ColumnName="Comunicado" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmisionBl">
+      <EntityTypeMapping TypeName="DaoModel.EmisionBl">
+        <MappingFragment StoreEntitySet="EmisionBl">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flete">
+      <EntityTypeMapping TypeName="DaoModel.Flete">
+        <MappingFragment StoreEntitySet="Flete">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hbl">
+      <EntityTypeMapping TypeName="DaoModel.Hbl">
+        <MappingFragment StoreEntitySet="Hbl">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="QuienLibera" ColumnName="QuienLibera" />
+          <ScalarProperty Name="FechaLiberacion" ColumnName="FechaLiberacion" />
+          <ScalarProperty Name="ServicioCliente" ColumnName="ServicioCliente" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Flete" ColumnName="Flete" />
+          <ScalarProperty Name="EmisionBl" ColumnName="EmisionBl" />
+          <ScalarProperty Name="MuelleArribo" ColumnName="MuelleArribo" />
+          <ScalarProperty Name="Un" ColumnName="Un" />
+          <ScalarProperty Name="Imo" ColumnName="Imo" />
+          <ScalarProperty Name="Incoterm" ColumnName="Incoterm" />
+          <ScalarProperty Name="Peligrosa" ColumnName="Peligrosa" />
+          <ScalarProperty Name="DescripcionMercancia" ColumnName="DescripcionMercancia" />
+          <ScalarProperty Name="Volumen" ColumnName="Volumen" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="ViajeEstimadoArribo" ColumnName="ViajeEstimadoArribo" />
+          <ScalarProperty Name="MotonaveEstimadaArribo" ColumnName="MotonaveEstimadaArribo" />
+          <ScalarProperty Name="Eta" ColumnName="Eta" />
+          <ScalarProperty Name="Etd" ColumnName="Etd" />
+          <ScalarProperty Name="PuertoDestino" ColumnName="PuertoDestino" />
+          <ScalarProperty Name="PuertoOrigen" ColumnName="PuertoOrigen" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="FechaNotificacion" ColumnName="FechaNotificacion" />
+          <ScalarProperty Name="FechaInstruccion" ColumnName="FechaInstruccion" />
+          <ScalarProperty Name="FechaCargue" ColumnName="FechaCargue" />
+          <ScalarProperty Name="RangoDiaLibre" ColumnName="RangoDiaLibre" />
+          <ScalarProperty Name="DiaLibreCliente" ColumnName="DiaLibreCliente" />
+          <ScalarProperty Name="ExoneracionDroopOff" ColumnName="ExoneracionDroopOff" />
+          <ScalarProperty Name="ExoneracionDeposito" ColumnName="ExoneracionDeposito" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Notify" ColumnName="Notify" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Hbl1" ColumnName="Hbl" />
+          <ScalarProperty Name="Do" ColumnName="Do" />
+          <ScalarProperty Name="Mbl" ColumnName="Mbl" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HblTipo">
+      <EntityTypeMapping TypeName="DaoModel.HblTipo">
+        <MappingFragment StoreEntitySet="HblTipo">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Historico">
+      <EntityTypeMapping TypeName="DaoModel.Historico">
+        <MappingFragment StoreEntitySet="Historico">
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Destinatario" ColumnName="Destinatario" />
+          <ScalarProperty Name="Fuente" ColumnName="Fuente" />
+          <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="Comunicado" ColumnName="Comunicado" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoricoAdjunto">
+      <EntityTypeMapping TypeName="DaoModel.HistoricoAdjunto">
+        <MappingFragment StoreEntitySet="HistoricoAdjunto">
+          <ScalarProperty Name="Adjunto" ColumnName="Adjunto" />
+          <ScalarProperty Name="Historico" ColumnName="Historico" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Motonave">
+      <EntityTypeMapping TypeName="DaoModel.Motonave">
+        <MappingFragment StoreEntitySet="Motonave">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Muelle">
+      <EntityTypeMapping TypeName="DaoModel.Muelle">
+        <MappingFragment StoreEntitySet="Muelle">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operativo">
+      <EntityTypeMapping TypeName="DaoModel.Operativo">
+        <MappingFragment StoreEntitySet="Operativo">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedor">
+      <EntityTypeMapping TypeName="DaoModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RangoDiaLibre">
+      <EntityTypeMapping TypeName="DaoModel.RangoDiaLibre">
+        <MappingFragment StoreEntitySet="RangoDiaLibre">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Final" ColumnName="Final" />
+          <ScalarProperty Name="Inicial" ColumnName="Inicial" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursal">
+      <EntityTypeMapping TypeName="DaoModel.Sucursal">
+        <MappingFragment StoreEntitySet="Sucursal">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoContenedor">
+      <EntityTypeMapping TypeName="DaoModel.TipoContenedor">
+        <MappingFragment StoreEntitySet="TipoContenedor">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoEmbarque">
+      <EntityTypeMapping TypeName="DaoModel.TipoEmbarque">
+        <MappingFragment StoreEntitySet="TipoEmbarque">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moneda">
+      <EntityTypeMapping TypeName="DaoModel.Moneda">
+        <MappingFragment StoreEntitySet="Moneda">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComunicadoCampo">
+      <EntityTypeMapping TypeName="DaoModel.ComunicadoCampo">
+        <MappingFragment StoreEntitySet="ComunicadoCampo">
+          <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+          <ScalarProperty Name="Fuente" ColumnName="Fuente" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Campo" ColumnName="Campo" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ObtenerValor" FunctionName="DaoModel.Store.ObtenerValor" />
+    <EntitySetMapping Name="ContactoEnvio">
+      <EntityTypeMapping TypeName="DaoModel.ContactoEnvio">
+        <MappingFragment StoreEntitySet="ContactoEnvio">
+          <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+          <ScalarProperty Name="Fuente" ColumnName="Fuente" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aerolinea">
+      <EntityTypeMapping TypeName="DaoModel.Aerolinea">
+        <MappingFragment StoreEntitySet="Aerolinea">
+          <ScalarProperty Name="TarifarioEscala" ColumnName="TarifarioEscala" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Representante" ColumnName="Representante" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Dv" ColumnName="Dv" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disposicion">
+      <EntityTypeMapping TypeName="DaoModel.Disposicion">
+        <MappingFragment StoreEntitySet="Disposicion">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmisionAwb">
+      <EntityTypeMapping TypeName="DaoModel.EmisionAwb">
+        <MappingFragment StoreEntitySet="EmisionAwb">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hawb">
+      <EntityTypeMapping TypeName="DaoModel.Hawb">
+        <MappingFragment StoreEntitySet="Hawb">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="QuienLibera" ColumnName="QuienLibera" />
+          <ScalarProperty Name="FechaLiberacion" ColumnName="FechaLiberacion" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="RegistroAduanero" ColumnName="RegistroAduanero" />
+          <ScalarProperty Name="EmisionAwb" ColumnName="EmisionAwb" />
+          <ScalarProperty Name="Disposicion" ColumnName="Disposicion" />
+          <ScalarProperty Name="ConfirmacionArribo" ColumnName="ConfirmacionArribo" />
+          <ScalarProperty Name="EntregaDocumentoNombre" ColumnName="EntregaDocumentoNombre" />
+          <ScalarProperty Name="EntregaDocumentoFecha" ColumnName="EntregaDocumentoFecha" />
+          <ScalarProperty Name="Un" ColumnName="Un" />
+          <ScalarProperty Name="Imo" ColumnName="Imo" />
+          <ScalarProperty Name="Mercancia" ColumnName="Mercancia" />
+          <ScalarProperty Name="Piezas" ColumnName="Piezas" />
+          <ScalarProperty Name="Embalaje" ColumnName="Embalaje" />
+          <ScalarProperty Name="Volumen" ColumnName="Volumen" />
+          <ScalarProperty Name="DimensionAlto" ColumnName="DimensionAlto" />
+          <ScalarProperty Name="DimensionAncho" ColumnName="DimensionAncho" />
+          <ScalarProperty Name="DimensionLargo" ColumnName="DimensionLargo" />
+          <ScalarProperty Name="PesoCargable" ColumnName="PesoCargable" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="AeropuertoDestino" ColumnName="AeropuertoDestino" />
+          <ScalarProperty Name="AeropuertoOrigen" ColumnName="AeropuertoOrigen" />
+          <ScalarProperty Name="Incoterm" ColumnName="Incoterm" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Notify" ColumnName="Notify" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Hbl" ColumnName="Hbl" />
+          <ScalarProperty Name="Do" ColumnName="Do" />
+          <ScalarProperty Name="Mawb" ColumnName="Mawb" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HawbTipo">
+      <EntityTypeMapping TypeName="DaoModel.HawbTipo">
+        <MappingFragment StoreEntitySet="HawbTipo">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mawb">
+      <EntityTypeMapping TypeName="DaoModel.Mawb">
+        <MappingFragment StoreEntitySet="Mawb">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Imo" ColumnName="Imo" />
+          <ScalarProperty Name="Mercancia" ColumnName="Mercancia" />
+          <ScalarProperty Name="Piezas" ColumnName="Piezas" />
+          <ScalarProperty Name="Embalaje" ColumnName="Embalaje" />
+          <ScalarProperty Name="Volumen" ColumnName="Volumen" />
+          <ScalarProperty Name="DimensionAlto" ColumnName="DimensionAlto" />
+          <ScalarProperty Name="DimensionAncho" ColumnName="DimensionAncho" />
+          <ScalarProperty Name="DimensionLargo" ColumnName="DimensionLargo" />
+          <ScalarProperty Name="PesoCargable" ColumnName="PesoCargable" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="ViajeConexion" ColumnName="ViajeConexion" />
+          <ScalarProperty Name="FechaConexion" ColumnName="FechaConexion" />
+          <ScalarProperty Name="AeropuertoConexion" ColumnName="AeropuertoConexion" />
+          <ScalarProperty Name="AerolineaConexion" ColumnName="AerolineaConexion" />
+          <ScalarProperty Name="Conexion" ColumnName="Conexion" />
+          <ScalarProperty Name="FechaEstimadaArribo" ColumnName="FechaEstimadaArribo" />
+          <ScalarProperty Name="Etd" ColumnName="Etd" />
+          <ScalarProperty Name="AeropuertoDestino" ColumnName="AeropuertoDestino" />
+          <ScalarProperty Name="AeropuertoOrigen" ColumnName="AeropuertoOrigen" />
+          <ScalarProperty Name="Operativo" ColumnName="Operativo" />
+          <ScalarProperty Name="Aerolinea" ColumnName="Aerolinea" />
+          <ScalarProperty Name="Agente" ColumnName="Agente" />
+          <ScalarProperty Name="Master" ColumnName="Master" />
+          <ScalarProperty Name="Do" ColumnName="Do" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area">
+      <EntityTypeMapping TypeName="DaoModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Frecuencia">
+      <EntityTypeMapping TypeName="DaoModel.Frecuencia">
+        <MappingFragment StoreEntitySet="Frecuencia">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifarioAereo">
+      <EntityTypeMapping TypeName="DaoModel.TarifarioAereo">
+        <MappingFragment StoreEntitySet="TarifarioAereo">
+          <ScalarProperty Name="Divisa" ColumnName="Divisa" />
+          <ScalarProperty Name="Dg" ColumnName="Dg" />
+          <ScalarProperty Name="Mercancia" ColumnName="Mercancia" />
+          <ScalarProperty Name="VigenciaHasta" ColumnName="VigenciaHasta" />
+          <ScalarProperty Name="VigenciaDesde" ColumnName="VigenciaDesde" />
+          <ScalarProperty Name="TiempoTransito" ColumnName="TiempoTransito" />
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="AeropuertoDestino" ColumnName="AeropuertoDestino" />
+          <ScalarProperty Name="AeropuertoOrigen" ColumnName="AeropuertoOrigen" />
+          <ScalarProperty Name="Agente" ColumnName="Agente" />
+          <ScalarProperty Name="Aerolinea" ColumnName="Aerolinea" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifarioFcl">
+      <EntityTypeMapping TypeName="DaoModel.TarifarioFcl">
+        <MappingFragment StoreEntitySet="TarifarioFcl">
+          <ScalarProperty Name="Divisa" ColumnName="Divisa" />
+          <ScalarProperty Name="Dg" ColumnName="Dg" />
+          <ScalarProperty Name="Mercancia" ColumnName="Mercancia" />
+          <ScalarProperty Name="VigenciaHasta" ColumnName="VigenciaHasta" />
+          <ScalarProperty Name="VigenciaDesde" ColumnName="VigenciaDesde" />
+          <ScalarProperty Name="TiempoTransito" ColumnName="TiempoTransito" />
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="PuertoDestino" ColumnName="PuertoDestino" />
+          <ScalarProperty Name="PuertoOrigen" ColumnName="PuertoOrigen" />
+          <ScalarProperty Name="Agente" ColumnName="Agente" />
+          <ScalarProperty Name="Naviera" ColumnName="Naviera" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifarioLcl">
+      <EntityTypeMapping TypeName="DaoModel.TarifarioLcl">
+        <MappingFragment StoreEntitySet="TarifarioLcl">
+          <ScalarProperty Name="Divisa" ColumnName="Divisa" />
+          <ScalarProperty Name="Dg" ColumnName="Dg" />
+          <ScalarProperty Name="Mercancia" ColumnName="Mercancia" />
+          <ScalarProperty Name="VigenciaHasta" ColumnName="VigenciaHasta" />
+          <ScalarProperty Name="VigenciaDesde" ColumnName="VigenciaDesde" />
+          <ScalarProperty Name="TiempoTransito" ColumnName="TiempoTransito" />
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="PuertoDestino" ColumnName="PuertoDestino" />
+          <ScalarProperty Name="PuertoOrigen" ColumnName="PuertoOrigen" />
+          <ScalarProperty Name="Cocargador" ColumnName="Cocargador" />
+          <ScalarProperty Name="Agente" ColumnName="Agente" />
+          <ScalarProperty Name="Naviera" ColumnName="Naviera" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifarioViaAerea">
+      <EntityTypeMapping TypeName="DaoModel.TarifarioViaAerea">
+        <MappingFragment StoreEntitySet="TarifarioViaAerea">
+          <ScalarProperty Name="Aeropuerto" ColumnName="Aeropuerto" />
+          <ScalarProperty Name="TarifarioAereo" ColumnName="TarifarioAereo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoAgente">
+      <EntityTypeMapping TypeName="DaoModel.TipoAgente">
+        <MappingFragment StoreEntitySet="TipoAgente">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifarioAereoItem">
+      <EntityTypeMapping TypeName="DaoModel.TarifarioAereoItem">
+        <MappingFragment StoreEntitySet="TarifarioAereoItem">
+          <ScalarProperty Name="TarifaInformada" ColumnName="TarifaInformada" />
+          <ScalarProperty Name="TarifaVenta" ColumnName="TarifaVenta" />
+          <ScalarProperty Name="TarifaNeta" ColumnName="TarifaNeta" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+          <ScalarProperty Name="TarifarioEscalaItem" ColumnName="TarifarioEscalaItem" />
+          <ScalarProperty Name="TarifarioAereo" ColumnName="TarifarioAereo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifarioEscala">
+      <EntityTypeMapping TypeName="DaoModel.TarifarioEscala">
+        <MappingFragment StoreEntitySet="TarifarioEscala">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="S_Creacion" ColumnName="S_Creacion" />
+          <ScalarProperty Name="S_Usuario" ColumnName="S_Usuario" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifarioEscalaItem">
+      <EntityTypeMapping TypeName="DaoModel.TarifarioEscalaItem">
+        <MappingFragment StoreEntitySet="TarifarioEscalaItem">
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Rango" ColumnName="Rango" />
+          <ScalarProperty Name="TarifarioEscala" ColumnName="TarifarioEscala" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

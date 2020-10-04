@@ -1,0 +1,62 @@
+﻿@model GestiLog.Entities.Contenedor
+
+@{
+    ViewBag.Title = "Contenedor";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Información Ampliada - MBL: @ViewBag.Mbl</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Equipo
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TipoContenedorNav.Descripcion)
+                    </dd>
+
+                    <dt>
+                        Número
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Numero)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Serial)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Serial)
+                    </dd>
+
+                    <dt>
+                        Observaciones
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Observacion)
+                    </dd>
+
+                </dl>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-right">
+                @Html.ActionLink("Volver", "Index", new { id = ViewBag.MblId }, new { @class = "btn btn-danger btn-sm" })
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-default btn-sm" })
+            </div>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->

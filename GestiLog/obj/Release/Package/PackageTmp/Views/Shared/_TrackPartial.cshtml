@@ -1,0 +1,5 @@
+﻿@{ 
+    SelectList Source = (SelectList) ViewBag.Puertos;
+    int Id = (int) ViewBag.Id;
+}
+@Html.DropDownList("Vias[" + Id  + "].Aeropuerto", Source, "", htmlAttributes: new { @class = "form-control" })

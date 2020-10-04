@@ -1,0 +1,28 @@
+﻿@model List<GestiLog.Entities.TarifarioAereoItem>
+@{
+    SelectList Source = (SelectList)ViewBag.Moneda;
+}
+
+@for (var i = 0; i < Model.Count; i++)
+{
+    <tr>
+        <td>
+            @Html.Hidden("Items[" + i + "].TarifarioEscalaItem", Model[i].TarifarioEscalaItemNav.Id)
+            @Model[i].TarifarioEscalaItemNav.Desde
+        </td>
+        
+        @if (Model[i].TarifarioEscalaItemNav.Rango)
+        {
+            <td>@Model[i].TarifarioEscalaItemNav.Hasta</td>
+        }
+        else
+        {
+            <td> + @Model[i].TarifarioEscalaItemNav.Hasta</td>
+        }
+
+        <td>@Html.DropDownList("Items[" +  i + "].Moneda", Source, "", htmlAttributes: new { @class = "form-control" })</td>
+        <td>@Html.TextBox("Items[" + i + "].TarifaNeta", null, new { @class = "form-control" })</td>
+        <td>@Html.EditorFor(model => Model[i].TarifaVenta, new { htmlAttributes = new { @class = "form-control" } })</td>
+        <td>@Html.EditorFor(model => Model[i].TarifaInformada, new { htmlAttributes = new { @class = "form-control" } })</td>
+    </tr>
+}

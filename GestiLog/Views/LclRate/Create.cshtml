@@ -1,0 +1,197 @@
+﻿@model GestiLog.Entities.TarifarioLcl
+
+@{
+    ViewBag.Title = "Tarifario LCL";
+}
+
+<div class="row">
+    <!-- column -->
+    <div class="col-md-12">
+        <!-- form start -->
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <!-- Custom Tabs (Pulled to the right) -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs pull-right itabs">
+                    <li class="active"><a href="#tab_tarifario" data-toggle="tab">LCL</a></li>
+                    <li class="pull-left header"><i class="fa fa-th"></i> Registrar Tarifa <img src="~/Images/Loading.gif" id="iloading" style="display: none; width: 10%;" /></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_mbl">
+                        <div class="box-body">
+                            <div class="form-group col-md-6">
+                                @Html.Label("Consecutivo")
+
+                                @Html.TextBox("Sequence", "", new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Area, "Área")
+
+                                @Html.DropDownList("Area", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Naviera, "Naviera")
+
+                                @Html.DropDownList("Naviera", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Naviera, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Agente, "Agente")
+
+                                @Html.DropDownList("Agente", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Agente, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Cocargador, "Cocargador")
+
+                                @Html.DropDownList("Cocargador", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Cocargador, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.PuertoOrigen, "Puerto de Origen")
+
+                                @Html.DropDownList("PuertoOrigen", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PuertoOrigen, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.PuertoDestino, "Puerto de Destino")
+
+                                @Html.DropDownList("PuertoDestino", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PuertoDestino, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Frecuencia, "Frecuencia")
+
+                                @Html.DropDownList("Frecuencia", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Frecuencia, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.TiempoTransito, "Tiempo de Tránsito")
+
+                                @Html.EditorFor(model => model.TiempoTransito, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TiempoTransito, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.VigenciaDesde, "Vigencia Desde")
+
+                                @Html.EditorFor(model => model.VigenciaDesde, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.VigenciaDesde, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.VigenciaHasta, "Vigencia Hasta")
+
+                                @Html.EditorFor(model => model.VigenciaHasta, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.VigenciaHasta, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Mercancia, "Mercancía")
+
+                                @Html.EditorFor(model => model.Mercancia, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Mercancia, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-6 text-left">
+                                @Html.Label("DG")
+
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.EditorFor(model => model.Dg)
+                                        (Marque <i class="fa fa-check-square-o"></i> Si o <i class="fa fa-square-o"></i> No)
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.Dg, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.Label("Vía", new { @class = "col-md-12 no-padding" })
+                                <div class="col-md-11 no-padding">
+                                    @Html.DropDownList("PuertoOrigen", null, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <span class="col-md-1 no-padding">
+                                    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                </span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.Divisa, "Divisa")
+
+                                @Html.DropDownList("Divisa", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Divisa, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group col-md-12 table-responsive" style="overflow-x: inherit; margin-top: 20pt">
+                                <table class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Equipo
+                                            </th>
+                                            <th>
+                                                Moneda
+                                            </th>
+                                            <th>
+                                                Tarifa Neta
+                                            </th>
+                                            <th>
+                                                Tarifa Compra
+                                            </th>
+                                            <th>
+                                                Tarifa Informada
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="box-footer text-right">
+                            <button type="button" class="btn btn-default btn-sm"><i class="fa fa-upload"></i> Cargar Archivo</button>
+                            <input type="submit" value="Guardar Información" class="btn btn-success btn-sm" />
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- nav-tabs-custom -->
+        }
+    </div>
+    <!--/.col -->
+</div>
+<!-- /.row -->

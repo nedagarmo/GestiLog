@@ -1,0 +1,134 @@
+﻿<!-- search form -->
+@*<form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Buscar...">
+            <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </form>*@
+<!-- /.search form -->
+<!-- sidebar menu: : style can be found in sidebar.less -->
+
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+@{
+    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var userRoles = userManager.GetRoles(User.Identity.GetUserId());
+    var role = userRoles[0];
+}
+<ul class="sidebar-menu">
+    <li class="header">MENU PRINCIPAL</li>
+    <li class="active treeview">
+        <a href="@Url.Action("Index", "Home")">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-wrench"></i>
+            <span>Administración</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="@Url.Action("Index", "Country")"><i class="fa fa-globe"></i> Paises</a></li>
+            <li><a href="@Url.Action("Index", "City")"><i class="fa fa-map-marker"></i> Ciudades</a></li>
+            <li><a href="@Url.Action("Index", "Airline")"><i class="fa fa-building"></i> Aerolínea</a></li>
+            <li><a href="@Url.Action("Index", "Airport")"><i class="fa fa-plane"></i> Aeropuertos</a></li>
+            <li><a href="@Url.Action("Index", "Port")"><i class="fa fa-flag-checkered"></i> Puertos</a></li>
+            <li><a href="@Url.Action("Index", "ContainerType")"><i class="fa fa-th"></i> Tipo de Contenedores</a></li>
+            <li><a href="@Url.Action("Index", "Incoterm")"><i class="fa fa-pencil-square-o"></i> Incoterm</a></li>
+            <li><a href="@Url.Action("Index", "Packaging")"><i class="fa fa-archive"></i> Embalajes</a></li>
+            <li><a href="@Url.Action("Index", "Currency")"><i class="fa fa-money"></i> Monedas</a></li>
+            <li><a href="@Url.Action("Index", "Notify")"><i class="fa fa-comments-o"></i> Notify</a></li>
+            <li><a href="@Url.Action("Index", "ShippingCompany")"><i class="fa fa-ship"></i> Navieras</a></li>
+            <li><a href="@Url.Action("Index", "Customer")"><i class="fa fa-users"></i> Clientes</a></li>
+            <li><a href="@Url.Action("Index", "Agent")"><i class="fa fa-address-card-o"></i> Agentes</a></li>
+            <li><a href="@Url.Action("Index", "User")"><i class="fa fa-user"></i> Usuarios</a></li>
+        </ul>
+    </li>
+    <li><a href="#"><i class="fa fa-book"></i> <span>Ayuda</span></a></li>
+    <li class="header">OPERACIONES</li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-ship"></i>
+            <span>Importación Marítima</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="@Url.Action("Index", "Mbl")"><i class="fa fa-cube"></i> MBL</a></li>
+            <li><a href="@Url.Action("Index", "Notice", new { module = Guid.Parse("1E4CAD29-F6C1-4C9B-99C8-06B65E8464D8") })"><i class="fa fa-envelope-o"></i> Comunicados</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-plane"></i>
+            <span>Importación Aérea</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="@Url.Action("Index", "Mawb")"><i class="fa fa-cube"></i> MAWB</a></li>
+            <li><a href="@Url.Action("Index", "Notice", new { module = Guid.Parse("32916188-AD05-4BCB-A89B-467260729CB5") })"><i class="fa fa-envelope-o"></i> Comunicados</a></li>
+        </ul>
+    </li>
+    <li class="header">TARIFARIO</li>
+    <li class="treeview">
+        <a href="@Url.Action("Create", "AerialRate")">
+            <i class="fa fa-money"></i> <span>Aéreo</span>
+        </a>
+    </li>
+    <li class="treeview">
+        <a href="@Url.Action("Create", "FclRate")">
+            <i class="fa fa-money"></i> <span>FCL</span>
+        </a>
+    </li>
+    <li class="treeview">
+        <a href="@Url.Action("Create", "LclRate")">
+            <i class="fa fa-money"></i> <span>LCL</span>
+        </a>
+    </li>
+    @if (role == "Soporte")
+    {
+        <li class="header">SISTEMA</li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+                <span>Configuración</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="@Url.Action("Index", "NoticeField")"><i class="fa fa-circle-o text-blue"></i> Campos de Comunicados</a></li>
+                <li><a href="@Url.Action("Index", "Disposition")"><i class="fa fa-circle-o text-blue"></i> Disposición</a></li>
+                <li><a href="@Url.Action("Index", "EmissionAwb")"><i class="fa fa-circle-o text-blue"></i> Emisión AWB</a></li>
+                <li><a href="@Url.Action("Index", "EmissionBl")"><i class="fa fa-circle-o text-blue"></i> Emisión BL</a></li>
+                <li><a href="@Url.Action("Index", "Freights")"><i class="fa fa-circle-o text-blue"></i> Fletes</a></li>
+                <li><a href="@Url.Action("Index", "HawbType")"><i class="fa fa-circle-o text-blue"></i> Tipos HAWB</a></li>
+                <li><a href="@Url.Action("Index", "HblType")"><i class="fa fa-circle-o text-blue"></i> Tipos HBL</a></li>
+                <li><a href="@Url.Action("Index", "Module")"><i class="fa fa-circle-o text-blue"></i> Módulos</a></li>
+                <li><a href="@Url.Action("Index", "MotorShip")"><i class="fa fa-circle-o text-blue"></i> Motonaves</a></li>
+                <li><a href="@Url.Action("Index", "Pier")"><i class="fa fa-circle-o text-blue"></i> Muelles</a></li>
+                <li><a href="@Url.Action("Index", "Operating")"><i class="fa fa-circle-o text-blue"></i> Operativos</a></li>
+                <li><a href="@Url.Action("Index", "Provider")"><i class="fa fa-circle-o text-blue"></i> Proveedores</a></li>
+                <li><a href="@Url.Action("Index", "RangeDayOff")"><i class="fa fa-circle-o text-blue"></i> Rangos de Días Libres</a></li>
+                <li><a href="@Url.Action("Index", "Sector")"><i class="fa fa-circle-o text-blue"></i> Sectores</a></li>
+                <li><a href="@Url.Action("Index", "BranchOffice")"><i class="fa fa-circle-o text-blue"></i> Sucursales</a></li>
+                <li><a href="@Url.Action("Index", "BoardingType")"><i class="fa fa-circle-o text-blue"></i> Tipos de Embarque</a></li>
+                <li><a href="@Url.Action("Index", "OfficeType")"><i class="fa fa-circle-o text-blue"></i> Tipos de Oficina</a></li>
+            </ul>
+        </li>
+    }
+    @*<li class="header">REPORTES</li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Error</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Importante</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Información</span></a></li>*@
+</ul>

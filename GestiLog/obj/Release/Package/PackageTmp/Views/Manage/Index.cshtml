@@ -1,0 +1,36 @@
+﻿@model GestiLog.Models.IndexViewModel
+@{
+    ViewBag.Title = "Perfil";
+    ViewBag.Description = "Cambiar la configuración de la cuenta";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">@ViewBag.Title</h3>
+        <div class="box-tools pull-right">
+            <a href="@Url.Action("ChangePassword", "Manage")" class="btn btn-primary"><i class="fa fa-cogs"></i> Cambiar Contraseña</a>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <p class="text-success">@ViewBag.StatusMessage</p>
+        <div>
+            <dl class="dl-horizontal">
+                <dt>Usuario:</dt>
+                <dd>
+                    @Model.UserName
+                </dd>
+                <dt>Email:</dt>
+                <dd>
+                    @Model.Email
+                </dd>
+                <dt>Estado:</dt>
+                <dd>
+                    <i class="fa fa-circle text-success"></i> Conectado
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->

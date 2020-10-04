@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Dashboard" controller="Home" action="Index">
+    <mvcSiteMapNode title="Perfil" controller="Manage" action="Index">
+      <mvcSiteMapNode title="Cambiar Contraseña" controller="Manage" action="ChangePassword" />
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Administración" controller="Home" action="Index">
+      <mvcSiteMapNode title="Paises" controller="Country" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Country" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Country" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Country" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Country" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Ciudades" controller="City" action="Index">
+        <mvcSiteMapNode title="Crear" controller="City" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="City" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="City" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="City" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Aeropuertos" controller="Airport" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Airport" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Airport" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Airport" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Airport" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Puertos" controller="Port" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Port" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Port" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Port" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Port" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Tipos de Contenedores" controller="ContainerType" action="Index">
+        <mvcSiteMapNode title="Crear" controller="ContainerType" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="ContainerType" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="ContainerType" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="ContainerType" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Incoterm" controller="Incoterm" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Incoterm" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Incoterm" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Incoterm" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Incoterm" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Embalajes" controller="Packaging" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Packaging" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Packaging" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Packaging" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Packaging" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Monedas" controller="Currency" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Currency" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Currency" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Currency" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Currency" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Notify" controller="Notify" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Notify" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Notify" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Notify" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Notify" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Navieras" controller="ShippingCompany" action="Index">
+        <mvcSiteMapNode title="Crear" controller="ShippingCompany" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="ShippingCompany" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="ShippingCompany" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="ShippingCompany" action="Delete" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Contactos" controller="Contact" action="Index" preservedRouteParameters="entity,source" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Clientes" controller="Customer" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Customer" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Customer" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Customer" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Customer" action="Delete" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Contactos" controller="Contact" action="Index" preservedRouteParameters="entity,source" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Agentes" controller="Agent" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Agent" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Agent" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Agent" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Agent" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Operación" controller="Home" action="Index">
+      <mvcSiteMapNode title="MBL" controller="Mbl" action="Index">
+        <mvcSiteMapNode title="Crear" controller="Mbl" action="Create" />
+        <mvcSiteMapNode title="Editar" controller="Mbl" action="Edit" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Detalles" controller="Mbl" action="Details" preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Eliminar" controller="Mbl" action="Delete" preservedRouteParameters="id" />
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Ayuda" controller="Home" action="Help" />
+  </mvcSiteMapNode>
+</mvcSiteMap>
